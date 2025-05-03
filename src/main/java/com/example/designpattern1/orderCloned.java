@@ -115,7 +115,7 @@ public class orderCloned implements Invoice {
     }
 
     public double getTaxPrice() {
-        taxPrice = (int) (orderPrice * 0.10);
+        taxPrice =  orderPrice * 0.10;
         return taxPrice;
     }
 

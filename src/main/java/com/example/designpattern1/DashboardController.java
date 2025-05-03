@@ -98,7 +98,7 @@ public class DashboardController implements Initializable {
     private Button dish10;
 
     @FXML
-    private Button dish111;
+    private Button dish11;
 
     @FXML
     private Button dish12;
@@ -637,18 +637,11 @@ public class DashboardController implements Initializable {
             System.out.println(cloneOrder.getVegatablesType() + " Cloned");
             System.out.println(cloneOrder.getCheeseType() + " Cloned");
 
-            // Display each item in UI
             addHorizontalSection(cloneOrder.getMeatImageURL(), cloneOrder.getMeatType() + "( " + meatCnt + " )", cloneOrder.getMeatPrice() + " $");
             addHorizontalSection(cloneOrder.getVegatablesImageURL(), cloneOrder.getVegatablesType() + "( " + vegatablesCnt + " )", cloneOrder.getVegatablesPrice() + " $");
             addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType() + "( " + cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
             addHorizontalSection(cloneOrder.getBeardImageURL(), cloneOrder.getBeardType() + "( " + beardCnt + " )", cloneOrder.getBeardPrice() + " $");
 
-            // Update pricing
-            orderPrice.setText(cloneOrder.getTotalPrice() + " $");
-            taxPrice.setText(cloneOrder.getTaxPrice() + " $");
-            totalPrice.setText((cloneOrder.getTotalPrice() + cloneOrder.getTaxPrice()) + " $");
-
-            // Show/hide appropriate frames
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(true);
             payCusBtn.setVisible(false);
@@ -659,8 +652,24 @@ public class DashboardController implements Initializable {
             menuFrame.setVisible(true);
 
             builder.reset();
+            meatSelect.setText("");
+            vegatablesSelect.setText("");
+            cheeseSelect.setText("");
+            beardSelect.setText("");
+            meatImg.setImage(null);
+            vegatablesImg.setImage(null);
+            cheeseImg.setImage(null);
+            breadimg.setImage(null);
+            meatCnt = 0;
+            vegatablesCnt = 0;
+            cheeseCnt = 0;
+            beardCnt = 0;
+            totalPriceDishes();
+
         });
     }
+
+
 
     public void addHorizontalSection(String imagePath, String title, String description) {
         // ImageView
@@ -691,7 +700,7 @@ public class DashboardController implements Initializable {
 
     }
     Order order = new RestaurantOrder();
-
+    int totalPriceDishes = 0;
     public void addDataMenu(){
         Product product = order.addProduct("Cheese Beard");
         Name1.setText(product.getName());
@@ -700,6 +709,17 @@ public class DashboardController implements Initializable {
         imageView1.setImage(image);
         imageView1.setFitWidth(150);
         imageView1.setPreserveRatio(true);
+        dish1.setOnAction(event -> {
+            addHorizontalSection(product.getImageURL(), product.getName(), product.getPrice() + " $");
+            totalPriceDishes += product.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+        });
 
         Product product2 = order.addProduct("Shrimp");
         name2.setText(product2.getName());
@@ -708,6 +728,17 @@ public class DashboardController implements Initializable {
         ImageView2.setImage(image2);
         ImageView2.setFitWidth(150);
         ImageView2.setPreserveRatio(true);
+        dish2.setOnAction(event -> {
+            addHorizontalSection(product2.getImageURL(), product2.getName(), product2.getPrice() + " $");
+            totalPriceDishes += product2.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+        });
 
         Product product3 = order.addProduct("salad");
         name3.setText(product3.getName());
@@ -717,7 +748,17 @@ public class DashboardController implements Initializable {
         imageView3.setFitWidth(158);
         imageView3.setFitHeight(145);
         imageView3.setPreserveRatio(true);
+        dish3.setOnAction(event -> {
+            addHorizontalSection(product3.getImageURL(), product3.getName(), product3.getPrice() + " $");
+            totalPriceDishes += product3.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
 
+        });
         Product product4 = order.addProduct("plain beard");
         name4.setText(product4.getName());
         price4.setText(product4.getPrice() + " $");
@@ -725,6 +766,17 @@ public class DashboardController implements Initializable {
         imageVIew4.setImage(image4);
         imageVIew4.setFitWidth(150);
         imageVIew4.setPreserveRatio(true);
+        dish4.setOnAction(event -> {
+            addHorizontalSection(product4.getImageURL(), product4.getName(), product4.getPrice() + " $");
+            totalPriceDishes += product4.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+        });
 
         Product product5 = order.addProduct("cheese cake");
         name5.setText(product5.getName());
@@ -733,6 +785,17 @@ public class DashboardController implements Initializable {
         imageView5.setImage(image5);
         imageView5.setFitWidth(158);
         imageView5.setPreserveRatio(true);
+        dish5.setOnAction(event -> {
+            addHorizontalSection(product5.getImageURL(), product5.getName(), product5.getPrice() + " $");
+            totalPriceDishes += product5.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+        });
 
         Product product6 = order.addProduct("grilled meat");
         name6.setText(product6.getName());
@@ -741,6 +804,18 @@ public class DashboardController implements Initializable {
         imageView6.setImage(image6);
         imageView6.setFitWidth(158);
         imageView6.setPreserveRatio(true);
+        dish6.setOnAction(event -> {
+            addHorizontalSection(product6.getImageURL(), product6.getName(), product6.getPrice() + " $");
+            totalPriceDishes += product6.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+
+        });
 
         Product product7 = order.addProduct("spagetti");
         name7.setText(product7.getName());
@@ -750,6 +825,17 @@ public class DashboardController implements Initializable {
         imageView7.setFitWidth(200);
         imageView7.setFitHeight(145);
         imageView7.setPreserveRatio(true);
+        dish7.setOnAction(event -> {
+           addHorizontalSection(product7.getImageURL(), product7.getName(), product7.getPrice() + " $");
+           totalPriceDishes += product7.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+        });
 
         Product product8 = order.addProduct("vegatables spagetti");
         name8.setText(product8.getName());
@@ -759,6 +845,18 @@ public class DashboardController implements Initializable {
         imageView8.setFitWidth(160);
         imageView8.setFitHeight(185);
         imageView8.setPreserveRatio(true);
+        dish8.setOnAction(event -> {
+            addHorizontalSection(product8.getImageURL(), product8.getName(), product8.getPrice() + " $");
+            totalPriceDishes += product8.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+
+        });
 
         Product product9 = order.addProduct("dish1");
         name8.setText(product9.getName());
@@ -768,6 +866,41 @@ public class DashboardController implements Initializable {
         imageView9.setFitWidth(160);
         imageView9.setFitHeight(185);
         imageView9.setPreserveRatio(true);
+        dish9.setOnAction(event -> {
+            addHorizontalSection(product9.getImageURL(), product9.getName(), product9.getPrice() + " $");
+            totalPriceDishes += product9.getPrice();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText( totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+
+        });
+        System.out.println("totalPriceDishes: " + totalPriceDishes);
+
+    }
+    public void totalPriceDishes() {
+        if(cloneOrder.getTotalPrice() != 0) {
+            totalPriceDishes += cloneOrder.getOrderPrice();
+            double  totalTaxOrders = totalPriceDishes*0.1;
+            double  ttotalPrice = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText(totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(ttotalPrice + " $");
+
+        }
+        else if(cloneOrder.getTotalPrice() == 0){
+            orderPrice.setText(totalPriceDishes + " $");
+            taxPrice.setText(totalPriceDishes*0.1 + " $");
+            totalPrice.setText((totalPriceDishes*0.1 )+ totalPriceDishes  + " $");
+        }
+        else if(totalPriceDishes == 0){
+            orderPrice.setText(cloneOrder.getOrderPrice() + " $");
+            taxPrice.setText(cloneOrder.getOrderPrice()*0.1 + " $");
+            totalPrice.setText(cloneOrder.getOrderPrice() + " $");
+        }
 
     }
 
@@ -791,9 +924,22 @@ public class DashboardController implements Initializable {
         payCusBtn.setVisible(payVisible);
     }
 
+    public void totalDishes(){
+
+        double totalTaxOrders =  totalPriceDishes*0.1;
+        double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+        orderPrice.setText( totalPriceDishes + " $");
+        taxPrice.setText(totalTaxOrders + " $");
+        totalPrice.setText(totalPriceOrdersWithTax + " $");
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        totalPriceDishes();
+
+        //totalDishes();
 
         payAction();
 
@@ -804,6 +950,7 @@ public class DashboardController implements Initializable {
         startClockThread();
 
         addDataMenu();
+
 
         menuCusBtn.setOnAction(event ->
                 showCustomerStep(false, true, false, false, false, true, false, false)
