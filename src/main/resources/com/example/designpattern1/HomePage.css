@@ -1,0 +1,153 @@
+/* Reset and Base Styles */
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    background-color: #f2f2f2;
+    width: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.nav-menu-button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 80px;
+    padding: 20px;
+}
+
+/* Search Bar */
+.search-bar {
+    background-color: #eef3f4;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    width: 300px;
+}
+
+/* Product Card */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    width: 180px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.card-category {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Category Filters */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.category-buttons button {
+    background-color: #dfe4df;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.category-buttons button.active {
+    background-color: #505a3c;
+    color: #fff;
+}
+
+/* Order Summary Panel */
+.order-summary {
+    background-color: #f8fbfd;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total-section {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Generic Buttons */
+button {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Transparent Button */
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+}
+
+/* Cancel Order Button */
+.btn-cancel {
+    background-color: #f25252;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.btn-cancel:hover {
+    background-color: #d64444;
+}
+
+/* Send Order Button */
+.btn-submit {
+    background-color: #72b4c7;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.btn-submit:hover {
+    background-color: #5aa1b5;
+}

@@ -1,0 +1,921 @@
+package com.example.designpattern1;
+
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+import java.awt.*;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.ResourceBundle;
+
+public class DashboardController implements Initializable {
+
+
+
+    @FXML
+    private Button Add1Btn;
+
+    @FXML
+    private Button Burger2Btn;
+
+    @FXML
+    private Button BurgerBtn;
+
+    @FXML
+    private Button ChikernBtn;
+
+    @FXML
+    private FontAwesomeIcon FdCusBtn;
+
+    @FXML
+    private ImageView ImageView2;
+
+    @FXML
+    private Label Name1;
+
+    @FXML
+    private Button b1Btn;
+
+    @FXML
+    private Button b2Btn;
+
+    @FXML
+    private Button b3Btn;
+
+    @FXML
+    private Button b4Btn;
+
+    @FXML
+    private Label beardSelect;
+
+    @FXML
+    private ImageView breadimg;
+
+    @FXML
+    private Button cancelCusBtn;
+
+    @FXML
+    private Button ch1Btn;
+
+    @FXML
+    private Button ch2Btn;
+
+    @FXML
+    private Button ch3Btn;
+
+    @FXML
+    private Button ch4Btn;
+
+    @FXML
+    private ImageView cheeseImg;
+
+    @FXML
+    private Label cheeseSelect;
+
+    @FXML
+    private Button crispyBtn;
+
+    @FXML
+    private Button cuBtn;
+
+    @FXML
+    private Button dish1;
+
+    @FXML
+    private Button dish10;
+
+    @FXML
+    private Button dish111;
+
+    @FXML
+    private Button dish12;
+
+    @FXML
+    private Button dish2;
+
+    @FXML
+    private Button dish3;
+
+    @FXML
+    private Button dish4;
+
+    @FXML
+    private Button dish5;
+
+    @FXML
+    private Button dish6;
+
+    @FXML
+    private Button dish7;
+
+    @FXML
+    private Button dish8;
+
+    @FXML
+    private Button dish9;
+
+    @FXML
+    private ImageView homeActive1;
+
+    @FXML
+    private ImageView homeIcon1;
+
+    @FXML
+    private ImageView imageVIew4;
+
+    @FXML
+    private ImageView imageView1;
+
+    @FXML
+    private ImageView imageView10;
+
+    @FXML
+    private ImageView imageView11;
+
+    @FXML
+    private ImageView imageView12;
+
+    @FXML
+    private ImageView imageView3;
+
+    @FXML
+    private ImageView imageView5;
+
+    @FXML
+    private ImageView imageView6;
+
+    @FXML
+    private ImageView imageView7;
+
+    @FXML
+    private ImageView imageView8;
+
+    @FXML
+    private ImageView imageView9;
+
+    @FXML
+    private AnchorPane ingedForm;
+
+    @FXML
+    private Button lettuceBtn;
+
+    @FXML
+    private ImageView meatImg;
+
+    @FXML
+    private Label meatSelect;
+
+    @FXML
+    private ImageView menuActive1;
+
+    @FXML
+    private Button menuCusBtn;
+
+    @FXML
+    private AnchorPane menuFrame;
+
+    @FXML
+    private ImageView menuIcon1;
+
+    @FXML
+    private Label name2;
+
+    @FXML
+    private Label name3;
+
+    @FXML
+    private Label name4;
+
+    @FXML
+    private Label name5;
+
+    @FXML
+    private Label name6;
+
+    @FXML
+    private Label name7;
+
+    @FXML
+    private Label name8;
+
+    @FXML
+    private Button ndCusBtnB;
+
+    @FXML
+    private Button ndCusBtnF;
+
+    @FXML
+    private AnchorPane ndCusFrame;
+
+    @FXML
+    private Button onionBtn;
+
+    @FXML
+    private Label orderPrice;
+
+    @FXML
+    private Button payCusBtn;
+
+    @FXML
+    private ImageView paymentIcon1;
+
+    @FXML
+    private Label price1;
+
+    @FXML
+    private Label price2;
+
+    @FXML
+    private Label price3;
+
+    @FXML
+    private Label price4;
+
+    @FXML
+    private Label price5;
+
+    @FXML
+    private Label price6;
+
+    @FXML
+    private Label price7;
+
+    @FXML
+    private Label price8;
+
+    @FXML
+    private Button rdBtnCusB;
+
+    @FXML
+    private Button rdBtnCusF;
+
+    @FXML
+    private AnchorPane rdCusFrame;
+
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private Button stBtCus;
+
+    @FXML
+    private AnchorPane stCusFrame;
+
+    @FXML
+    private Button stFdCus;
+
+    @FXML
+    private Label taxPrice;
+
+    @FXML
+    private Button thBtnCusB;
+
+    @FXML
+    private Button thBtnCusF;
+
+    @FXML
+    private AnchorPane thCusFrame;
+
+    @FXML
+    private Label time;
+
+    @FXML
+    private Button tomatoBtn;
+
+    @FXML
+    private Label totalPrice;
+
+    @FXML
+    private VBox vboxContent;
+
+    @FXML
+    private ImageView vegatablesImg;
+
+    @FXML
+    private Label vegatablesSelect;
+
+
+    orderBuilder builder = new orderBuilder();
+    int meatCnt= 0;
+    int vegatablesCnt = 0;
+    int cheeseCnt = 0;
+    int beardCnt = 0;
+    String currentMeat = "";
+    String currentVegatables = "";
+    String currentCheese = "";
+    String currentBeard = "";
+
+    public void MeatAction(){
+        BurgerBtn.setOnAction(event -> {
+            String selected = "Burger 250";
+            if (!selected.equals(currentMeat)) {
+                meatCnt = 0;
+                currentMeat = selected;
+            }
+            meatCnt++;
+            System.out.println("Burger Button Pressed");
+            builder.setMeatType("Burger 250");
+            builder.setMeatPrice(15);
+            builder.setMeatImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Burger.jpg");
+            System.out.println(builder.getMeatPrice());
+            System.out.println(builder.getMeatType());
+            meatSelect.textAlignmentProperty().setValue(javafx.scene.text.TextAlignment.CENTER);
+            meatSelect.setText(builder.getMeatType() + (meatCnt > 1 ? " (" + meatCnt + ")" : ""));
+            meatImg.setImage(new Image(builder.getMeatImageURL()));
+        });
+
+        meatCnt=0;
+        ChikernBtn.setOnAction(event -> {
+            String selected = "Grilled Chicken";
+            if (!selected.equals(currentMeat)) {
+                meatCnt = 0;
+                currentMeat = selected;
+            }
+            meatCnt++;
+            System.out.println("Chicken Button Pressed");
+            builder.setMeatType("Grilled Chicken");
+            builder.setMeatPrice(25);
+            builder.setMeatImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Chicken.jpg");
+            meatSelect.setText(builder.getMeatType() +(meatCnt > 1 ? " (" + meatCnt + ")" : ""));
+            meatImg.setImage(new Image(builder.getMeatImageURL()));
+
+        });
+
+        meatCnt=0;
+        crispyBtn.setOnAction(event -> {
+            String selected = "Crispy";
+            if (!selected.equals(currentMeat)) {
+                meatCnt = 0;
+                currentMeat = selected;
+            }
+            meatCnt++;
+            System.out.println("Crispy Button Pressed");
+            builder.setMeatType("Crispy");
+            builder.setMeatPrice(14);
+            builder.setMeatImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Crispy.jpg");
+            meatSelect.setText(builder.getMeatType() +(meatCnt > 1 ? " (" + meatCnt + ")" : ""));
+            meatImg.setImage(new Image(builder.getMeatImageURL()));
+        });
+
+        meatCnt=0;
+        Burger2Btn.setOnAction(event -> {
+            String selected = "Burger 150g";
+            if (!selected.equals(currentMeat)) {
+                meatCnt = 0;
+                currentMeat = selected;
+            }
+            meatCnt++;
+            System.out.println("Burger 2 Button Pressed");
+            builder.setMeatType("Burger 150g");
+            builder.setMeatImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Burger2.jpg");
+            builder.setMeatPrice(20);
+            meatSelect.setText(builder.getMeatType() + (meatCnt > 1 ? " (" + meatCnt + ")" : ""));
+            meatImg.setImage(new Image(builder.getMeatImageURL()));
+        });
+
+    }
+
+    public void VegatablesAction(){
+        vegatablesCnt=0;
+        onionBtn.setOnAction(event -> {
+            String selected = "Onion";
+            if (!selected.equals(currentVegatables)) {
+                vegatablesCnt = 0;
+                currentVegatables = selected;
+            }
+            vegatablesCnt++;
+            System.out.println("Onion Button Pressed");
+            builder.setVegatablesType("Onion");
+            builder.setVegatablesPrice(1);
+            builder.setVegatablesImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Onion.jpg");
+            System.out.println(builder.getVegatablesType());
+            System.out.println(builder.getVegatablesPrice());
+            vegatablesSelect.setText(builder.getVegatablesType() + (vegatablesCnt > 1 ? " (" + vegatablesCnt + ")" : ""));
+            vegatablesImg.setImage(new Image(builder.getVegatablesImageURL()));
+
+
+        });
+
+        vegatablesCnt=0;
+        cuBtn.setOnAction(event -> {
+                String selected = "cucumber";
+                if (!selected.equals(currentVegatables)) {
+                    vegatablesCnt = 0;
+                    currentVegatables = selected;
+                }
+            vegatablesCnt++;
+            System.out.println("Cucumber Button Pressed");
+            builder.setVegatablesType("cucumber");
+            builder.setVegatablesPrice(1);
+            builder.setVegatablesImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Cucombar.jpg");
+            System.out.println(builder.getVegatablesType());
+            System.out.println(builder.getVegatablesPrice());
+            vegatablesSelect.setText(builder.getVegatablesType() + (vegatablesCnt > 1 ? " (" + vegatablesCnt + ")" : ""));
+            vegatablesImg.setImage(new Image(builder.getVegatablesImageURL()));
+        });
+
+        lettuceBtn.setOnAction(event -> {
+            String selected = "lettuce";
+            if (!selected.equals(currentVegatables)) {
+                vegatablesCnt = 0;
+                currentVegatables = selected;
+
+            }
+            vegatablesCnt++;
+            System.out.println("Lettuce Button Pressed");
+            builder.setVegatablesType("lettuce");
+            builder.setVegatablesPrice(1);
+            builder.setVegatablesImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\lettuce.jpeg");
+            System.out.println(builder.getVegatablesType());
+            System.out.println(builder.getVegatablesPrice());
+            vegatablesSelect.setText(builder.getVegatablesType() +(vegatablesCnt > 1 ? " (" + vegatablesCnt + ")" : ""));
+            vegatablesImg.setImage(new Image(builder.getVegatablesImageURL()));
+        });
+
+        vegatablesCnt=0;
+        tomatoBtn.setOnAction(event -> {
+            String selected = "tomato";
+            if (!selected.equals(currentVegatables)) {
+                vegatablesCnt = 0;
+                currentVegatables = selected;
+            }
+            vegatablesCnt++;
+            System.out.println("Tomato Button Pressed");
+            builder.setVegatablesType("Tomato");
+            builder.setVegatablesPrice(1);
+            builder.setVegatablesImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Tomato.jpg");
+            System.out.println(builder.getVegatablesType());
+            System.out.println(builder.getVegatablesPrice());
+            vegatablesSelect.setText(builder.getVegatablesType() + (vegatablesCnt > 1 ? " (" + vegatablesCnt + ")" : ""));
+            vegatablesImg.setImage(new Image(builder.getVegatablesImageURL()));
+        });
+    }
+
+    public void CheeseAction(){
+
+        cheeseCnt = 0;
+        ch1Btn.setOnAction(event -> {
+            String selected = "Blue Cheese";
+            if (!selected.equals(currentCheese)) {
+                cheeseCnt = 0;
+                currentCheese = selected;
+            }
+            cheeseCnt++;
+            System.out.println("ch1 Button Pressed");
+            builder.setCheeseType("Blue Cheese");
+            builder.setCheesePrice(2);
+            builder.setCheeseImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\ch2.jpg");
+            System.out.println(builder.getCheeseType());
+            System.out.println(builder.getCheesePrice());
+            cheeseSelect.setText(builder.getCheeseType() + (cheeseCnt > 1 ? " (" + cheeseCnt + ")" : ""));
+            cheeseImg.setImage(new Image(builder.getCheeseImageURL()));
+
+        });
+
+        cheeseCnt = 0;
+        ch2Btn.setOnAction(event -> {
+            String selected = "Manchego";
+            if (!selected.equals(currentCheese)) {
+                cheeseCnt = 0;
+                currentCheese = selected;
+            }
+            cheeseCnt++;
+            System.out.println("ch2 Button Pressed");
+            builder.setCheeseType("Manchego");
+            builder.setCheesePrice(2);
+            builder.setCheeseImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\ch1.jpg");
+            System.out.println(builder.getCheeseType());
+            System.out.println(builder.getCheesePrice());
+            cheeseSelect.setText(builder.getCheeseType() +(cheeseCnt > 1 ? " (" + cheeseCnt + ")" : ""));
+            cheeseImg.setImage(new Image(builder.getCheeseImageURL()));
+
+        });
+
+        cheeseCnt = 0;
+        ch3Btn.setOnAction(event -> {
+            String selected = "Cheeder";
+            if (!selected.equals(currentCheese)) {
+                cheeseCnt = 0;
+                currentCheese = selected;
+            }
+            cheeseCnt++;
+            System.out.println("ch3 Button Pressed");
+            builder.setCheeseType("Cheeder");
+            builder.setCheesePrice(2);
+            builder.setCheeseImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\ch4.jpg");
+            System.out.println(builder.getCheeseType());
+            System.out.println(builder.getCheesePrice());
+            cheeseSelect.setText(builder.getCheeseType() + (cheeseCnt> 1 ? " (" + cheeseCnt + ")" : ""));
+            cheeseImg.setImage(new Image(builder.getCheeseImageURL()));
+
+        });
+
+        cheeseCnt = 0;
+        ch4Btn.setOnAction(event -> {
+            String selected = "Fontina";
+            if (!selected.equals(currentCheese)) {
+                cheeseCnt = 0;
+                currentCheese = selected;
+            }
+            cheeseCnt++;
+            System.out.println("ch4 Button Pressed");
+            builder.setCheeseType("Fontina");
+            builder.setCheesePrice(2);
+            builder.setCheeseImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\ch3.jpg");
+            System.out.println(builder.getCheeseType());
+            System.out.println(builder.getCheesePrice());
+            cheeseSelect.setText(builder.getCheeseType() + (cheeseCnt > 1 ? " (" + cheeseCnt + ")" : ""));
+            cheeseImg.setImage(new Image(builder.getCheeseImageURL()));
+
+        });
+    }  public void beardAction(){
+
+        b1Btn.setOnAction(event -> {
+            String selected = "Multigrain";
+            if (!selected.equals(currentBeard)) {
+                beardCnt = 0;
+                currentBeard = selected;
+            }
+            beardCnt++;
+            System.out.println("b1 Button Pressed");
+            builder.setBeardType("Multigrain");
+            builder.setBeardPrice(2);
+            builder.setBeardImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Multigrain.jpg");
+            System.out.println(builder.getBeardType());
+            System.out.println(builder.getBeardPrice());
+            beardSelect.setText(builder.getBeardType() + (beardCnt > 1 ? " (" + beardCnt + ")" : ""));
+            breadimg.setImage(new Image(builder.getBeardImageURL()));
+
+        });
+        beardCnt= 0;
+        b2Btn.setOnAction(event -> {
+            String selected = "Focaccia";
+            if (!selected.equals(currentBeard)) {
+                beardCnt = 0;
+                currentBeard = selected;
+            }
+            beardCnt++;
+            System.out.println("ch2 Button Pressed");
+            builder.setBeardType("Focaccia");
+            builder.setBeardPrice(2);
+            builder.setBeardImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Focaccia.jpg");
+            System.out.println(builder.getBeardType());
+            System.out.println(builder.getBeardPrice());
+            beardSelect.setText(builder.getBeardType() + (beardCnt > 1 ? " (" + beardCnt + ")" : ""));
+            breadimg.setImage(new Image(builder.getBeardImageURL()));
+
+        });
+
+        b3Btn.setOnAction(event -> {
+            String selected = "Sour Dough";
+            if (!selected.equals(currentBeard)) {
+                beardCnt = 0;
+                currentBeard = selected;
+            }
+            beardCnt++;
+            System.out.println("ch3 Button Pressed");
+            builder.setBeardType("Sour Dough");
+            builder.setBeardPrice(2);
+            builder.setBeardImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Sourdough.jpg");
+            System.out.println(builder.getBeardType());
+            System.out.println(builder.getBeardPrice());
+            beardSelect.setText(builder.getBeardType() + (beardCnt > 1 ? " (" + beardCnt + ")" : ""));
+            breadimg.setImage(new Image(builder.getBeardImageURL()));
+        });
+
+        b4Btn.setOnAction(event -> {
+            String selected = "French Kizar";
+            if (!selected.equals(currentBeard)) {
+                beardCnt = 0;
+                currentBeard = selected;
+            }
+            beardCnt++;
+            System.out.println("ch4 Button Pressed");
+            builder.setBeardType("French Kizar");
+            builder.setBeardPrice(2);
+            builder.setBeardImageURL("C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Kizar.jpg");
+            System.out.println(builder.getBeardType());
+            System.out.println(builder.getBeardPrice());
+            beardSelect.setText(builder.getBeardType()+ (beardCnt > 1 ? " (" + beardCnt + ")" : ""));
+            breadimg.setImage(new Image(builder.getBeardImageURL()));
+
+        });
+    }
+
+    public void payAction(){
+        payCusBtn.setOnAction(event -> {
+            orderCloned cloneOrder = new orderCloned();
+            cloneOrder = cloneOrder.cloneObject(
+                    builder.getVegatablesPrice(), builder.getMeatPrice(), builder.getBeardPrice(), builder.getCheesePrice(),
+                    builder.getMeatType(), builder.getVegatablesType(), builder.getBeardType(), builder.getCheeseType(),
+                    builder.getMeatImageURL(), builder.getVegatablesImageURL(), builder.getCheeseImageURL(), builder.getBeardImageURL(),
+                    meatCnt ,vegatablesCnt , cheeseCnt ,beardCnt
+            );
+            System.out.println(cloneOrder.getBeardType() + "Clonned");
+            System.out.println(cloneOrder.getMeatType()  + "Clonned");
+            System.out.println(cloneOrder.getVegatablesType() + "Clonned");
+            System.out.println(cloneOrder.getCheeseType() + "Clonned");
+            addHorizontalSection(cloneOrder.getMeatImageURL(), cloneOrder.getMeatType() + "( " +meatCnt +" )", cloneOrder.getMeatPrice() + " $");
+            addHorizontalSection(cloneOrder.getVegatablesImageURL(), cloneOrder.getVegatablesType() + "( "+vegatablesCnt+" )", cloneOrder.getVegatablesPrice() + " $");
+            addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType()+ "( "+cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
+            addHorizontalSection(cloneOrder.getBeardImageURL(), cloneOrder.getBeardType() + "( "+beardCnt +" )", cloneOrder.getBeardPrice() + " $");
+            orderPrice.setText(cloneOrder.getTotalPrice() + " $");
+            taxPrice.setText(cloneOrder.getTaxPrice()+ " $");
+            totalPrice.setText(cloneOrder.getTotalPrice() + " $");
+            ingedForm.setVisible(false);
+            cancelCusBtn.setVisible(true);
+            payCusBtn.setVisible(false);
+            stCusFrame.setVisible(false);
+            ndCusFrame.setVisible(false);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(false);
+            menuFrame.setVisible(true);
+
+
+        });
+    }
+
+    public void addHorizontalSection(String imagePath, String title, String description) {
+        // ImageView
+        Image image = new Image(imagePath);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(80);
+        imageView.setFitHeight(80);
+        imageView.setPreserveRatio(true);
+
+        // Labels
+        Label titleLabel = new Label(title);
+        titleLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+
+        Label descriptionLabel = new Label(description);
+        descriptionLabel.setStyle("-fx-font-size: 12px;");
+
+        // VBox for the two labels
+        VBox labelBox = new VBox(5, titleLabel, descriptionLabel);
+        labelBox.setAlignment(Pos.CENTER_LEFT);
+
+        // HBox for the whole section
+        HBox section = new HBox(10, imageView, labelBox);
+        section.setAlignment(Pos.CENTER_LEFT);
+        section.setStyle("-fx-background-color: #f2f2f2; -fx-border-color: #cccccc; -fx-border-width: 1px;");
+
+        // Add the HBox to the VBox (vertical stacking)
+        vboxContent.getChildren().add(section);
+
+    }
+    Order order = new RestaurantOrder();
+
+    public void addDataMenu(){
+        Product product = order.addProduct("Cheese Beard");
+        Name1.setText(product.getName());
+        price1.setText(product.getPrice() + " $");
+        Image image = new Image(product.getImageURL());
+        imageView1.setImage(image);
+        imageView1.setFitWidth(150);
+        imageView1.setPreserveRatio(true);
+
+        Product product2 = order.addProduct("Shrimp");
+        name2.setText(product2.getName());
+        price2.setText(product2.getPrice() + " $");
+        Image image2 = new Image(product2.getImageURL());
+        ImageView2.setImage(image2);
+        ImageView2.setFitWidth(150);
+        ImageView2.setPreserveRatio(true);
+
+        Product product3 = order.addProduct("salad");
+        name3.setText(product3.getName());
+        price3.setText(product3.getPrice() + " $");
+        Image image3 = new Image(product3.getImageURL());
+        imageView3.setImage(image3);
+        imageView3.setFitWidth(158);
+        imageView3.setFitHeight(145);
+        imageView3.setPreserveRatio(true);
+
+        Product product4 = order.addProduct("plain beard");
+        name4.setText(product4.getName());
+        price4.setText(product4.getPrice() + " $");
+        Image image4 = new Image(product4.getImageURL());
+        imageVIew4.setImage(image4);
+        imageVIew4.setFitWidth(150);
+        imageVIew4.setPreserveRatio(true);
+
+        Product product5 = order.addProduct("cheese cake");
+        name5.setText(product5.getName());
+        price5.setText(product5.getPrice() + " $");
+        Image image5 = new Image(product5.getImageURL());
+        imageView5.setImage(image5);
+        imageView5.setFitWidth(158);
+        imageView5.setPreserveRatio(true);
+
+        Product product6 = order.addProduct("grilled meat");
+        name6.setText(product6.getName());
+        price6.setText(product6.getPrice() + " $");
+        Image image6 = new Image(product6.getImageURL());
+        imageView6.setImage(image6);
+        imageView6.setFitWidth(158);
+        imageView6.setPreserveRatio(true);
+
+        Product product7 = order.addProduct("spagetti");
+        name7.setText(product7.getName());
+        price7.setText(product7.getPrice() + " $");
+        Image image7 = new Image(product7.getImageURL());
+        imageView7.setImage(image7);
+        imageView7.setFitWidth(200);
+        imageView7.setFitHeight(145);
+        imageView7.setPreserveRatio(true);
+
+        Product product8 = order.addProduct("vegatables spagetti");
+        name8.setText(product8.getName());
+        price8.setText(product8.getPrice() + " $");
+        Image image8 = new Image(product8.getImageURL());
+        imageView8.setImage(image8);
+        imageView8.setFitWidth(160);
+        imageView8.setFitHeight(185);
+        imageView8.setPreserveRatio(true);
+
+        Product product9 = order.addProduct("dish1");
+        name8.setText(product9.getName());
+        price8.setText(product9.getPrice() + " $");
+        Image image9 = new Image(product9.getImageURL());
+        imageView9.setImage(image9);
+        imageView9.setFitWidth(160);
+        imageView9.setFitHeight(185);
+        imageView9.setPreserveRatio(true);
+
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        payAction();
+
+        VegatablesAction();
+
+         MeatAction();
+
+        startClockThread();
+
+        addDataMenu();
+
+        menuCusBtn.setOnAction(event -> {
+            menuFrame.setVisible(false);
+            stCusFrame.setVisible(true);
+            ndCusFrame.setVisible(false);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(false);
+            ingedForm.setVisible(true);
+            cancelCusBtn.setVisible(false);
+            payCusBtn.setVisible(false);
+        });
+
+        stBtCus.setOnAction(event -> {
+            menuFrame.setVisible(true);
+            stCusFrame.setVisible(false);
+            ndCusFrame.setVisible(false);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(false);
+            ingedForm.setVisible(false);
+            cancelCusBtn.setVisible(false);
+            payCusBtn.setVisible(false);
+
+        });
+
+        stFdCus.setOnAction(event -> {
+            menuFrame.setVisible(false);
+            stCusFrame.setVisible(false);
+            ndCusFrame.setVisible(true);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(false);
+            ingedForm.setVisible(true);
+            cancelCusBtn.setVisible(false);
+            payCusBtn.setVisible(false);
+        });
+
+        ndCusBtnB.setOnAction(event -> {
+            menuFrame.setVisible(false);
+            stCusFrame.setVisible(true);
+            ndCusFrame.setVisible(false);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(false);
+            ingedForm.setVisible(true);
+            cancelCusBtn.setVisible(false);
+            payCusBtn.setVisible(false);
+
+        });
+
+        ndCusBtnF.setOnAction(event -> {
+            menuFrame.setVisible(false);
+            stCusFrame.setVisible(false);
+            ndCusFrame.setVisible(false);
+            rdCusFrame.setVisible(true);
+            thCusFrame.setVisible(false);
+            ingedForm.setVisible(true);
+            cancelCusBtn.setVisible(false);
+            payCusBtn.setVisible(false);
+
+        });
+
+        rdBtnCusB.setOnAction(event -> {
+            menuFrame.setVisible(false);
+            stCusFrame.setVisible(false);
+            ndCusFrame.setVisible(true);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(false);
+            ingedForm.setVisible(true);
+            cancelCusBtn.setVisible(false);
+            payCusBtn.setVisible(false);
+
+        });
+
+        rdBtnCusF.setOnAction(event -> {
+            menuFrame.setVisible(false);
+            stCusFrame.setVisible(false);
+            ndCusFrame.setVisible(false);
+            rdCusFrame.setVisible(false);
+            thCusFrame.setVisible(true);
+            ingedForm.setVisible(true);
+            cancelCusBtn.setVisible(true);
+            payCusBtn.setVisible(true);
+
+        });
+
+        thBtnCusB.setOnAction(event -> {
+             menuFrame.setVisible(false);
+             stCusFrame.setVisible(false);
+             ndCusFrame.setVisible(false);
+             rdCusFrame.setVisible(true);
+             thCusFrame.setVisible(false);
+             ingedForm.setVisible(true);
+             cancelCusBtn.setVisible(false);
+             payCusBtn.setVisible(false);
+         });
+
+        cancelCusBtn.setOnAction(event -> {
+            meatSelect.setText("");
+            vegatablesSelect.setText("");
+            cheeseSelect.setText("");
+            beardSelect.setText("");
+            meatImg.setImage(null);
+            vegatablesImg.setImage(null);
+            cheeseImg.setImage(null);
+            breadimg.setImage(null);
+        });
+    }
+
+
+
+
+
+
+    private void startClockThread() {
+        Thread timeThread = new Thread(() -> {
+            while (true) {
+                String formattedTime = getFormattedDateTime();
+                Platform.runLater(() -> time.setText(formattedTime));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        timeThread.setDaemon(true);
+        timeThread.start();
+    }
+
+    private String getFormattedDateTime() {
+        Date now = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(now);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        String suffix = getDaySuffix(day);
+        SimpleDateFormat formatter = new SimpleDateFormat("MMMM d yyyy, h:mma");
+        String formatted = formatter.format(now);
+        return formatted.replaceFirst(String.valueOf(day), day + suffix);
+    }
+
+    private String getDaySuffix(int day) {
+        if (day >= 11 && day <= 13) return "th";
+        return switch (day % 10) {
+            case 1 -> "st";
+            case 2 -> "nd";
+            case 3 -> "rd";
+            default -> "th";
+        };
+    }
+}
