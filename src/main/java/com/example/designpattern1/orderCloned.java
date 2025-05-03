@@ -126,5 +126,30 @@ public class orderCloned implements Invoice {
         return totalPrice;
     }
 
+    orderCloned clear(){
+        this.vegatablesPrice = 0;
+        this.meatPrice = 0;
+        this.beardPrice = 0;
+        this.cheesePrice = 0;
+        this.meatType = "";
+        this.vegatablesType = "";
+        this.beardType = "";
+        this.cheeseType = "";
+        this.meatImageURL = "";
+        this.vegatablesImageURL = "";
+        this.cheeseImageURL = "";
+        this.beardImageURL = "";
+        this.totalPrice = 0;
+        this.orderPrice = 0;
+        this.taxPrice = 0;
+        this.meatCnt = 1;
+        this.vegatablesCnt = 1;
+        this.beardCnt = 1;
+        this.cheeseCnt = 1;
+        return this;
+
+    }
+
+
 }
 

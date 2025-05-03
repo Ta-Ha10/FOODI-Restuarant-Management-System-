@@ -307,7 +307,7 @@ public class DashboardController implements Initializable {
     @FXML
     private Label vegatablesSelect;
 
-
+    orderCloned cloneOrder = new orderCloned();
     orderBuilder builder = new orderBuilder();
     int meatCnt= 0;
     int vegatablesCnt = 0;
@@ -615,26 +615,40 @@ public class DashboardController implements Initializable {
         });
     }
 
-    public void payAction(){
+    public void payAction() {
         payCusBtn.setOnAction(event -> {
-            orderCloned cloneOrder = new orderCloned();
+            // Check if any item is selected before proceeding
+            if (builder.getMeatType() == "" && builder.getVegatablesType() == "" && builder.getBeardType() == "" && builder.getCheeseType() == "" ) {
+                System.out.println("No items selected. Cannot proceed with payment.");
+                return;
+            }
+
+            // Clone the order from builder
             cloneOrder = cloneOrder.cloneObject(
                     builder.getVegatablesPrice(), builder.getMeatPrice(), builder.getBeardPrice(), builder.getCheesePrice(),
                     builder.getMeatType(), builder.getVegatablesType(), builder.getBeardType(), builder.getCheeseType(),
                     builder.getMeatImageURL(), builder.getVegatablesImageURL(), builder.getCheeseImageURL(), builder.getBeardImageURL(),
-                    meatCnt ,vegatablesCnt , cheeseCnt ,beardCnt
+                    meatCnt, vegatablesCnt, cheeseCnt, beardCnt
             );
-            System.out.println(cloneOrder.getBeardType() + "Clonned");
-            System.out.println(cloneOrder.getMeatType()  + "Clonned");
-            System.out.println(cloneOrder.getVegatablesType() + "Clonned");
-            System.out.println(cloneOrder.getCheeseType() + "Clonned");
-            addHorizontalSection(cloneOrder.getMeatImageURL(), cloneOrder.getMeatType() + "( " +meatCnt +" )", cloneOrder.getMeatPrice() + " $");
-            addHorizontalSection(cloneOrder.getVegatablesImageURL(), cloneOrder.getVegatablesType() + "( "+vegatablesCnt+" )", cloneOrder.getVegatablesPrice() + " $");
-            addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType()+ "( "+cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
-            addHorizontalSection(cloneOrder.getBeardImageURL(), cloneOrder.getBeardType() + "( "+beardCnt +" )", cloneOrder.getBeardPrice() + " $");
+
+            // Debugging: Print cloned items
+            System.out.println(cloneOrder.getBeardType() + " Cloned");
+            System.out.println(cloneOrder.getMeatType() + " Cloned");
+            System.out.println(cloneOrder.getVegatablesType() + " Cloned");
+            System.out.println(cloneOrder.getCheeseType() + " Cloned");
+
+            // Display each item in UI
+            addHorizontalSection(cloneOrder.getMeatImageURL(), cloneOrder.getMeatType() + "( " + meatCnt + " )", cloneOrder.getMeatPrice() + " $");
+            addHorizontalSection(cloneOrder.getVegatablesImageURL(), cloneOrder.getVegatablesType() + "( " + vegatablesCnt + " )", cloneOrder.getVegatablesPrice() + " $");
+            addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType() + "( " + cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
+            addHorizontalSection(cloneOrder.getBeardImageURL(), cloneOrder.getBeardType() + "( " + beardCnt + " )", cloneOrder.getBeardPrice() + " $");
+
+            // Update pricing
             orderPrice.setText(cloneOrder.getTotalPrice() + " $");
-            taxPrice.setText(cloneOrder.getTaxPrice()+ " $");
-            totalPrice.setText(cloneOrder.getTotalPrice() + " $");
+            taxPrice.setText(cloneOrder.getTaxPrice() + " $");
+            totalPrice.setText((cloneOrder.getTotalPrice() + cloneOrder.getTaxPrice()) + " $");
+
+            // Show/hide appropriate frames
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(true);
             payCusBtn.setVisible(false);
@@ -644,7 +658,7 @@ public class DashboardController implements Initializable {
             thCusFrame.setVisible(false);
             menuFrame.setVisible(true);
 
-
+            builder.reset();
         });
     }
 
@@ -757,6 +771,26 @@ public class DashboardController implements Initializable {
 
     }
 
+    private void showCustomerStep(
+            boolean menuVisible,
+            boolean stVisible,
+            boolean ndVisible,
+            boolean rdVisible,
+            boolean thVisible,
+            boolean ingredientsVisible,
+            boolean cancelVisible,
+            boolean payVisible
+    ) {
+        menuFrame.setVisible(menuVisible);
+        stCusFrame.setVisible(stVisible);
+        ndCusFrame.setVisible(ndVisible);
+        rdCusFrame.setVisible(rdVisible);
+        thCusFrame.setVisible(thVisible);
+        ingedForm.setVisible(ingredientsVisible);
+        cancelCusBtn.setVisible(cancelVisible);
+        payCusBtn.setVisible(payVisible);
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -765,104 +799,43 @@ public class DashboardController implements Initializable {
 
         VegatablesAction();
 
-         MeatAction();
+        MeatAction();
 
         startClockThread();
 
         addDataMenu();
 
-        menuCusBtn.setOnAction(event -> {
-            menuFrame.setVisible(false);
-            stCusFrame.setVisible(true);
-            ndCusFrame.setVisible(false);
-            rdCusFrame.setVisible(false);
-            thCusFrame.setVisible(false);
-            ingedForm.setVisible(true);
-            cancelCusBtn.setVisible(false);
-            payCusBtn.setVisible(false);
-        });
+        menuCusBtn.setOnAction(event ->
+                showCustomerStep(false, true, false, false, false, true, false, false)
+        );
 
-        stBtCus.setOnAction(event -> {
-            menuFrame.setVisible(true);
-            stCusFrame.setVisible(false);
-            ndCusFrame.setVisible(false);
-            rdCusFrame.setVisible(false);
-            thCusFrame.setVisible(false);
-            ingedForm.setVisible(false);
-            cancelCusBtn.setVisible(false);
-            payCusBtn.setVisible(false);
+        stBtCus.setOnAction(event ->
+                showCustomerStep(true, false, false, false, false, false, false, false)
+        );
 
-        });
+        stFdCus.setOnAction(event ->
+                showCustomerStep(false, false, true, false, false, true, false, false)
+        );
 
-        stFdCus.setOnAction(event -> {
-            menuFrame.setVisible(false);
-            stCusFrame.setVisible(false);
-            ndCusFrame.setVisible(true);
-            rdCusFrame.setVisible(false);
-            thCusFrame.setVisible(false);
-            ingedForm.setVisible(true);
-            cancelCusBtn.setVisible(false);
-            payCusBtn.setVisible(false);
-        });
+        ndCusBtnB.setOnAction(event ->
+                showCustomerStep(false, true, false, false, false, true, false, false)
+        );
 
-        ndCusBtnB.setOnAction(event -> {
-            menuFrame.setVisible(false);
-            stCusFrame.setVisible(true);
-            ndCusFrame.setVisible(false);
-            rdCusFrame.setVisible(false);
-            thCusFrame.setVisible(false);
-            ingedForm.setVisible(true);
-            cancelCusBtn.setVisible(false);
-            payCusBtn.setVisible(false);
+        ndCusBtnF.setOnAction(event ->
+                showCustomerStep(false, false, false, true, false, true, false, false)
+        );
 
-        });
+        rdBtnCusB.setOnAction(event ->
+                showCustomerStep(false, false, true, false, false, true, false, false)
+        );
 
-        ndCusBtnF.setOnAction(event -> {
-            menuFrame.setVisible(false);
-            stCusFrame.setVisible(false);
-            ndCusFrame.setVisible(false);
-            rdCusFrame.setVisible(true);
-            thCusFrame.setVisible(false);
-            ingedForm.setVisible(true);
-            cancelCusBtn.setVisible(false);
-            payCusBtn.setVisible(false);
+        rdBtnCusF.setOnAction(event ->
+                showCustomerStep(false, false, false, false, true, true, true, true)
+        );
 
-        });
-
-        rdBtnCusB.setOnAction(event -> {
-            menuFrame.setVisible(false);
-            stCusFrame.setVisible(false);
-            ndCusFrame.setVisible(true);
-            rdCusFrame.setVisible(false);
-            thCusFrame.setVisible(false);
-            ingedForm.setVisible(true);
-            cancelCusBtn.setVisible(false);
-            payCusBtn.setVisible(false);
-
-        });
-
-        rdBtnCusF.setOnAction(event -> {
-            menuFrame.setVisible(false);
-            stCusFrame.setVisible(false);
-            ndCusFrame.setVisible(false);
-            rdCusFrame.setVisible(false);
-            thCusFrame.setVisible(true);
-            ingedForm.setVisible(true);
-            cancelCusBtn.setVisible(true);
-            payCusBtn.setVisible(true);
-
-        });
-
-        thBtnCusB.setOnAction(event -> {
-             menuFrame.setVisible(false);
-             stCusFrame.setVisible(false);
-             ndCusFrame.setVisible(false);
-             rdCusFrame.setVisible(true);
-             thCusFrame.setVisible(false);
-             ingedForm.setVisible(true);
-             cancelCusBtn.setVisible(false);
-             payCusBtn.setVisible(false);
-         });
+        thBtnCusB.setOnAction(event ->
+                showCustomerStep(false, false, false, true, false, true, false, false)
+        );
 
         cancelCusBtn.setOnAction(event -> {
             meatSelect.setText("");
@@ -873,6 +846,12 @@ public class DashboardController implements Initializable {
             vegatablesImg.setImage(null);
             cheeseImg.setImage(null);
             breadimg.setImage(null);
+            vboxContent.getChildren().clear();
+            cloneOrder.clear();
+            builder.clear();
+            orderPrice.setText("");
+            taxPrice.setText("");
+            totalPrice.setText("");
         });
     }
 

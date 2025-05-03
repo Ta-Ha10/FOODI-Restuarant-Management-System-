@@ -14,6 +14,32 @@ class OrderCus {
     String vegatablesimageURL = "";
     String cheeseimageURL = "";
     String beardimageURL = "";
+    int meatCnt = 0;
+    int vegatablesCnt = 0;
+    int cheeseCnt = 0;
+    int beardCnt = 0;
+
+    public void clear() {
+        this.MeatType = "";
+        this.VegatablesType = "";
+        this.CheeseType = "";
+        this.BeardType = "";
+
+        this.MeatPrice = 0;
+        this.VegatablesPrice = 0;
+        this.CheesePrice = 0;
+        this.BeardPrice = 0;
+
+        this.meatImageURL = "";
+        this.vegatablesimageURL= "";
+        this.cheeseimageURL = "";
+        this.beardimageURL = "";
+
+        this.meatCnt = 0;
+        this.vegatablesCnt = 0;
+        this.cheeseCnt = 0;
+        this.beardCnt = 0;
+    }
 
 
     public void setMeatImageURL(String imageURL) {
@@ -79,6 +105,7 @@ class OrderCus {
     public String getBeardimageURL() {
         return beardimageURL;
     }
+
 
     @Override
     public String toString() {
@@ -281,7 +308,8 @@ class orderBuilder implements BuilderFactory {
         return order.getBeardType();
     }
 
-
+    public void clear(){
+        order.clear();}
 
 
     public int getTotalPrice(){
