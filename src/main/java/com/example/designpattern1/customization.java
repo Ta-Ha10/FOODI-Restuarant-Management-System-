@@ -189,6 +189,8 @@ interface BuilderFactory {
     String getVegatablesImageURL();
     String getCheeseImageURL();
     String getBeardImageURL();
+   // public void displayOrders() ;
+   // public void storeOrder(String productName);
 
 //    int getTotalPrice();
 //    OrderCus getOrder();
@@ -312,13 +314,12 @@ class orderBuilder implements BuilderFactory {
         order.clear();}
 
 
-    public int getTotalPrice(){
-        return order.getTotalPrice();
-    }
 
     public OrderCus getOrder() {
         OrderCus finalOrder = this.order;
         reset();
         return order;
     }
+
+
 }

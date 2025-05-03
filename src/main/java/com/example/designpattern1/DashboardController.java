@@ -718,6 +718,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
+            order.storeOrder("Cheese Beard");
+            order.displayOrders();
 
         });
 
@@ -737,6 +739,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
+            order.storeOrder("Shrimp");
+            order.displayOrders();
 
         });
 
@@ -757,7 +761,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
-
+            order.storeOrder("salad");
+            order.displayOrders();
         });
         Product product4 = order.addProduct("plain beard");
         name4.setText(product4.getName());
@@ -775,7 +780,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
-
+            order.storeOrder("plain beard");
+            order.displayOrders();
         });
 
         Product product5 = order.addProduct("cheese cake");
@@ -794,7 +800,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
-
+            order.storeOrder("cheese cake");
+            order.displayOrders();
         });
 
         Product product6 = order.addProduct("grilled meat");
@@ -813,8 +820,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
-
-
+            order.storeOrder("grilled meat");
+            order.displayOrders();
         });
 
         Product product7 = order.addProduct("spagetti");
@@ -834,7 +841,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
-
+            order.storeOrder("spagetti");
+            order.displayOrders();
         });
 
         Product product8 = order.addProduct("vegatables spagetti");
@@ -854,6 +862,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
+            order.storeOrder("vegatables spagetti");
+            order.displayOrders();
 
 
         });
@@ -875,8 +885,8 @@ public class DashboardController implements Initializable {
             orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
-
-
+            order.storeOrder("dish1");
+            order.displayOrders();
         });
         System.out.println("totalPriceDishes: " + totalPriceDishes);
 
