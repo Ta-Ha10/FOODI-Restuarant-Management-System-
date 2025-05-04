@@ -1,5 +1,7 @@
 package com.example.designpattern1;
 
+import java.util.ArrayList;
+
 class OrderCus {
     int VegatablesPrice = 0;
     int MeatPrice = 0;
@@ -189,8 +191,7 @@ interface BuilderFactory {
     String getVegatablesImageURL();
     String getCheeseImageURL();
     String getBeardImageURL();
-   // public void displayOrders() ;
-   // public void storeOrder(String productName);
+  //  public void displayOrders() ;
 
 //    int getTotalPrice();
 //    OrderCus getOrder();
@@ -199,6 +200,9 @@ interface BuilderFactory {
 //    void setOrder(BuilderFactory builderFactory);
 
 }
+
+
+
 
 class orderBuilder implements BuilderFactory {
     public OrderCus order;
