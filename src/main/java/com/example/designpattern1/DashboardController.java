@@ -1010,7 +1010,20 @@ public class DashboardController implements Initializable {
         totalPriceDishes();
 
         t1Btn.setOnAction(event -> {
+
             t1Selected.setVisible(true);
+        });
+        t2Btn.setOnAction(event -> {
+            t2Selected.setVisible(true);
+        });
+        t3Btn.setOnAction(event -> {
+            t3Selected.setVisible(true);
+        });
+        t4Btn.setOnAction(event -> {
+            t4Selected.setVisible(true);
+        });
+        t5Btn.setOnAction(event -> {
+            t5Selected.setVisible(true);
         });
 
         //totalDishes();

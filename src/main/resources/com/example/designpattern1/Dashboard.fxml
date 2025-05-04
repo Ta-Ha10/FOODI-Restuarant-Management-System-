@@ -91,7 +91,7 @@
                         <Button fx:id="Add1Btn" layoutX="46.0" layoutY="40.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="93.0" style="-fx-background-color: #D89F65;" text="ADD" visible="false" />
                         <ImageView fx:id="imageView1" fitHeight="112.0" fitWidth="158.0" layoutX="13.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="dish111" fitHeight="214.0" fitWidth="161.0" layoutX="151.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="dish11111" fitHeight="214.0" fitWidth="161.0" layoutX="151.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
                         <Button fx:id="dish2" layoutX="231.0" layoutY="4.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
                         <Button fx:id="dish3" layoutX="460.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
                         <Button fx:id="dish4" layoutX="679.0" layoutY="4.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
@@ -962,27 +962,27 @@
                   <FontAwesomeIcon fx:id="t1Selected" glyphName="CHECK_CIRCLE" layoutX="105.0" layoutY="205.0" opacity="0.34" selectionFill="#e89a00" size="200" visible="false" wrappingWidth="175.0" />
                   <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="84.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/C:/Users/Taham/IdeaProjects/DesignPattern1/src/main/resources/com/example/designpattern1/Photoes/Table.png" />
+                        <Image url="@Photoes/Table.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="530.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/C:/Users/Taham/IdeaProjects/DesignPattern1/src/main/resources/com/example/designpattern1/Photoes/Table.png" />
+                        <Image url="@Photoes/Table.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="84.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/C:/Users/Taham/IdeaProjects/DesignPattern1/src/main/resources/com/example/designpattern1/Photoes/Table.png" />
+                        <Image url="@Photoes/Table.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="530.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/C:/Users/Taham/IdeaProjects/DesignPattern1/src/main/resources/com/example/designpattern1/Photoes/Table.png" />
+                        <Image url="@Photoes/Table.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="291.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/C:/Users/Taham/IdeaProjects/DesignPattern1/src/main/resources/com/example/designpattern1/Photoes/Table.png" />
+                        <Image url="@Photoes/Table.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="171.0" layoutY="107.0" prefHeight="69.0" prefWidth="57.0" text="T1" textFill="#e89a00">
