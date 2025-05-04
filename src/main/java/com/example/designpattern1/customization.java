@@ -1,5 +1,7 @@
 package com.example.designpattern1;
 
+import java.util.ArrayList;
+
 class OrderCus {
     int VegatablesPrice = 0;
     int MeatPrice = 0;
@@ -189,8 +191,7 @@ interface BuilderFactory {
     String getVegatablesImageURL();
     String getCheeseImageURL();
     String getBeardImageURL();
-   // public void displayOrders() ;
-   // public void storeOrder(String productName);
+  //  public void displayOrders() ;
 
 //    int getTotalPrice();
 //    OrderCus getOrder();
@@ -199,6 +200,9 @@ interface BuilderFactory {
 //    void setOrder(BuilderFactory builderFactory);
 
 }
+
+
+
 
 class orderBuilder implements BuilderFactory {
     public OrderCus order;
@@ -320,6 +324,152 @@ class orderBuilder implements BuilderFactory {
         reset();
         return order;
     }
+    public static ArrayList<ProductOrderFinal> orderList2 = new ArrayList<>();
 
+    public static void storeOrderbuilder(String meatType, int meatPrice, String meatImageURL,
+                                         String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
+                                         String chesseType, int cheesePrice, String cheeseImageURL,
+                                         String beardType, int beardPrice, String beardImageURL) {
+
+        ProductOrderFinal order = new ProductOrderFinal(meatType, meatPrice, meatImageURL,
+                vegatablesType, vegatablesPrice, vegatablesImageURL,
+                chesseType, cheesePrice, cheeseImageURL,
+                beardType, beardPrice, beardImageURL);
+        orderList2.add(order);
+    }
+
+    public void displayOrders() {
+        for (ProductOrderFinal order : orderList2) {
+            System.out.println(order);
+        }
+    }
 
 }
+
+class ProductOrderFinal1 {
+    private String meatType;
+    private int meatPrice;
+    private String meatImageURL;
+    private String vegatablesType;
+    private int vegatablesPrice;
+    private String vegatablesImageURL;
+    private String chesseType;
+    private int cheesePrice;
+    private String cheeseImageURL;
+    private String beardType;
+    private int beardPrice;
+    private String beardImageURL;
+
+    // Constructor
+    public ProductOrderFinal1(String meatType, int meatPrice, String meatImageURL,
+                             String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
+                             String chesseType, int cheesePrice, String cheeseImageURL,
+                             String beardType, int beardPrice, String beardImageURL) {
+        this.meatType = meatType;
+        this.meatPrice = meatPrice;
+        this.meatImageURL = meatImageURL;
+        this.vegatablesType = vegatablesType;
+        this.vegatablesPrice = vegatablesPrice;
+        this.vegatablesImageURL = vegatablesImageURL;
+        this.chesseType = chesseType;
+        this.cheesePrice = cheesePrice;
+        this.cheeseImageURL = cheeseImageURL;
+        this.beardType = beardType;
+        this.beardPrice = beardPrice;
+        this.beardImageURL = beardImageURL;
+    }
+
+    @Override
+    public String
+    toString() {
+        return "ProductOrderFinal{" +
+                "meatType='" + meatType + '\'' +
+                ", meatPrice=" + meatPrice +
+                ", meatImageURL='" + meatImageURL + '\'' +
+                ", vegatablesType='" + vegatablesType + '\'' +
+                ", vegatablesPrice=" + vegatablesPrice +
+                ", vegatablesImageURL='" + vegatablesImageURL + '\'' +
+                ", chesseType='" + chesseType + '\'' +
+                ", cheesePrice=" + cheesePrice +
+                ", cheeseImageURL='" + cheeseImageURL + '\'' +
+                ", beardType='" + beardType + '\'' +
+                ", beardPrice=" + beardPrice +
+                ", beardImageURL='" + beardImageURL + '\'' +
+                '}'+ "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

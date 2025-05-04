@@ -12,6 +12,22 @@ body {
     color: #333;
 }
 
+.rounded-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 25px; /* The higher the value, the more rounded */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-btn:hover {
+    background-color: #45a049;
+}
+
+
 /* Sidebar Navigation */
 .sidebar {
     background-color: #f2f2f2;

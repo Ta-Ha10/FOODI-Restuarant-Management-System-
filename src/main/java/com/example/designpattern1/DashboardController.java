@@ -21,7 +21,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import static com.example.designpattern1.orderCloned.storeOrderbuilder;
+
 public class DashboardController implements Initializable {
+
 
 
 
@@ -98,7 +101,7 @@ public class DashboardController implements Initializable {
     private Button dish10;
 
     @FXML
-    private Button dish11;
+    private Button dish111;
 
     @FXML
     private Button dish12;
@@ -131,7 +134,13 @@ public class DashboardController implements Initializable {
     private ImageView homeActive1;
 
     @FXML
+    private ImageView homeActive11;
+
+    @FXML
     private ImageView homeIcon1;
+
+    @FXML
+    private ImageView homeIcon11;
 
     @FXML
     private ImageView imageVIew4;
@@ -182,6 +191,9 @@ public class DashboardController implements Initializable {
     private ImageView menuActive1;
 
     @FXML
+    private ImageView menuActive11;
+
+    @FXML
     private Button menuCusBtn;
 
     @FXML
@@ -189,6 +201,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private ImageView menuIcon1;
+
+    @FXML
+    private ImageView menuIcon11;
 
     @FXML
     private Label name2;
@@ -231,6 +246,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private ImageView paymentIcon1;
+
+    @FXML
+    private ImageView paymentIcon11;
 
     @FXML
     private Label price1;
@@ -278,6 +296,36 @@ public class DashboardController implements Initializable {
     private Button stFdCus;
 
     @FXML
+    private Button t1Btn;
+
+    @FXML
+    private FontAwesomeIcon t1Selected;
+
+    @FXML
+    private Button t2Btn;
+
+    @FXML
+    private FontAwesomeIcon t2Selected;
+
+    @FXML
+    private Button t3Btn;
+
+    @FXML
+    private FontAwesomeIcon t3Selected;
+
+    @FXML
+    private Button t4Btn;
+
+    @FXML
+    private FontAwesomeIcon t4Selected;
+
+    @FXML
+    private Button t5Btn;
+
+    @FXML
+    private FontAwesomeIcon t5Selected;
+
+    @FXML
     private Label taxPrice;
 
     @FXML
@@ -293,6 +341,9 @@ public class DashboardController implements Initializable {
     private Label time;
 
     @FXML
+    private Label time1;
+
+    @FXML
     private Button tomatoBtn;
 
     @FXML
@@ -306,6 +357,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label vegatablesSelect;
+
 
     orderCloned cloneOrder = new orderCloned();
     orderBuilder builder = new orderBuilder();
@@ -665,7 +717,12 @@ public class DashboardController implements Initializable {
             cheeseCnt = 0;
             beardCnt = 0;
             totalPriceDishes();
+            storeOrderbuilder(cloneOrder.getMeatType() , cloneOrder.getMeatPrice() , cloneOrder.getMeatImageURL()
+            , cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
+            cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
+            cloneOrder.getBeardType() , cloneOrder.getBeardPrice() , cloneOrder.getBeardImageURL());
 
+            cloneOrder.displayOrders();
         });
     }
 
@@ -719,7 +776,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("Cheese Beard");
-            order.displayOrders();
+           // order.displayOrders();
 
         });
 
@@ -740,7 +797,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("Shrimp");
-            order.displayOrders();
+          //  order.displayOrders();
 
         });
 
@@ -762,7 +819,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("salad");
-            order.displayOrders();
+        //    order.displayOrders();
         });
         Product product4 = order.addProduct("plain beard");
         name4.setText(product4.getName());
@@ -781,7 +838,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("plain beard");
-            order.displayOrders();
+           // order.displayOrders();
         });
 
         Product product5 = order.addProduct("cheese cake");
@@ -801,7 +858,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("cheese cake");
-            order.displayOrders();
+        //    order.displayOrders();
         });
 
         Product product6 = order.addProduct("grilled meat");
@@ -821,7 +878,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("grilled meat");
-            order.displayOrders();
+         //   order.displayOrders();
         });
 
         Product product7 = order.addProduct("spagetti");
@@ -842,7 +899,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("spagetti");
-            order.displayOrders();
+         //   order.displayOrders();
         });
 
         Product product8 = order.addProduct("vegatables spagetti");
@@ -863,7 +920,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("vegatables spagetti");
-            order.displayOrders();
+         //   order.displayOrders();
 
 
         });
@@ -886,7 +943,7 @@ public class DashboardController implements Initializable {
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("dish1");
-            order.displayOrders();
+         //   order.displayOrders();
         });
         System.out.println("totalPriceDishes: " + totalPriceDishes);
 
@@ -947,7 +1004,14 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         totalPriceDishes();
+
+        t1Btn.setOnAction(event -> {
+            t1Selected.setVisible(true);
+        });
 
         //totalDishes();
 
