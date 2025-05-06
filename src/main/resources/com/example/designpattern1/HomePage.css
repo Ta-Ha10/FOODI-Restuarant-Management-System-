@@ -1,169 +1,276 @@
-/* Reset and Base Styles */
-* {
-
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Base Styles */
+.root {
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-background-color: #f9f9f9;
+    -fx-text-fill: #333333;
 }
 
-body {
-    background-color: #f9f9f9;
-    color: #333;
-}
-
+/* Rounded Button */
 .rounded-btn {
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    border: none;
-    border-radius: 25px; /* The higher the value, the more rounded */
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    -fx-padding: 10 20;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
 }
 
+/* Hover effect (must be inside control-specific block) */
 .rounded-btn:hover {
-    background-color: #45a049;
+    -fx-background-color: #45a049;
 }
 
-
-/* Sidebar Navigation */
+/* Sidebar */
 .sidebar {
-    background-color: #f2f2f2;
-    width: 80px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    border-right: 1px solid #ddd;
+    -fx-background-color: #f2f2f2;
+    -fx-pref-width: 80;
+    -fx-padding: 20 0 0 0;
+    -fx-border-color: transparent #ddd transparent transparent;
+    -fx-border-width: 0 1 0 0;
 }
 
+/* Nav Menu Button */
 .nav-menu-button {
-    background-color: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: inherit;
+    -fx-cursor: hand;
 }
 
 /* Main Content */
 .main-content {
-    margin-left: 80px;
-    padding: 20px;
+    -fx-padding: 20;
 }
 
 /* Search Bar */
 .search-bar {
-    background-color: #eef3f4;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    width: 300px;
+    -fx-background-color: #eef3f4;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-pref-width: 300;
 }
 
 /* Product Card */
 .card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    padding: 10px;
-    width: 180px;
-    text-align: center;
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-padding: 10;
+    -fx-pref-width: 180;
+    -fx-alignment: center;
+    -fx-margin: 10;
 }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
-}
-
+/* Card title */
 .card-title {
-    font-weight: bold;
-    margin-top: 5px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 0 0;
 }
 
+/* Card category */
 .card-category {
-    font-size: 0.8rem;
-    color: #666;
+    -fx-font-size: 10;
+    -fx-text-fill: #666666;
 }
 
-/* Category Filters */
+/* Category Buttons */
 .category-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-padding: 20 0 0 0;
 }
 
-.category-buttons button {
-    background-color: #dfe4df;
-    color: #333;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
+/* Category Button */
+.category-buttons .button {
+    -fx-background-color: #dfe4df;
+    -fx-text-fill: #333;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
 }
 
-.category-buttons button.active {
-    background-color: #505a3c;
-    color: #fff;
+/* Active category */
+.category-buttons .button.active {
+    -fx-background-color: #505a3c;
+    -fx-text-fill: white;
 }
 
-/* Order Summary Panel */
+/* Order Summary */
 .order-summary {
-    background-color: #f8fbfd;
-    border: 1px dashed #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
+    -fx-background-color: #f8fbfd;
+    -fx-border-color: #ccc;
+    -fx-border-style: dashed;
+    -fx-border-radius: 10;
+    -fx-padding: 20;
+    -fx-max-width: 300;
+    -fx-margin: 20 auto;
 }
 
+/* Order Item */
 .order-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    -fx-spacing: 10;
+    -fx-alignment: space-between;
 }
 
+/* Total Section */
 .total-section {
-    font-size: 1.2rem;
-    font-weight: bold;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
 }
 
-/* Generic Buttons */
-button {
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Transparent Button */
-.btn-transparent {
-    background-color: transparent;
-    border: none;
-    color: inherit;
-}
-
-/* Cancel Order Button */
+/* Cancel Button */
 .btn-cancel {
-    background-color: #f25252;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
+    -fx-background-color: #f25252;
+    -fx-text-fill: white;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
 }
 
 .btn-cancel:hover {
-    background-color: #d64444;
+    -fx-background-color: #d64444;
 }
 
-/* Send Order Button */
+/* Submit Button */
 .btn-submit {
-    background-color: #72b4c7;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
+    -fx-background-color: #72b4c7;
+    -fx-text-fill: white;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
 }
 
 .btn-submit:hover {
-    background-color: #5aa1b5;
+    -fx-background-color: #5aa1b5;
+}
+
+/* Generic Button */
+.button {
+    -fx-cursor: hand;
+}
+
+
+
+
+.root2 {
+    -fx-font-family: "Segoe UI", Tahoma, sans-serif;
+    -fx-background-color: #f9f9f9;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #f2f2f2;
+    -fx-pref-width: 80;
+    -fx-alignment: top-center;
+    -fx-padding: 20 0 0 0;
+    -fx-border-color: transparent #ddd transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Search Bar */
+.search-bar {
+    -fx-background-color: #eef3f4;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-pref-width: 300;
+}
+
+/* Category Buttons */
+.category-buttons {
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+    -fx-padding: 10 0 20 0;
+}
+
+.category-buttons .button {
+    -fx-background-color: #dfe4df;
+    -fx-text-fill: #333;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+}
+
+.category-buttons .button:focused {
+    -fx-background-color: #505a3c;
+    -fx-text-fill: white;
+}
+
+/* Card */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.2, 0, 4);
+    -fx-border-radius: 10;
+}
+
+
+.card-image {
+    -fx-background-radius: 10;
+    -fx-pref-height: 120;
+    -fx-pref-width: 160;
+}
+
+.card-title {
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 0 0;
+}
+
+.card-category {
+    -fx-font-size: 10px;
+    -fx-text-fill: #666666;
+}
+
+/* Order Summary */
+.order-summary {
+    -fx-background-color: #f8fbfd;
+    -fx-border-color: #ccc;
+    -fx-border-style: dashed;
+    -fx-border-radius: 10;
+    -fx-padding: 20;
+    -fx-max-width: 300;
+}
+
+.order-item {
+    -fx-spacing: 10;
+    -fx-alignment: space-between;
+}
+
+.total-section {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+/* Buttons */
+.rounded-btn {
+    -fx-padding: 10 20;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 25;
+    -fx-font-size: 16px;
+}
+
+.rounded-btn:hover {
+    -fx-background-color: #45a049;
+}
+
+.btn-cancel {
+    -fx-background-color: #f25252;
+    -fx-text-fill: white;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
+}
+
+.btn-cancel:hover {
+    -fx-background-color: #d64444;
+}
+
+.btn-submit {
+    -fx-background-color: #72b4c7;
+    -fx-text-fill: white;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
+}
+
+.btn-submit:hover {
+    -fx-background-color: #5aa1b5;
 }

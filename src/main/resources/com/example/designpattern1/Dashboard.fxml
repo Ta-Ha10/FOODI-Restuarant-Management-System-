@@ -115,7 +115,7 @@
             <Separator layoutX="5.0" layoutY="96.0" prefHeight="0.0" prefWidth="1505.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="3.0" visible="false">
+      <AnchorPane layoutX="3.0">
          <children>
             <AnchorPane fx:id="menuFrame">
                <children>
@@ -375,7 +375,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="20.0" layoutY="538.0" prefHeight="35.0" prefWidth="227.0" text="Service Charge 10%:">
+                        <Label layoutX="20.0" layoutY="538.0" prefHeight="35.0" prefWidth="227.0" text="com.example.designpattern1.Service Charge 10%:">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -1017,161 +1017,11 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="125.0" layoutY="113.0" prefHeight="885.0" prefWidth="1355.0">
+      <AnchorPane layoutX="106.0" layoutY="99.0" prefHeight="885.0" prefWidth="1355.0" visible="false">
          <children>
-            <Label layoutX="20.0" layoutY="12.0" prefHeight="54.0" prefWidth="318.0" text="Choose Service :">
+            <Label layoutX="20.0" layoutY="12.0" prefHeight="54.0" prefWidth="318.0" text="Choose com.example.designpattern1.Service :">
                <font>
                   <Font name="System Bold" size="32.0" />
-               </font>
-            </Label>
-            <Button layoutX="20.0" layoutY="64.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="158.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Indoor Tables">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button layoutX="14.0" layoutY="221.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="180.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Outdoor Tables">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button layoutX="14.0" layoutY="375.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="219.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="VIP /Private Rooms">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button layoutX="17.0" layoutY="532.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="158.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Indoor Tables">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button layoutX="18.0" layoutY="701.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="158.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Indoor Tables">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Label layoutX="32.0" layoutY="132.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="126.0" layoutY="132.0" prefHeight="30.0" prefWidth="948.0" text="These tables are situated within the main interior of the restaurant, providing a comfortable and climate-controlled dining experience. ">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="158.0" prefHeight="30.0" prefWidth="948.0" text="Ideal for guests who prefer a quieter, more traditional setting with close access to restrooms and service staff.">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="188.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="79.0" layoutY="189.0" prefHeight="30.0" prefWidth="141.0" text="15% On The Order">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="286.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="126.0" layoutY="286.0" prefHeight="30.0" prefWidth="948.0" text="Located on patios, terraces, or sidewalks, outdoor tables offer an open-air dining experience. These are perfect for guests who enjoy">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="312.0" prefHeight="30.0" prefWidth="948.0" text="fresh air, natural surroundings, or scenic views. They may be weather-dependent but often add a relaxed and lively atmosphere.">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="342.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="79.0" layoutY="343.0" prefHeight="30.0" prefWidth="141.0" text="10% On The Order">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="444.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="126.0" layoutY="444.0" prefHeight="30.0" prefWidth="1036.0" text="These exclusive tables are set apart from the general dining area, offering a more private and upscale experience. Often used for special occasions,">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="470.0" prefHeight="30.0" prefWidth="948.0" text="business meetings, or high-profile guests, they typically come with personalized service and premium seating arrangements.">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="500.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="79.0" layoutY="501.0" prefHeight="30.0" prefWidth="141.0" text="20% On The Order">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="20.0" layoutY="601.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="114.0" layoutY="601.0" prefHeight="30.0" prefWidth="1036.0" text="Customers can place an order and pick it up from the restaurant to enjoy their meal elsewhere. This option is convenient for those on the go, ">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="20.0" layoutY="627.0" prefHeight="30.0" prefWidth="948.0" text=" offering the same great food without the dine-in experience.">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="20.0" layoutY="657.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="67.0" layoutY="658.0" prefHeight="30.0" prefWidth="141.0" text="0% On The Order">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="35.0" layoutY="770.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="129.0" layoutY="770.0" prefHeight="30.0" prefWidth="1131.0" text="Food is prepared and brought directly to the customer's location by the restaurant or a delivery service. Ideal for those who prefer to enjoy restaurant-quality">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="35.0" layoutY="805.0" prefHeight="30.0" prefWidth="948.0" text=" meals from the comfort of their home or office.">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="30.0" layoutY="836.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="77.0" layoutY="837.0" prefHeight="30.0" prefWidth="141.0" text="0% On The Order">
-               <font>
-                  <Font size="16.0" />
                </font>
             </Label>
          </children>

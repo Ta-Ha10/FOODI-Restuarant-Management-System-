@@ -26,8 +26,6 @@ import static com.example.designpattern1.orderCloned.storeOrderbuilder;
 public class DashboardController implements Initializable {
 
 
-
-
     @FXML
     private Button Add1Btn;
 
