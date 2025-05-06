@@ -15,6 +15,106 @@
 
 <AnchorPane prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.designpattern1.DashboardController">
    <children>
+      <AnchorPane layoutX="3.0" layoutY="73.0" prefHeight="911.0" prefWidth="82.0">
+         <children>
+            <ImageView fx:id="homeIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photoes/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="homeActive1" fitHeight="43.0" fitWidth="45.0" layoutX="13.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Photoes/homeActive.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuActive1" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Photoes/menuActive.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photoes/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="paymentIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photoes/payment.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="11.0" layoutY="113.0" text="Home">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="242.0" text="Menu">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutY="368.0" text="Payment">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photoes/setting.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Photoes/setting.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="6.0" layoutY="478.0" text="Orders">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="581.0" text="Settings">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="97.0" prefWidth="1512.0" styleClass="sidebar">
+         <children>
+            <Label layoutX="26.0" layoutY="14.0" text="F" textFill="#00d9f2">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="13.0" text="OO" textFill="#e89a00">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="144.0" layoutY="14.0" text="D" textFill="#2dff53">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="188.0" layoutY="14.0" text="I" textFill="#00d9f2">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Label>
+            <TextField layoutX="275.0" layoutY="30.0" prefHeight="43.0" prefWidth="294.0" promptText="Search For Any Thing...." style="-fx-border-radius: 50;" styleClass="search-bar" />
+            <Label fx:id="time" layoutX="1088.0" layoutY="36.0" text="October 18th 2002, 10:00AM">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="1384.0" layoutY="29.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: e89a00;" text="Logout">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Separator layoutX="5.0" layoutY="96.0" prefHeight="0.0" prefWidth="1505.0" />
+         </children>
+      </AnchorPane>
       <AnchorPane layoutX="3.0" visible="false">
          <children>
             <AnchorPane fx:id="menuFrame">
@@ -319,106 +419,6 @@
                         <Font size="22.0" />
                      </font>
                   </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="7.0" layoutY="115.0" prefHeight="885.0" prefWidth="82.0">
-               <children>
-                  <ImageView fx:id="homeIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/home.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="homeActive1" fitHeight="43.0" fitWidth="45.0" layoutX="13.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@Photoes/homeActive.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="menuActive1" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@Photoes/menuActive.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="menuIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/menu.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="paymentIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/payment.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="11.0" layoutY="113.0" text="Home">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="11.0" layoutY="242.0" text="Menu">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutY="368.0" text="Payment">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/setting.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@Photoes/setting.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="6.0" layoutY="478.0" text="Orders">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="581.0" text="Settings">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="7.0" layoutY="10.0" prefHeight="97.0" prefWidth="1512.0" styleClass="sidebar">
-               <children>
-                  <Label layoutX="26.0" layoutY="14.0" text="F" textFill="#00d9f2">
-                     <font>
-                        <Font size="52.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="59.0" layoutY="13.0" text="OO" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="52.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="144.0" layoutY="14.0" text="D" textFill="#2dff53">
-                     <font>
-                        <Font name="System Bold" size="52.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="188.0" layoutY="14.0" text="I" textFill="#00d9f2">
-                     <font>
-                        <Font name="System Bold" size="52.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="275.0" layoutY="30.0" prefHeight="43.0" prefWidth="294.0" promptText="Search For Any Thing...." style="-fx-border-radius: 50;" styleClass="search-bar" />
-                  <Label fx:id="time" layoutX="1088.0" layoutY="36.0" text="October 18th 2002, 10:00AM">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="1384.0" layoutY="29.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: e89a00;" text="Logout">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Separator layoutX="5.0" layoutY="96.0" prefHeight="0.0" prefWidth="1505.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="stCusFrame" layoutX="85.0" layoutY="137.0" prefHeight="847.0" prefWidth="863.0" visible="false">
@@ -855,176 +855,325 @@
             <Separator layoutX="963.0" layoutY="199.0" prefHeight="3.0" prefWidth="544.0" visible="false" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="13.0" layoutY="10.0" style="-fx-background-color: transparent;">
+      <AnchorPane layoutX="112.0" layoutY="112.0" visible="false">
          <children>
-            <AnchorPane layoutX="7.0" layoutY="115.0" prefHeight="885.0" prefWidth="82.0">
+            <AnchorPane layoutY="8.0">
                <children>
-                  <ImageView fx:id="homeIcon11" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/home.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="homeActive11" fitHeight="43.0" fitWidth="45.0" layoutX="13.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@Photoes/homeActive.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="menuActive11" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@Photoes/menuActive.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="menuIcon11" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/menu.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="paymentIcon11" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/payment.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="11.0" layoutY="113.0" text="Home">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="11.0" layoutY="242.0" text="Menu">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutY="368.0" text="Payment">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/setting.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@Photoes/setting.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="6.0" layoutY="478.0" text="Orders">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="581.0" text="Settings">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
+                  <AnchorPane prefHeight="870.0" prefWidth="868.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="94.0" prefHeight="681.0" prefWidth="854.0">
+                           <children>
+                              <Label layoutX="54.0" layoutY="-75.0" prefHeight="59.0" prefWidth="406.0" text="TABLE LIST : ">
+                                 <font>
+                                    <Font name="System Bold" size="41.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="83.0" layoutY="27.0">
+                                 <children>
+                                    <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Photoes/Table.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="t1Btn" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
+                                    <FontAwesomeIcon fx:id="t1Selected" glyphName="CHECK_CIRCLE" layoutX="22.0" layoutY="180.0" opacity="0.34" selectionFill="#e89a00" size="50" visible="false" wrappingWidth="175.0" />
+                                    <Label layoutX="88.0" layoutY="80.0" prefHeight="69.0" prefWidth="57.0" text="T1" textFill="#e89a00">
+                                       <font>
+                                          <Font name="System Bold" size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="537.0" layoutY="43.57142639160156">
+                                 <children>
+                                    <ImageView fitHeight="214.0" fitWidth="254.0" layoutX="2.0" layoutY="4.4285736083984375" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Photoes/Table.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="t2Btn" layoutY="10.0" mnemonicParsing="false" prefHeight="207.0" prefWidth="219.0" style="-fx-background-color: transparent;" text=" " />
+                                    <Label layoutX="89.0" layoutY="86.42857360839844" text="T2" textFill="#e89a00">
+                                       <font>
+                                          <Font name="System Bold" size="34.0" />
+                                       </font>
+                                    </Label>
+                                    <FontAwesomeIcon fx:id="t2Selected" glyphName="CHECK_CIRCLE" layoutX="21.0" layoutY="180.0" opacity="0.34" size="50" visible="false" wrappingWidth="180.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="83.0" layoutY="383.0">
+                                 <children>
+                                    <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Photoes/Table.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="t3Btn" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
+                                    <FontAwesomeIcon fx:id="t3Selected" glyphName="CHECK_CIRCLE" layoutX="22.0" layoutY="180.0" opacity="0.34" selectionFill="#e89a00" size="50" visible="false" wrappingWidth="175.0" />
+                                    <Label layoutX="88.0" layoutY="80.0" prefHeight="69.0" prefWidth="57.0" text="T3" textFill="#e89a00">
+                                       <font>
+                                          <Font name="System Bold" size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="538.0" layoutY="383.0">
+                                 <children>
+                                    <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Photoes/Table.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="t4Btn" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
+                                    <FontAwesomeIcon fx:id="t4Selected" glyphName="CHECK_CIRCLE" layoutX="22.0" layoutY="180.0" opacity="0.34" selectionFill="#e89a00" size="50" visible="false" wrappingWidth="175.0" />
+                                    <Label layoutX="88.0" layoutY="80.0" prefHeight="69.0" prefWidth="57.0" text="T4" textFill="#e89a00">
+                                       <font>
+                                          <Font name="System Bold" size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="319.0" layoutY="230.0">
+                                 <children>
+                                    <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Photoes/Table.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="t5Btn" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
+                                    <FontAwesomeIcon fx:id="t5Selected" glyphName="CHECK_CIRCLE" layoutX="22.0" layoutY="180.0" opacity="0.34" selectionFill="#e89a00" size="50" visible="false" wrappingWidth="175.0" />
+                                    <Label layoutX="88.0" layoutY="80.0" prefHeight="69.0" prefWidth="57.0" text="T4" textFill="#e89a00">
+                                       <font>
+                                          <Font name="System Bold" size="35.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Button layoutX="287.0" layoutY="775.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="294.0" style="-fx-background-color: #e89a00;" text="Select &amp; Continue">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="7.0" layoutY="10.0" prefHeight="97.0" prefWidth="1512.0" styleClass="sidebar">
+            <AnchorPane layoutX="891.0" prefHeight="795.0" prefWidth="411.0">
                <children>
-                  <Label layoutX="26.0" layoutY="14.0" text="F" textFill="#00d9f2">
-                     <font>
-                        <Font size="52.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="59.0" layoutY="13.0" text="OO" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="52.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="144.0" layoutY="14.0" text="D" textFill="#2dff53">
-                     <font>
-                        <Font name="System Bold" size="52.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="188.0" layoutY="14.0" text="I" textFill="#00d9f2">
-                     <font>
-                        <Font name="System Bold" size="52.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="275.0" layoutY="30.0" prefHeight="43.0" prefWidth="294.0" promptText="Search For Any Thing...." style="-fx-border-radius: 50;" styleClass="search-bar" />
-                  <Label fx:id="time1" layoutX="1088.0" layoutY="36.0" text="October 18th 2002, 10:00AM">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="1384.0" layoutY="29.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: e89a00;" text="Logout">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Separator layoutX="5.0" layoutY="96.0" prefHeight="0.0" prefWidth="1505.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="178.0" layoutY="188.0" prefHeight="681.0" prefWidth="854.0">
-               <children>
-                  <FontAwesomeIcon fx:id="t1Selected" glyphName="CHECK_CIRCLE" layoutX="105.0" layoutY="205.0" opacity="0.34" selectionFill="#e89a00" size="200" visible="false" wrappingWidth="175.0" />
-                  <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="84.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/Table.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="530.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/Table.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="84.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/Table.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="530.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/Table.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="214.0" fitWidth="243.0" layoutX="291.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photoes/Table.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="171.0" layoutY="107.0" prefHeight="69.0" prefWidth="57.0" text="T1" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font></Label>
-                  <Label layoutX="615.0" layoutY="107.0" prefHeight="69.0" prefWidth="57.0" text="T2" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="377.0" layoutY="306.0" prefHeight="69.0" prefWidth="57.0" text="T3" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="171.0" layoutY="465.0" prefHeight="69.0" prefWidth="57.0" text="T4" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="615.0" layoutY="465.0" prefHeight="69.0" prefWidth="57.0" text="T5" textFill="#e89a00">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="t1Btn" layoutX="84.0" layoutY="34.0" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
-                  <Button fx:id="t2Btn" layoutX="529.0" layoutY="35.0" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
-                  <Button fx:id="t3Btn" layoutX="290.0" layoutY="225.0" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
-                  <Button fx:id="t4Btn" layoutX="83.0" layoutY="393.0" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" styleClass="rounded-btn" />
-                  <Button fx:id="t5Btn" layoutX="535.0" layoutY="405.0" mnemonicParsing="false" prefHeight="214.0" prefWidth="217.0" style="-fx-background-color: transaparent;" />
-                  <Label layoutX="54.0" layoutY="-75.0" prefHeight="59.0" prefWidth="406.0" text="TABLE LIST : ">
+                  <Label prefHeight="59.0" prefWidth="131.0" text="Order:">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fx:id="t2Selected" glyphName="CHECK_CIRCLE" layoutX="550.0" layoutY="205.0" opacity="0.34" selectionFill="#e89a00" size="200" visible="false" wrappingWidth="175.0" />
-                  <FontAwesomeIcon fx:id="t3Selected" glyphName="CHECK_CIRCLE" layoutX="318.0" layoutY="412.0" opacity="0.34" selectionFill="#e89a00" size="200" visible="false" wrappingWidth="175.0" />
-                  <FontAwesomeIcon fx:id="t4Selected" glyphName="CHECK_CIRCLE" layoutX="105.0" layoutY="563.0" opacity="0.34" selectionFill="#e89a00" size="200" visible="false" wrappingWidth="175.0" />
-                  <FontAwesomeIcon fx:id="t5Selected" glyphName="CHECK_CIRCLE" layoutX="550.0" layoutY="570.0" opacity="0.34" selectionFill="#e89a00" size="200" visible="false" wrappingWidth="175.0" />
+                  <Label layoutX="131.0" layoutY="4.0" text="#">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="63.0" layoutY="59.0" prefHeight="59.0" prefWidth="69.0" text="Table:">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="29.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photoes/small%20table%20icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="133.0" layoutY="74.0" prefHeight="30.0" prefWidth="39.0" text="#">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fx:id="scrollPane2" layoutX="11.0" layoutY="112.0" prefHeight="636.0" prefWidth="400.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="633.0" prefWidth="390.0">
+                           <children>
+                              <AnchorPane layoutX="18.0" layoutY="172.0" prefHeight="288.0" prefWidth="338.0">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Photoes/Vector.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="99.0" layoutY="173.0" text="No products in this">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="116.0" layoutY="194.0" text="moment added">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="125.0" layoutY="113.0" prefHeight="885.0" prefWidth="1355.0">
+         <children>
+            <Label layoutX="20.0" layoutY="12.0" prefHeight="54.0" prefWidth="318.0" text="Choose Service :">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Button layoutX="20.0" layoutY="64.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="158.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Indoor Tables">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="221.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="180.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Outdoor Tables">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="375.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="219.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="VIP /Private Rooms">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="17.0" layoutY="532.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="158.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Indoor Tables">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="701.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="158.0" style="-fx-background-color: transperant; -fx-border-color: #e89a00;" text="Indoor Tables">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="32.0" layoutY="132.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="126.0" layoutY="132.0" prefHeight="30.0" prefWidth="948.0" text="These tables are situated within the main interior of the restaurant, providing a comfortable and climate-controlled dining experience. ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="158.0" prefHeight="30.0" prefWidth="948.0" text="Ideal for guests who prefer a quieter, more traditional setting with close access to restrooms and service staff.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="188.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="189.0" prefHeight="30.0" prefWidth="141.0" text="15% On The Order">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="286.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="126.0" layoutY="286.0" prefHeight="30.0" prefWidth="948.0" text="Located on patios, terraces, or sidewalks, outdoor tables offer an open-air dining experience. These are perfect for guests who enjoy">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="312.0" prefHeight="30.0" prefWidth="948.0" text="fresh air, natural surroundings, or scenic views. They may be weather-dependent but often add a relaxed and lively atmosphere.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="342.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="343.0" prefHeight="30.0" prefWidth="141.0" text="10% On The Order">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="444.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="126.0" layoutY="444.0" prefHeight="30.0" prefWidth="1036.0" text="These exclusive tables are set apart from the general dining area, offering a more private and upscale experience. Often used for special occasions,">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="470.0" prefHeight="30.0" prefWidth="948.0" text="business meetings, or high-profile guests, they typically come with personalized service and premium seating arrangements.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="500.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="501.0" prefHeight="30.0" prefWidth="141.0" text="20% On The Order">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="601.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="114.0" layoutY="601.0" prefHeight="30.0" prefWidth="1036.0" text="Customers can place an order and pick it up from the restaurant to enjoy their meal elsewhere. This option is convenient for those on the go, ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="627.0" prefHeight="30.0" prefWidth="948.0" text=" offering the same great food without the dine-in experience.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="657.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="658.0" prefHeight="30.0" prefWidth="141.0" text="0% On The Order">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="770.0" prefHeight="31.0" prefWidth="93.0" text="Description:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="129.0" layoutY="770.0" prefHeight="30.0" prefWidth="1131.0" text="Food is prepared and brought directly to the customer's location by the restaurant or a delivery service. Ideal for those who prefer to enjoy restaurant-quality">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="805.0" prefHeight="30.0" prefWidth="948.0" text=" meals from the comfort of their home or office.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="836.0" prefHeight="31.0" prefWidth="49.0" text="TAX :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="837.0" prefHeight="30.0" prefWidth="141.0" text="0% On The Order">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

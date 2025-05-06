@@ -101,7 +101,10 @@ public class DashboardController implements Initializable {
     private Button dish10;
 
     @FXML
-    private Button dish111;
+    private Button dish1111;
+
+    @FXML
+    private ImageView dish11111;
 
     @FXML
     private Button dish12;
@@ -134,13 +137,7 @@ public class DashboardController implements Initializable {
     private ImageView homeActive1;
 
     @FXML
-    private ImageView homeActive11;
-
-    @FXML
     private ImageView homeIcon1;
-
-    @FXML
-    private ImageView homeIcon11;
 
     @FXML
     private ImageView imageVIew4;
@@ -191,9 +188,6 @@ public class DashboardController implements Initializable {
     private ImageView menuActive1;
 
     @FXML
-    private ImageView menuActive11;
-
-    @FXML
     private Button menuCusBtn;
 
     @FXML
@@ -201,9 +195,6 @@ public class DashboardController implements Initializable {
 
     @FXML
     private ImageView menuIcon1;
-
-    @FXML
-    private ImageView menuIcon11;
 
     @FXML
     private Label name2;
@@ -248,9 +239,6 @@ public class DashboardController implements Initializable {
     private ImageView paymentIcon1;
 
     @FXML
-    private ImageView paymentIcon11;
-
-    @FXML
     private Label price1;
 
     @FXML
@@ -285,6 +273,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
+
+    @FXML
+    private ScrollPane scrollPane2;
 
     @FXML
     private Button stBtCus;
@@ -339,9 +330,6 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label time;
-
-    @FXML
-    private Label time1;
 
     @FXML
     private Button tomatoBtn;
@@ -1001,32 +989,23 @@ public class DashboardController implements Initializable {
 
     }
 
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println(t2Btn);         // should not be null
+        System.out.println(t2Selected);    // should not be null
+
 
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane2.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane2.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         totalPriceDishes();
 
-        t1Btn.setOnAction(event -> {
 
-            t1Selected.setVisible(true);
-        });
-        t2Btn.setOnAction(event -> {
-            t2Selected.setVisible(true);
-        });
-        t3Btn.setOnAction(event -> {
-            t3Selected.setVisible(true);
-        });
-        t4Btn.setOnAction(event -> {
-            t4Selected.setVisible(true);
-        });
-        t5Btn.setOnAction(event -> {
-            t5Selected.setVisible(true);
-        });
-
-        //totalDishes();
 
         payAction();
 
@@ -1087,6 +1066,46 @@ public class DashboardController implements Initializable {
             taxPrice.setText("");
             totalPrice.setText("");
         });
+
+        t1Btn.setOnAction(event -> {
+            t1Selected.setVisible(true);
+            t2Selected.setVisible(false);
+            t3Selected.setVisible(false);
+            t4Selected.setVisible(false);
+            t5Selected.setVisible(false);
+        });
+
+        t2Btn.setOnAction(event -> {
+            t1Selected.setVisible(false);
+            t2Selected.setVisible(true);
+            t3Selected.setVisible(false);
+            t4Selected.setVisible(false);
+            t5Selected.setVisible(false);
+        });
+        t3Btn.setOnAction(event -> {
+            t1Selected.setVisible(false);
+            t2Selected.setVisible(false);
+            t3Selected.setVisible(true);
+            t4Selected.setVisible(false);
+            t5Selected.setVisible(false);
+
+        });
+
+        t4Btn.setOnAction(event -> {
+            t1Selected.setVisible(false);
+            t2Selected.setVisible(false);
+            t3Selected.setVisible(false);
+            t4Selected.setVisible(true);
+            t5Selected.setVisible(false);
+
+        });
+        t5Btn.setOnAction(event -> {
+            t5Selected.setVisible(true);
+            t4Selected.setVisible(false);
+            t3Selected.setVisible(false);
+            t2Selected.setVisible(false);
+            t1Selected.setVisible(false);
+        }); 
     }
 
 
