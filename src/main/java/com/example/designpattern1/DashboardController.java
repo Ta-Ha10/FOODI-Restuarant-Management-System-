@@ -25,7 +25,6 @@ import static com.example.designpattern1.orderCloned.storeOrderbuilder;
 
 public class DashboardController implements Initializable {
 
-
     @FXML
     private Button Add1Btn;
 
@@ -39,13 +38,31 @@ public class DashboardController implements Initializable {
     private Button ChikernBtn;
 
     @FXML
+    private Button DeliveryBtn;
+
+    @FXML
     private FontAwesomeIcon FdCusBtn;
 
     @FXML
     private ImageView ImageView2;
 
     @FXML
+    private Button IndoorBtn;
+
+    @FXML
     private Label Name1;
+
+    @FXML
+    private AnchorPane ServiceForm;
+
+    @FXML
+    private Label TableNum;
+
+    @FXML
+    private Label TableType1;
+
+    @FXML
+    private Button VIPBtn;
 
     @FXML
     private Button b1Btn;
@@ -189,6 +206,9 @@ public class DashboardController implements Initializable {
     private Button menuCusBtn;
 
     @FXML
+    private AnchorPane menuForm;
+
+    @FXML
     private AnchorPane menuFrame;
 
     @FXML
@@ -229,6 +249,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label orderPrice;
+
+    @FXML
+    private Button outDoorBtn;
 
     @FXML
     private Button payCusBtn;
@@ -310,9 +333,20 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button t5Btn;
+    @FXML
+    private Button homeBtn;
 
     @FXML
     private FontAwesomeIcon t5Selected;
+
+    @FXML
+    private AnchorPane tableForm;
+
+    @FXML
+    private Button tableFormBtn;
+
+    @FXML
+    private Button takeAwayBtn;
 
     @FXML
     private Label taxPrice;
@@ -343,6 +377,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label vegatablesSelect;
+
+
+
+    static  double fees = 0.0;
+    int tableNumber= 0;
+    String tableTyp;
 
 
     orderCloned cloneOrder = new orderCloned();
@@ -579,7 +619,9 @@ public class DashboardController implements Initializable {
             cheeseImg.setImage(new Image(builder.getCheeseImageURL()));
 
         });
-    }  public void beardAction(){
+    }
+
+    public void beardAction(){
 
         b1Btn.setOnAction(event -> {
             String selected = "Multigrain";
@@ -619,6 +661,7 @@ public class DashboardController implements Initializable {
 
         b3Btn.setOnAction(event -> {
             String selected = "Sour Dough";
+
             if (!selected.equals(currentBeard)) {
                 beardCnt = 0;
                 currentBeard = selected;
@@ -653,6 +696,21 @@ public class DashboardController implements Initializable {
         });
     }
 
+    private void updateTotalPriceDisplay() {
+        double totalPriceFromCustom = cloneOrder.getTotalPrice();
+        double totalPriceFromDishes = totalPriceDishes;
+
+        double total = totalPriceFromCustom + totalPriceFromDishes;
+        double tax = total * fees;
+        double totalWithTax = total + tax;
+
+        orderPrice.setText(String.format("%.2f $", total));
+        taxPrice.setText(String.format("%.2f $", tax));
+        totalPrice.setText(String.format("%.2f $", totalWithTax));
+
+        System.out.println("Updated Total: " + total);
+    }
+
     public void payAction() {
         payCusBtn.setOnAction(event -> {
             // Check if any item is selected before proceeding
@@ -680,6 +738,8 @@ public class DashboardController implements Initializable {
             addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType() + "( " + cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
             addHorizontalSection(cloneOrder.getBeardImageURL(), cloneOrder.getBeardType() + "( " + beardCnt + " )", cloneOrder.getBeardPrice() + " $");
 
+            updateTotalPriceDisplay();
+
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(true);
             payCusBtn.setVisible(false);
@@ -702,17 +762,17 @@ public class DashboardController implements Initializable {
             vegatablesCnt = 0;
             cheeseCnt = 0;
             beardCnt = 0;
-            totalPriceDishes();
+         //   totalPriceDishes();
             storeOrderbuilder(cloneOrder.getMeatType() , cloneOrder.getMeatPrice() , cloneOrder.getMeatImageURL()
             , cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
             cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
             cloneOrder.getBeardType() , cloneOrder.getBeardPrice() , cloneOrder.getBeardImageURL());
 
             cloneOrder.displayOrders();
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+
         });
     }
-
-
 
     public void addHorizontalSection(String imagePath, String title, String description) {
         // ImageView
@@ -742,8 +802,10 @@ public class DashboardController implements Initializable {
         vboxContent.getChildren().add(section);
 
     }
+
     Order order = new RestaurantOrder();
     int totalPriceDishes = 0;
+
     public void addDataMenu(){
         Product product = order.addProduct("Cheese Beard");
         Name1.setText(product.getName());
@@ -756,12 +818,12 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product.getImageURL(), product.getName(), product.getPrice() + " $");
             totalPriceDishes += product.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("Cheese Beard");
+            updateTotalPriceDisplay();
            // order.displayOrders();
 
         });
@@ -777,12 +839,12 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product2.getImageURL(), product2.getName(), product2.getPrice() + " $");
             totalPriceDishes += product2.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("Shrimp");
+            updateTotalPriceDisplay();
           //  order.displayOrders();
 
         });
@@ -799,13 +861,13 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product3.getImageURL(), product3.getName(), product3.getPrice() + " $");
             totalPriceDishes += product3.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("salad");
         //    order.displayOrders();
+            updateTotalPriceDisplay();
         });
         Product product4 = order.addProduct("plain beard");
         name4.setText(product4.getName());
@@ -818,13 +880,13 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product4.getImageURL(), product4.getName(), product4.getPrice() + " $");
             totalPriceDishes += product4.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("plain beard");
            // order.displayOrders();
+            updateTotalPriceDisplay();
         });
 
         Product product5 = order.addProduct("cheese cake");
@@ -838,13 +900,13 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product5.getImageURL(), product5.getName(), product5.getPrice() + " $");
             totalPriceDishes += product5.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("cheese cake");
         //    order.displayOrders();
+            updateTotalPriceDisplay();
         });
 
         Product product6 = order.addProduct("grilled meat");
@@ -858,13 +920,13 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product6.getImageURL(), product6.getName(), product6.getPrice() + " $");
             totalPriceDishes += product6.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("grilled meat");
          //   order.displayOrders();
+            updateTotalPriceDisplay();
         });
 
         Product product7 = order.addProduct("spagetti");
@@ -879,13 +941,13 @@ public class DashboardController implements Initializable {
            addHorizontalSection(product7.getImageURL(), product7.getName(), product7.getPrice() + " $");
            totalPriceDishes += product7.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("spagetti");
          //   order.displayOrders();
+            updateTotalPriceDisplay();
         });
 
         Product product8 = order.addProduct("vegatables spagetti");
@@ -900,13 +962,13 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product8.getImageURL(), product8.getName(), product8.getPrice() + " $");
             totalPriceDishes += product8.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("vegatables spagetti");
          //   order.displayOrders();
+            updateTotalPriceDisplay();
 
 
         });
@@ -923,37 +985,16 @@ public class DashboardController implements Initializable {
             addHorizontalSection(product9.getImageURL(), product9.getName(), product9.getPrice() + " $");
             totalPriceDishes += product9.getPrice();
             System.out.println("totalPriceDishes: " + totalPriceDishes);
-            double totalTaxOrders =  totalPriceDishes*0.1;
+            double totalTaxOrders =  totalPriceDishes*fees;
             double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText( totalPriceDishes + " $");
             taxPrice.setText(totalTaxOrders + " $");
             totalPrice.setText(totalPriceOrdersWithTax + " $");
             order.storeOrder("dish1");
+       //     System.out.println("totalPriceDishes: " + totalPriceDishes);
          //   order.displayOrders();
+            updateTotalPriceDisplay();
         });
         System.out.println("totalPriceDishes: " + totalPriceDishes);
-
-    }
-    public void totalPriceDishes() {
-        if(cloneOrder.getTotalPrice() != 0) {
-            totalPriceDishes += cloneOrder.getOrderPrice();
-            double  totalTaxOrders = totalPriceDishes*0.1;
-            double  ttotalPrice = totalPriceDishes + totalTaxOrders;
-            orderPrice.setText(totalPriceDishes + " $");
-            taxPrice.setText(totalTaxOrders + " $");
-            totalPrice.setText(ttotalPrice + " $");
-
-        }
-        else if(cloneOrder.getTotalPrice() == 0){
-            orderPrice.setText(totalPriceDishes + " $");
-            taxPrice.setText(totalPriceDishes*0.1 + " $");
-            totalPrice.setText((totalPriceDishes*0.1 )+ totalPriceDishes  + " $");
-        }
-        else if(totalPriceDishes == 0){
-            orderPrice.setText(cloneOrder.getOrderPrice() + " $");
-            taxPrice.setText(cloneOrder.getOrderPrice()*0.1 + " $");
-            totalPrice.setText(cloneOrder.getOrderPrice() + " $");
-        }
 
     }
 
@@ -977,23 +1018,254 @@ public class DashboardController implements Initializable {
         payCusBtn.setVisible(payVisible);
     }
 
-    public void totalDishes(){
+    Service tableType;
 
-        double totalTaxOrders =  totalPriceDishes*0.1;
-        double totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
-        orderPrice.setText( totalPriceDishes + " $");
-        taxPrice.setText(totalTaxOrders + " $");
-        totalPrice.setText(totalPriceOrdersWithTax + " $");
+    public Service IndoorAction() {
+        ServiceForm.setVisible(false);
+        menuFrame.setVisible(false);
+        tableForm.setVisible(true);
+        stCusFrame.setVisible(false);
+        ndCusFrame.setVisible(false);
+        rdCusFrame.setVisible(false);
+        thCusFrame.setVisible(false);
+        ingedForm.setVisible(false);
+        cancelCusBtn.setVisible(false);
+        payCusBtn.setVisible(false);
+        tableTyp ="Indoor";
+        tableType = serviceFactory.getService(tableTyp);
+        System.out.println(tableType.getFess());
+        TableType1.setText(tableTyp);
+
+        return tableType;
+    }
+
+    public Service OutdoorAction() {
+        ServiceForm.setVisible(false);
+        menuFrame.setVisible(false);
+        tableForm.setVisible(true);
+        stCusFrame.setVisible(false);
+        ndCusFrame.setVisible(false);
+        rdCusFrame.setVisible(false);
+        thCusFrame.setVisible(false);
+        ingedForm.setVisible(false);
+        cancelCusBtn.setVisible(false);
+        payCusBtn.setVisible(false);
+        tableTyp ="Outdoor";
+        tableType = serviceFactory.getService(tableTyp);
+        System.out.println(tableType.getFess());
+        TableType1.setText(tableTyp);
+
+        return tableType;
+    }
+
+    public Service VIPAction() {
+        ServiceForm.setVisible(false);
+        menuFrame.setVisible(false);
+        tableForm.setVisible(true);
+        stCusFrame.setVisible(false);
+        ndCusFrame.setVisible(false);
+        rdCusFrame.setVisible(false);
+        thCusFrame.setVisible(false);
+        ingedForm.setVisible(false);
+        cancelCusBtn.setVisible(false);
+        payCusBtn.setVisible(false);
+        tableTyp ="VIP";
+        tableType = serviceFactory.getService(tableTyp);
+        System.out.println(tableType.getFess());
+        TableType1.setText(tableTyp);
+
+        return tableType;
+    }
+
+    public Service DeliveryAction() {
+        ServiceForm.setVisible(false);
+        menuFrame.setVisible(true);
+        tableForm.setVisible(false);
+        stCusFrame.setVisible(false);
+        ndCusFrame.setVisible(false);
+        rdCusFrame.setVisible(false);
+        thCusFrame.setVisible(false);
+        ingedForm.setVisible(false);
+        cancelCusBtn.setVisible(false);
+        payCusBtn.setVisible(false);
+        tableTyp ="delivery";
+//        tableType = serviceFactory.getService(tableTyp);
+//        System.out.println(tableType.getFess());
+//        TableType1.setText(tableTyp);
+
+        return tableType;
+    }
+
+    public Service takeAwayAction() {
+        ServiceForm.setVisible(false);
+        menuFrame.setVisible(true);
+        tableForm.setVisible(false);
+        stCusFrame.setVisible(false);
+        ndCusFrame.setVisible(false);
+        rdCusFrame.setVisible(false);
+        thCusFrame.setVisible(false);
+        ingedForm.setVisible(false);
+        cancelCusBtn.setVisible(false);
+        payCusBtn.setVisible(false);
+        tableTyp ="TakeAway";
+
+        return tableType;
+    }
+
+    public void t1Action(){
+        t1Selected.setVisible(true);
+        t2Selected.setVisible(false);
+        t3Selected.setVisible(false);
+        t4Selected.setVisible(false);
+        t5Selected.setVisible(false);
+
+        if (tableTyp == null) {
+            System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+            return ;
+        }
+        System.out.println("Table Type: " + tableTyp);
+
+        if (tableType != null) {
+            fees= tableType.getFess();
+        }
+        System.out.println("Fees: ddd" + fees);
+        tableNumber = 1;
+        System.out.println("Table Number: " + tableNumber);
+        TableNum.setText("T" + tableNumber);
+    }
+
+    public void t2Action(){
+        t1Selected.setVisible(false);
+        t2Selected.setVisible(true);
+        t3Selected.setVisible(false);
+        t4Selected.setVisible(false);
+        t5Selected.setVisible(false);
+
+        if (tableTyp == null) {
+            System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+            return ;
+        }
+        System.out.println("Table Type: " + tableTyp);
+
+        if (tableType != null) {
+            fees= tableType.getFess();
+        }
+        System.out.println("Fees: ddd" + fees);
+        tableNumber = 2;
+        System.out.println("Table Number: " + tableNumber);
+        TableNum.setText("T" + tableNumber);
+    }
+
+    public void t3Action(){
+        t1Selected.setVisible(false);
+        t3Selected.setVisible(true);
+        t2Selected.setVisible(false);
+        t4Selected.setVisible(false);
+        t5Selected.setVisible(false);
+
+        if (tableTyp == null) {
+            System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+            return ;
+        }
+        System.out.println("Table Type: " + tableTyp);
+
+        if (tableType != null) {
+            fees= tableType.getFess();
+        }
+        System.out.println("Fees: ddd" + fees);
+        tableNumber = 3;
+        System.out.println("Table Number: " + tableNumber);
+        TableNum.setText("T" + tableNumber);
+    }
+
+    public void t4Action(){
+        t1Selected.setVisible(false);
+        t2Selected.setVisible(false);
+        t3Selected.setVisible(false);
+        t4Selected.setVisible(true);
+        t5Selected.setVisible(false);
+
+        if (tableTyp == null) {
+            System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+            return ;
+        }
+        System.out.println("Table Type: " + tableTyp);
+
+        if (tableType != null) {
+            fees= tableType.getFess();
+        }
+        System.out.println("Fees: ddd" + fees);
+        tableNumber = 4;
+        System.out.println("Table Number: " + tableNumber);
+        TableNum.setText("T" + tableNumber);
+    }
+
+    public void t5Action(){
+        t1Selected.setVisible(false);
+        t5Selected.setVisible(true);
+        t3Selected.setVisible(false);
+        t4Selected.setVisible(false);
+        t2Selected.setVisible(false);
+
+        if (tableTyp == null) {
+            System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+            return ;
+        }
+        System.out.println("Table Type: " + tableTyp);
+
+        if (tableType != null) {
+            fees= tableType.getFess();
+        }
+        System.out.println("Fees: ddd" + fees);
+        tableNumber = 5;
+        System.out.println("Table Number: " + tableNumber);
+        TableNum.setText("T" + tableNumber);
+    }
+
+    public void tableFormBtnSelect(){
+        tableForm.setVisible(false);
+        menuFrame.setVisible(true);
+        menuForm.setVisible(true);
 
     }
 
+    public void totalPriceDishes() {
+        if(cloneOrder.getTotalPrice() != 0) {
+            totalPriceDishes += cloneOrder.getOrderPrice();
+            double  totalTaxOrders = totalPriceDishes*fees;
+            double  ttotalPrice = totalPriceDishes + totalTaxOrders;
+            orderPrice.setText(totalPriceDishes + " $");
+            taxPrice.setText(totalTaxOrders + " $");
+            totalPrice.setText(ttotalPrice + " $");
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
 
+        }
+        else if(cloneOrder.getTotalPrice() == 0){
+            orderPrice.setText(totalPriceDishes + " $");
+            taxPrice.setText(totalPriceDishes*fees + " $");
+            totalPrice.setText((totalPriceDishes*fees )+ totalPriceDishes  + " $");
+        }
+        else if(totalPriceDishes == 0){
+            orderPrice.setText(cloneOrder.getOrderPrice() + " $");
+            taxPrice.setText(cloneOrder.getOrderPrice()*fees + " $");
+            totalPrice.setText(cloneOrder.getOrderPrice() + " $");
+        }
 
+    }
+
+    public void SwitchForm(){
+        homeBtn.setOnAction(event -> {
+            homeIcon1.setVisible(false);
+            homeActive1.setVisible(true);
+        });
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println(t2Btn);         // should not be null
-        System.out.println(t2Selected);    // should not be null
+        System.out.println(t2Btn);
+        System.out.println(t2Selected);
+
 
 
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -1001,8 +1273,7 @@ public class DashboardController implements Initializable {
         scrollPane2.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane2.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-        totalPriceDishes();
-
+      totalPriceDishes();
 
 
         payAction();
@@ -1065,51 +1336,8 @@ public class DashboardController implements Initializable {
             totalPrice.setText("");
         });
 
-        t1Btn.setOnAction(event -> {
-            t1Selected.setVisible(true);
-            t2Selected.setVisible(false);
-            t3Selected.setVisible(false);
-            t4Selected.setVisible(false);
-            t5Selected.setVisible(false);
-        });
 
-        t2Btn.setOnAction(event -> {
-            t1Selected.setVisible(false);
-            t2Selected.setVisible(true);
-            t3Selected.setVisible(false);
-            t4Selected.setVisible(false);
-            t5Selected.setVisible(false);
-        });
-        t3Btn.setOnAction(event -> {
-            t1Selected.setVisible(false);
-            t2Selected.setVisible(false);
-            t3Selected.setVisible(true);
-            t4Selected.setVisible(false);
-            t5Selected.setVisible(false);
-
-        });
-
-        t4Btn.setOnAction(event -> {
-            t1Selected.setVisible(false);
-            t2Selected.setVisible(false);
-            t3Selected.setVisible(false);
-            t4Selected.setVisible(true);
-            t5Selected.setVisible(false);
-
-        });
-        t5Btn.setOnAction(event -> {
-            t5Selected.setVisible(true);
-            t4Selected.setVisible(false);
-            t3Selected.setVisible(false);
-            t2Selected.setVisible(false);
-            t1Selected.setVisible(false);
-        }); 
     }
-
-
-
-
-
 
     private void startClockThread() {
         Thread timeThread = new Thread(() -> {

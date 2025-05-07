@@ -2,6 +2,8 @@ package com.example.designpattern1;
 
 import java.util.ArrayList;
 
+import static com.example.designpattern1.DashboardController.fees;
+
 interface Invoice {
     orderCloned cloneObject(int vegatablesPrice, int meatPrice, int beardPrice, int cheesePrice,
                             String meatType, String vegatablesType, String beardType, String cheeseType, String meatImageURL,
@@ -112,12 +114,13 @@ public class orderCloned implements Invoice {
         return clonedOrder;
     }
     public int getOrderPrice() {
+        System.out.println("Order Price: " + (vegatablesCnt*vegatablesPrice + meatCnt*meatPrice + beardCnt*beardPrice + cheeseCnt*cheesePrice) + " Taka");
         orderPrice = vegatablesCnt*vegatablesPrice + meatCnt*meatPrice + beardCnt*beardPrice + cheeseCnt*cheesePrice;
         return orderPrice;
     }
 
     public double getTaxPrice() {
-        taxPrice =  orderPrice * 0.10;
+        taxPrice =  orderPrice * fees;
         return taxPrice;
     }
 

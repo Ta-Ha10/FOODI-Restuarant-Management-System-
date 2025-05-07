@@ -1,6 +1,6 @@
 package com.example.designpattern1;
 
-interface Service {
+public interface Service {
     double fess = 0.0;
 
     double getFess();
@@ -47,14 +47,14 @@ class takeAwayService implements Service{
 
 
 class serviceFactory{
-    public Service getService(String type){
-        return switch (type.toLowerCase()) {
+    public static Service getService(String type){
+        return switch (type) {
             case "Indoor" -> new IndoorTables();
             case "Outdoor" -> new OutdoorTables();
             case "VIP" -> new VIPTables();
             case "Delivery" -> new deliveryService();
             case "TakeAway" -> new takeAwayService();
-            default -> throw new IllegalArgumentException("Invalid com.example.designpattern1.Service Type");
+            default -> throw new IllegalArgumentException("Unknown choices are: Indoor, Outdoor, VIP, Delivery, TakeAway ");
         };
 
     }
