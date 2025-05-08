@@ -76,7 +76,7 @@ public class orderCloned implements Invoice {
     public String getMeatImageURL() { return meatImageURL; }
     public String getVegatablesImageURL() { return vegatablesImageURL; }
     public String getCheeseImageURL() { return cheeseImageURL; }
-    public String getTableNum() {return tableNum+"" ;}
+    public int getTableNum() {return tableNum ;}
     public int getMeatCnt() {
         return meatCnt;
     }
@@ -114,6 +114,7 @@ public class orderCloned implements Invoice {
         clonedOrder.setVegatablesCnt(vegatablesCnt);
         clonedOrder.setBeardCnt(beardCnt);
         clonedOrder.setCheeseCnt(cheeseCnt);
+        clonedOrder.setTableNum(tableNum);
         return clonedOrder;
     }
     public int getOrderPrice() {
@@ -163,18 +164,18 @@ public class orderCloned implements Invoice {
     public static void storeOrderbuilder(String meatType, int meatPrice, String meatImageURL,
                            String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
                            String chesseType, int cheesePrice, String cheeseImageURL,
-                           String beardType, int beardPrice, String beardImageURL) {
+                           String beardType, int beardPrice, String beardImageURL , int tableNum) {
 
         ProductOrderFinal order = new ProductOrderFinal(meatType, meatPrice, meatImageURL,
                 vegatablesType, vegatablesPrice, vegatablesImageURL,
                 chesseType, cheesePrice, cheeseImageURL,
-                beardType, beardPrice, beardImageURL);
+                beardType, beardPrice, beardImageURL , tableNum);
         orderList2.add(order);
     }
 
     public void displayOrders() {
         for (ProductOrderFinal order : orderList2) {
-            System.out.println(order);
+            System.out.println("Clone " + order);
         }
     }
 
@@ -193,12 +194,117 @@ class ProductOrderFinal {
     private String beardType;
     private int beardPrice;
     private String beardImageURL;
+    private int tableNum;
+
+    public String getMeatType() {
+        return meatType;
+    }
+
+    public void setMeatType(String meatType) {
+        this.meatType = meatType;
+    }
+
+    public int getMeatPrice() {
+        return meatPrice;
+    }
+
+    public void setMeatPrice(int meatPrice) {
+        this.meatPrice = meatPrice;
+    }
+
+    public String getMeatImageURL() {
+        return meatImageURL;
+    }
+
+    public void setMeatImageURL(String meatImageURL) {
+        this.meatImageURL = meatImageURL;
+    }
+
+    public String getVegatablesType() {
+        return vegatablesType;
+    }
+
+    public void setVegatablesType(String vegatablesType) {
+        this.vegatablesType = vegatablesType;
+    }
+
+    public int getVegatablesPrice() {
+        return vegatablesPrice;
+    }
+
+    public void setVegatablesPrice(int vegatablesPrice) {
+        this.vegatablesPrice = vegatablesPrice;
+    }
+
+    public String getVegatablesImageURL() {
+        return vegatablesImageURL;
+    }
+
+    public void setVegatablesImageURL(String vegatablesImageURL) {
+        this.vegatablesImageURL = vegatablesImageURL;
+    }
+
+    public String getChesseType() {
+        return chesseType;
+    }
+
+    public void setChesseType(String chesseType) {
+        this.chesseType = chesseType;
+    }
+
+    public int getCheesePrice() {
+        return cheesePrice;
+    }
+
+    public void setCheesePrice(int cheesePrice) {
+        this.cheesePrice = cheesePrice;
+    }
+
+    public String getCheeseImageURL() {
+        return cheeseImageURL;
+    }
+
+    public void setCheeseImageURL(String cheeseImageURL) {
+        this.cheeseImageURL = cheeseImageURL;
+    }
+
+    public String getBeardType() {
+        return beardType;
+    }
+
+    public void setBeardType(String beardType) {
+        this.beardType = beardType;
+    }
+
+    public int getBeardPrice() {
+        return beardPrice;
+    }
+
+    public void setBeardPrice(int beardPrice) {
+        this.beardPrice = beardPrice;
+    }
+
+    public String getBeardImageURL() {
+        return beardImageURL;
+    }
+
+    public void setBeardImageURL(String beardImageURL) {
+        this.beardImageURL = beardImageURL;
+    }
+
+    public int getTableNum() {
+        return tableNum;
+    }
+
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
 
     // Constructor
     public ProductOrderFinal(String meatType, int meatPrice, String meatImageURL,
                              String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
                              String chesseType, int cheesePrice, String cheeseImageURL,
-                             String beardType, int beardPrice, String beardImageURL) {
+                             String beardType, int beardPrice, String beardImageURL , int tableNum) {
         this.meatType = meatType;
         this.meatPrice = meatPrice;
         this.meatImageURL = meatImageURL;
@@ -211,11 +317,11 @@ class ProductOrderFinal {
         this.beardType = beardType;
         this.beardPrice = beardPrice;
         this.beardImageURL = beardImageURL;
+        this.tableNum = tableNum;
     }
 
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "ProductOrderFinal{" +
                 "meatType='" + meatType + '\'' +
                 ", meatPrice=" + meatPrice +
@@ -229,7 +335,8 @@ class ProductOrderFinal {
                 ", beardType='" + beardType + '\'' +
                 ", beardPrice=" + beardPrice +
                 ", beardImageURL='" + beardImageURL + '\'' +
-                '}'+ "\n";
+                ", tableNum=" + tableNum +
+                '}';
     }
 }
 

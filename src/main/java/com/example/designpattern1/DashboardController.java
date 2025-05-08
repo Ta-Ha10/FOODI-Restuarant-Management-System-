@@ -17,10 +17,12 @@
     import java.awt.*;
     import java.net.URL;
     import java.text.SimpleDateFormat;
+    import java.util.ArrayList;
     import java.util.Calendar;
     import java.util.Date;
     import java.util.ResourceBundle;
 
+    import static com.example.designpattern1.OrderMerger.finalList;
     import static com.example.designpattern1.RestaurantOrder.orderList;
     import static com.example.designpattern1.orderCloned.storeOrderbuilder;
 
@@ -738,7 +740,7 @@
                         builder.getVegatablesPrice(), builder.getMeatPrice(), builder.getBeardPrice(), builder.getCheesePrice(),
                         builder.getMeatType(), builder.getVegatablesType(), builder.getBeardType(), builder.getCheeseType(),
                         builder.getMeatImageURL(), builder.getVegatablesImageURL(), builder.getCheeseImageURL(), builder.getBeardImageURL(),
-                        meatCnt, vegatablesCnt, cheeseCnt, beardCnt
+                        meatCnt, vegatablesCnt, cheeseCnt, beardCnt , tableNumber
                 );
 
                 // Debugging: Print cloned items
@@ -780,7 +782,7 @@
                 storeOrderbuilder(cloneOrder.getMeatType() , cloneOrder.getMeatPrice() , cloneOrder.getMeatImageURL()
                 , cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
                 cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
-                cloneOrder.getBeardType() , cloneOrder.getBeardPrice() , cloneOrder.getBeardImageURL());
+                cloneOrder.getBeardType() , cloneOrder.getBeardPrice() , cloneOrder.getBeardImageURL() , cloneOrder.getTableNum());
 
                 cloneOrder.displayOrders();
                 System.out.println("totalPriceDishes: " + totalPriceDishes);
@@ -1299,10 +1301,13 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum.setText("T" + tableNumber);
 
+            // Merge orders before displaying
+            OrderMerger.mergeOrders();
+
+            // Clear existing content and show orders for the selected table
             vBoxContent2.getChildren().clear();
             showOrdersForTable(tableNumber);
         }
-
 
         public void showOrdersForTable(int tableNumber) {
             // Clear existing content in the VBox
@@ -1310,10 +1315,11 @@
 
             boolean hasOrders = false; // Flag to track if any orders exist for the table
 
-            for (ProductOrder order : orderList) {
-                if (order.getTableNumOrder() == tableNumber) {
+            // Iterate through the finalList to find orders for the selected table
+            for (UnifiedOrder order : finalList) {
+                if (order.getTableNum() == tableNumber) {
                     hasOrders = true; // Set flag to true if an order is found
-                    addHorizontalSection2(order.getImageURLOrder(), order.getNameOrder(), order.getPriceOrder());
+                    addHorizontalSection2(order.getImageURL(), order.getName(), order.getPrice());
                 }
             }
 
@@ -1328,7 +1334,6 @@
                 vBoxContent2.getChildren().add(noOrdersLabel);
             }
         }
-
         public void addHorizontalSection2(String imagePath, String title, int price) {
             // Load image
             Image image = new Image(imagePath);
@@ -1386,6 +1391,18 @@
                 totalPrice.setText(cloneOrder.getOrderPrice() + " $");
             }
 
+        }
+
+        public void someMethod() {
+            // Merge the orders into finalList
+            OrderMerger.mergeOrders();
+
+            // Use the finalList as needed
+            for (UnifiedOrder unifiedOrder : finalList) {
+                System.out.println("Unified Order: " + unifiedOrder.getName() +
+                        ", Price: $" + unifiedOrder.getPrice() +
+                        ", Table: T" + unifiedOrder.getTableNum());
+            }
         }
 
         @Override
@@ -1580,5 +1597,100 @@
                 case 3 -> "rd";
                 default -> "th";
             };
+        }
+    }
+
+     class UnifiedOrder {
+        private String name;
+        private int price;
+        private String imageURL;
+        private int tableNum;
+
+        // Constructor for ProductOrder
+        public UnifiedOrder(String name, int price, String imageURL, int tableNum) {
+            this.name = name;
+            this.price = price;
+            this.imageURL = imageURL;
+            this.tableNum = tableNum;
+        }
+
+        // Constructor for ProductOrderFinal
+        public UnifiedOrder(String meatType, int meatPrice, String meatImageURL,
+                            String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
+                            String cheeseType, int cheesePrice, String cheeseImageURL,
+                            String beardType, int beardPrice, String beardImageURL, int tableNum) {
+            this.name = String.format("%s, %s, %s, %s",
+                    meatType != null ? meatType : "No Meat",
+                    vegatablesType != null ? vegatablesType : "No Vegatables",
+                    cheeseType != null ? cheeseType : "No Cheese",
+                    beardType != null ? beardType : "No Bread");
+            this.price = meatPrice + vegatablesPrice + cheesePrice + beardPrice;
+            this.imageURL = meatImageURL; // You can decide which image to prioritize
+            this.tableNum = tableNum;
+        }
+
+        // Getters (if needed)
+        public String getName() {
+            return name;
+        }
+
+        public int getPrice() {
+            return price;
+        }
+
+        public String getImageURL() {
+            return imageURL;
+        }
+
+        public int getTableNum() {
+            return tableNum;
+        }
+    }
+
+     class OrderMerger {
+
+        public static ArrayList<UnifiedOrder> finalList = new ArrayList<>();
+
+        public static void mergeOrders() {
+            // Clear the final list before merging
+            finalList.clear();
+
+            // Add orders from orderList (ProductOrder)
+            for (ProductOrder order : RestaurantOrder.orderList) {
+                UnifiedOrder unifiedOrder = new UnifiedOrder(
+                        order.getNameOrder(),
+                        order.getPriceOrder(),
+                        order.getImageURLOrder(),
+                        order.getTableNumOrder()
+                );
+                finalList.add(unifiedOrder);
+            }
+
+            // Add orders from orderList2 (ProductOrderFinal)
+            for (ProductOrderFinal order : orderCloned.orderList2) {
+                UnifiedOrder unifiedOrder = new UnifiedOrder(
+                        order.getMeatType(),
+                        order.getMeatPrice(),
+                        order.getMeatImageURL(),
+                        order.getVegatablesType(),
+                        order.getVegatablesPrice(),
+                        order.getVegatablesImageURL(),
+                        order.getChesseType(),
+                        order.getCheesePrice(),
+                        order.getCheeseImageURL(),
+                        order.getBeardType(),
+                        order.getBeardPrice(),
+                        order.getBeardImageURL(),
+                        order.getTableNum()
+                );
+                finalList.add(unifiedOrder);
+            }
+
+            // Debug print to verify the merged list
+            for (UnifiedOrder unifiedOrder : finalList) {
+                System.out.println("Merged Order: " + unifiedOrder.getName() +
+                        ", Price: $" + unifiedOrder.getPrice() +
+                        ", Table: T" + unifiedOrder.getTableNum());
+            }
         }
     }

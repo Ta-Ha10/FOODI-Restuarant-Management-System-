@@ -20,6 +20,7 @@ class OrderCus {
     int vegatablesCnt = 0;
     int cheeseCnt = 0;
     int beardCnt = 0;
+    int tableNum = 0;
 
     public void clear() {
         this.MeatType = "";
@@ -43,6 +44,9 @@ class OrderCus {
         this.beardCnt = 0;
     }
 
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
 
     public void setMeatImageURL(String imageURL) {
         this.meatImageURL = imageURL;
@@ -108,10 +112,13 @@ class OrderCus {
         return beardimageURL;
     }
 
+    public int getTableNum() {
+        return tableNum;
+    }
 
     @Override
     public String toString() {
-        return "order{" +
+        return "OrderCus{" +
                 "VegatablesPrice=" + VegatablesPrice +
                 ", MeatPrice=" + MeatPrice +
                 ", BeardPrice=" + BeardPrice +
@@ -121,6 +128,15 @@ class OrderCus {
                 ", VegatablesType='" + VegatablesType + '\'' +
                 ", BeardType='" + BeardType + '\'' +
                 ", CheeseType='" + CheeseType + '\'' +
+                ", meatImageURL='" + meatImageURL + '\'' +
+                ", vegatablesimageURL='" + vegatablesimageURL + '\'' +
+                ", cheeseimageURL='" + cheeseimageURL + '\'' +
+                ", beardimageURL='" + beardimageURL + '\'' +
+                ", meatCnt=" + meatCnt +
+                ", vegatablesCnt=" + vegatablesCnt +
+                ", cheeseCnt=" + cheeseCnt +
+                ", beardCnt=" + beardCnt +
+                ", tableNum=" + tableNum +
                 '}';
     }
 
@@ -191,6 +207,9 @@ interface BuilderFactory {
     String getVegatablesImageURL();
     String getCheeseImageURL();
     String getBeardImageURL();
+    int getTableNum();
+    void setTableNum(int tableNum);
+
   //  public void displayOrders() ;
 
 //    int getTotalPrice();
@@ -265,6 +284,10 @@ class orderBuilder implements BuilderFactory {
     public void setBeardType(String beardType) {
         order.setBeardType(beardType);
     }
+
+    public void setTableNum(int tableNum){
+        order.setTableNum(tableNum);
+    }
     @Override
     public void setCheeseType(String cheeseType) {
         order.setCheeseType(cheeseType);
@@ -314,6 +337,9 @@ class orderBuilder implements BuilderFactory {
         return order.getBeardType();
     }
 
+    public  int getTableNum(){
+        return order.tableNum;
+    }
     public void clear(){
         order.clear();}
 
@@ -324,25 +350,8 @@ class orderBuilder implements BuilderFactory {
         reset();
         return order;
     }
-    public static ArrayList<ProductOrderFinal> orderList2 = new ArrayList<>();
 
-    public static void storeOrderbuilder(String meatType, int meatPrice, String meatImageURL,
-                                         String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
-                                         String chesseType, int cheesePrice, String cheeseImageURL,
-                                         String beardType, int beardPrice, String beardImageURL) {
 
-        ProductOrderFinal order = new ProductOrderFinal(meatType, meatPrice, meatImageURL,
-                vegatablesType, vegatablesPrice, vegatablesImageURL,
-                chesseType, cheesePrice, cheeseImageURL,
-                beardType, beardPrice, beardImageURL);
-        orderList2.add(order);
-    }
-
-    public void displayOrders() {
-        for (ProductOrderFinal order : orderList2) {
-            System.out.println(order);
-        }
-    }
 
 }
 
@@ -359,12 +368,13 @@ class ProductOrderFinal1 {
     private String beardType;
     private int beardPrice;
     private String beardImageURL;
+    private int tableNum;
 
     // Constructor
     public ProductOrderFinal1(String meatType, int meatPrice, String meatImageURL,
                              String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
                              String chesseType, int cheesePrice, String cheeseImageURL,
-                             String beardType, int beardPrice, String beardImageURL) {
+                             String beardType, int beardPrice, String beardImageURL , int tableNum) {
         this.meatType = meatType;
         this.meatPrice = meatPrice;
         this.meatImageURL = meatImageURL;
@@ -377,12 +387,12 @@ class ProductOrderFinal1 {
         this.beardType = beardType;
         this.beardPrice = beardPrice;
         this.beardImageURL = beardImageURL;
+        this.tableNum = tableNum;
     }
 
     @Override
-    public String
-    toString() {
-        return "ProductOrderFinal{" +
+    public String toString() {
+        return "ProductOrderFinal1{" +
                 "meatType='" + meatType + '\'' +
                 ", meatPrice=" + meatPrice +
                 ", meatImageURL='" + meatImageURL + '\'' +
@@ -395,7 +405,8 @@ class ProductOrderFinal1 {
                 ", beardType='" + beardType + '\'' +
                 ", beardPrice=" + beardPrice +
                 ", beardImageURL='" + beardImageURL + '\'' +
-                '}'+ "\n";
+                ", tableNum=" + tableNum +
+                '}';
     }
 }
 
