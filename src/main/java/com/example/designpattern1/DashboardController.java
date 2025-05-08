@@ -1313,7 +1313,7 @@
             // Clear existing content in the VBox
             vBoxContent2.getChildren().clear();
 
-            boolean hasOrders = false; // Flag to track if any orders exist for the table
+            boolean hasOrders = false;
 
             // Iterate through the finalList to find orders for the selected table
             for (UnifiedOrder order : finalList) {
