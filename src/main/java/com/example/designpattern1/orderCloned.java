@@ -8,7 +8,7 @@ interface Invoice {
     orderCloned cloneObject(int vegatablesPrice, int meatPrice, int beardPrice, int cheesePrice,
                             String meatType, String vegatablesType, String beardType, String cheeseType, String meatImageURL,
                             String vegatablesimageURL, String cheeseimageURL, String beardimageURL,
-                            int meatCnt ,int vegatablesCnt , int cheeseCnt ,int beardCnt);  // Prototype method
+                            int meatCnt ,int vegatablesCnt , int cheeseCnt ,int beardCnt , int tableNum);  // Prototype method
 }
 
 public class orderCloned implements Invoice {
@@ -31,6 +31,7 @@ public class orderCloned implements Invoice {
     int vegatablesCnt = 1;
     int beardCnt = 1;
     int cheeseCnt = 1;
+    int tableNum = 0;
 
 
 
@@ -46,6 +47,7 @@ public class orderCloned implements Invoice {
     public void setVegatablesImageURL(String vegatablesImageURL) { this.vegatablesImageURL = vegatablesImageURL; }
     public void setCheeseImageURL(String cheeseImageURL) { this.cheeseImageURL = cheeseImageURL; }
     public void setBeardImageURL(String beardImageURL) { this.beardImageURL = beardImageURL; }
+    public void setTableNum(int tableNum) { this.tableNum = tableNum; }
 
     public void setMeatCnt(int meatCnt) {
         this.meatCnt = meatCnt;
@@ -74,6 +76,7 @@ public class orderCloned implements Invoice {
     public String getMeatImageURL() { return meatImageURL; }
     public String getVegatablesImageURL() { return vegatablesImageURL; }
     public String getCheeseImageURL() { return cheeseImageURL; }
+    public String getTableNum() {return tableNum+"" ;}
     public int getMeatCnt() {
         return meatCnt;
     }
@@ -93,7 +96,7 @@ public class orderCloned implements Invoice {
     public orderCloned cloneObject(int vegatablesPrice, int meatPrice, int beardPrice, int cheesePrice,
                                    String meatType, String vegatablesType, String beardType, String cheeseType, String meatImageURL,
                                    String vegatablesImageURL, String cheeseImageURL, String beardImageURL,
-                                   int meatCnt ,int vegatablesCnt , int cheeseCnt ,int beardCnt) {
+                                   int meatCnt ,int vegatablesCnt , int cheeseCnt ,int beardCnt , int tableNum) {
         orderCloned clonedOrder = new orderCloned();
         clonedOrder.setVegatablesPrice(vegatablesPrice);
         clonedOrder.setMeatPrice(meatPrice);

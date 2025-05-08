@@ -9,6 +9,9 @@ interface Product {
     String getName();
     int getPrice();
     String getImageURL();
+    int tableNum = 0 ;
+    void setTableNum(int tableNum);
+    int getTableNum();
 }
 
 // Product Implementations
@@ -16,7 +19,7 @@ class CheeseBeard implements Product {
     public String name = "Cheese Beard";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\cheeseBeard.png";
-
+    private int tableNum;
     @Override
     public String getName() {
         return name;
@@ -30,6 +33,14 @@ class CheeseBeard implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -37,7 +48,7 @@ class GrilledMeat implements Product {
     public String name = "Grilled Meat";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\GrilledMeat.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -51,6 +62,13 @@ class GrilledMeat implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -58,7 +76,7 @@ class Salad implements Product {
     private String name = "Salad";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Salad.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -72,6 +90,13 @@ class Salad implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -79,7 +104,7 @@ class CheeseCake implements Product {
     private String name = "Cheese Cake";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\CheeseCake.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -94,13 +119,21 @@ class CheeseCake implements Product {
     public String getImageURL() {
         return imageURL;
     }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
+    }
+
 }
 
 class PlainBeard implements Product {
     private String name = "Plain Beard";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\PlainBeard.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -114,6 +147,13 @@ class PlainBeard implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -121,7 +161,7 @@ class Shrimp implements Product {
     private String name = "Shrimp";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Shrimp.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -135,6 +175,13 @@ class Shrimp implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -142,7 +189,7 @@ class VegatablesSpagetti implements Product {
     private String name = "Vegatables Spagetti";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\VegatableSpagetti.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -156,6 +203,13 @@ class VegatablesSpagetti implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -163,6 +217,7 @@ class Sapagetti implements Product {
     private String name = "Spagetti";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Spagetti.png";
+    int tableNum;
 
     @Override
     public String getName() {
@@ -177,6 +232,13 @@ class Sapagetti implements Product {
     @Override
     public String getImageURL() {
         return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
     }
 }
 
@@ -184,7 +246,7 @@ class dish1 implements Product {
     private String name = "dish1";
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\dish1.png";
-
+    int tableNum;
     @Override
     public String getName() {
         return name;
@@ -199,17 +261,27 @@ class dish1 implements Product {
     public String getImageURL() {
         return imageURL;
     }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
+    }
+
 }
 
 class ProductOrder {
     String name;
     int price;
     String imageURL;
+    int tableNum;
 
-    public ProductOrder(String name, int price, String imageURL) {
+    public ProductOrder(String name, int price, String imageURL , int tableNum) {
         this.name = name;
         this.price = price;
         this.imageURL = imageURL;
+        this.tableNum = tableNum;
     }
 
     // Getters
@@ -224,17 +296,25 @@ class ProductOrder {
     public String getImageURLOrder() {
         return imageURL;
     }
+    public int getTableNumOrder() {
+        return tableNum;
+    }
 
     @Override
     public String toString() {
-        return "Product: " + name + ", Price: " + price + ", Image URL: " + imageURL;
+        return "ProductOrder{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", imageURL='" + imageURL + '\'' +
+                ", tableNum=" + tableNum +
+                '}';
     }
 }
 
 abstract class Order {
     public abstract Product addProduct(String name);
 
-    public abstract  void storeOrder(String productName);
+    public abstract  void storeOrder(String productName , int tableNumber);
 
     public abstract void displayOrders() ;
 
@@ -242,57 +322,88 @@ abstract class Order {
 
         Product product = addProduct(name);
 
-        // you can log or process the product if needed
     }
 }
 
-// Concrete Factory
 public class RestaurantOrder extends Order {
-    private ArrayList<ProductOrder> orderList = new ArrayList<>();
+    public static ArrayList<ProductOrder> orderList = new ArrayList<>();
 
-
-
-    public void storeOrder(String productName) {
+    public void storeOrder(String productName, int tableNumber) {
         Product product = addProduct(productName); // Create product
+
+        product.setTableNum(tableNumber);
+
+        System.out.println("Debug - Product table number set to: " + product.getTableNum());
+
         ProductOrder order = new ProductOrder(
                 product.getName(),
                 product.getPrice(),
-                product.getImageURL()
+                product.getImageURL(),
+                product.getTableNum()
         );
+
+        // Debug print
+        System.out.println("Debug - Order created with table number: " + order.getTableNumOrder());
+
         orderList.add(order);
     }
 
+    public void storeOrder(String productName) {
+        storeOrder(productName, 0);
+    }
+
     public void displayOrders() {
-        for (ProductOrder order : orderList) {
-            System.out.println(order);
+        if (orderList.isEmpty()) {
+            System.out.println("No orders to display.");
+            return;
         }
+
+        System.out.println("Current Orders:");
+        for (ProductOrder order : orderList) {
+            // Debug print the order details explicitly
+            System.out.println("Order: " + order.getNameOrder() +
+                    "Image: " + order.getImageURLOrder() +
+                    ", Price: " + order.getPriceOrder() +
+                    ", Table: " + order.getTableNumOrder());
+        }
+
     }
 
     @Override
     public Product addProduct(String name) {
+        Product product;
         switch (name.toLowerCase()) {
             case "cheese beard":
-                return new CheeseBeard();
+                product = new CheeseBeard();
+                break;
             case "salad":
-                return new Salad();
+                product = new Salad();
+                break;
             case "plain beard":
-                return new PlainBeard();
+                product = new PlainBeard();
+                break;
             case "shrimp":
-                return new Shrimp();
+                product = new Shrimp();
+                break;
             case "cheese cake":
-                return new CheeseCake();
+                product = new CheeseCake();
+                break;
             case "grilled meat":
-                return new GrilledMeat();
+                product = new GrilledMeat();
+                break;
             case "spagetti":
-                return new Sapagetti();
+                product = new Sapagetti();
+                break;
             case "vegatables spagetti":
-                return new VegatablesSpagetti();
+                product = new VegatablesSpagetti();
+                break;
             case "dish1":
-                return new dish1();
+                product = new dish1();
+                break;
             default:
-                throw new IllegalArgumentException("Invalid product name");
+                throw new IllegalArgumentException("Invalid product name: " + name);
         }
+
+        return product;
     }
-
 }
-

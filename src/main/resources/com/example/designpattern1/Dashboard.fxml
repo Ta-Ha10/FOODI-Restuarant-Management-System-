@@ -22,17 +22,17 @@
                   <Image url="@Photoes/home.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="homeActive1" fitHeight="43.0" fitWidth="45.0" layoutX="13.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="homeActive1" fitHeight="50.0" fitWidth="49.0" layoutX="13.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Photoes/homeActive.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuActive1" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="menuActive" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Photoes/menuActive.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menu" fitHeight="43.0" fitWidth="45.0" layoutX="15.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Photoes/menu.png" />
                </image>
@@ -78,26 +78,27 @@
                </font>
             </Label>
             <Button fx:id="homeBtn" layoutX="7.0" layoutY="56.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="99.0" prefWidth="69.0" style="-fx-background-color: transparent;" text=" " />
+            <Button fx:id="menuBtn" layoutX="6.0" layoutY="185.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="66.0" style="-fx-background-color: transaprent;" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="99.0" prefWidth="1612.0" styleClass="sidebar">
          <children>
-            <Label layoutX="26.0" layoutY="14.0" text="F" textFill="#00d9f2">
-               <font>
-                  <Font size="52.0" />
-               </font>
-            </Label>
-            <Label layoutX="59.0" layoutY="13.0" text="OO" textFill="#e89a00">
+            <Label layoutX="26.0" layoutY="14.0" text="F" textFill="#b4d200">
                <font>
                   <Font name="System Bold" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="144.0" layoutY="14.0" text="D" textFill="#2dff53">
+            <Label layoutX="59.0" layoutY="13.0" text="OO" textFill="#ffb400">
                <font>
                   <Font name="System Bold" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="188.0" layoutY="14.0" text="I" textFill="#00d9f2">
+            <Label layoutX="144.0" layoutY="14.0" text="D" textFill="#00c2c2">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="188.0" layoutY="14.0" text="I" textFill="#00c2c2">
                <font>
                   <Font name="System Bold" size="52.0" />
                </font>
@@ -108,7 +109,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="1361.0" layoutY="29.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: e89a00;" text="Logout">
+            <Button layoutX="1361.0" layoutY="29.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: #ffb400;" text="Logout">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -856,7 +857,7 @@
             <Separator layoutX="963.0" layoutY="199.0" prefHeight="3.0" prefWidth="544.0" visible="false" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="tableForm" layoutX="112.0" layoutY="112.0" visible="false">
+      <AnchorPane fx:id="tableForm" layoutX="112.0" layoutY="112.0" prefHeight="878.0" prefWidth="1392.0">
          <children>
             <AnchorPane layoutY="8.0">
                <children>
@@ -988,37 +989,33 @@
                      </font>
                   </Label>
                   <ScrollPane fx:id="scrollPane2" layoutX="11.0" layoutY="112.0" prefHeight="636.0" prefWidth="400.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="633.0" prefWidth="390.0">
+                     <content>
+                        <VBox fx:id="vBoxContent2" prefHeight="635.0" prefWidth="400.0">
                            <children>
-                              <AnchorPane layoutX="18.0" layoutY="172.0" prefHeight="288.0" prefWidth="338.0">
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" />
+                              <AnchorPane fx:id="NoOrderYet" prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="103.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@Photoes/Vector.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="99.0" layoutY="173.0" text="No products in this">
+                                    <Label layoutX="108.0" layoutY="157.0" prefHeight="50.0" prefWidth="254.0" text=" No order yet">
                                        <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="116.0" layoutY="194.0" text="moment added">
-                                       <font>
-                                          <Font size="15.0" />
+                                          <Font size="22.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
                            </children>
-                        </AnchorPane>
-                    </content>
+                        </VBox>
+                     </content>
                   </ScrollPane>
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ServiceForm" layoutX="106.0" layoutY="99.0" prefHeight="885.0" prefWidth="1499.0" styleClass="root2" stylesheets="@HomePage.css">
+      <AnchorPane fx:id="ServiceForm" layoutX="106.0" layoutY="99.0" prefHeight="885.0" prefWidth="1499.0" styleClass="root2" stylesheets="@HomePage.css" visible="false">
          <children>
             <Label layoutX="20.0" layoutY="12.0" prefHeight="54.0" prefWidth="489.0" text="Choose Your Dining Experience :">
                <font>
@@ -1052,7 +1049,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IndoorBtn" layoutX="74.0" layoutY="311.0" mnemonicParsing="false" onAction="#IndoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #e89a00;" text="Reserve" textFill="#ebebeb">
+                  <Button fx:id="IndoorBtn" layoutX="74.0" layoutY="311.0" mnemonicParsing="false" onAction="#IndoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Reserve">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1091,7 +1088,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="outDoorBtn" layoutX="73.0" layoutY="310.0" mnemonicParsing="false" onAction="#OutdoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #e89a00;" text="Reserve" textFill="#ebebeb">
+                  <Button fx:id="outDoorBtn" layoutX="73.0" layoutY="310.0" mnemonicParsing="false" onAction="#OutdoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Reserve">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1130,7 +1127,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="VIPBtn" layoutX="68.0" layoutY="315.0" mnemonicParsing="false" onAction="#VIPAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #e89a00;" text="Reserve" textFill="#ebebeb">
+                  <Button fx:id="VIPBtn" layoutX="68.0" layoutY="315.0" mnemonicParsing="false" onAction="#VIPAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Reserve" textFill="#ebebeb">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1159,7 +1156,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IndoorBtn1" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#DeliveryAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #e89a00;" text="Order" textFill="#ebebeb">
+                  <Button fx:id="IndoorBtn1" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#DeliveryAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Order" textFill="#ebebeb">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1193,7 +1190,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IndoorBtn11" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#takeAwayAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #e89a00;" text="Order" textFill="#ebebeb">
+                  <Button fx:id="IndoorBtn11" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#takeAwayAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Order" textFill="#ebebeb">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
