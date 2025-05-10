@@ -80,7 +80,19 @@
         private Label TableNum;
 
         @FXML
+        private Label TableNum1;
+
+        @FXML
+        private Label TableNum11;
+
+        @FXML
         private Label TableType1;
+
+        @FXML
+        private Label TableType11;
+
+        @FXML
+        private Label TableType111;
 
         @FXML
         private Button VIPBtn;
@@ -123,9 +135,6 @@
 
         @FXML
         private Label cheeseSelect;
-
-        @FXML
-        private VBox compeletedOrder;
 
         @FXML
         private Button crispyBtn;
@@ -299,6 +308,9 @@
         private FlowPane pendingOrderss;
 
         @FXML
+        private FlowPane pendingOrderss1;
+
+        @FXML
         private Label price1;
 
         @FXML
@@ -338,13 +350,16 @@
         private ScrollPane scrollPane2;
 
         @FXML
-        private ScrollPane scrollPane21;
-
-        @FXML
-        private ScrollPane scrollPane211;
-
-        @FXML
         private ScrollPane scrollPane3;
+
+        @FXML
+        private ScrollPane scrollPane31;
+
+        @FXML
+        private ScrollPane scrollPaneOutdoor;
+
+        @FXML
+        private ScrollPane scrollPaneOutdoor1;
 
         @FXML
         private Button sendOrder;
@@ -365,37 +380,109 @@
         private Button t1Btn;
 
         @FXML
+        private Button t1BtnOutdoor;
+
+        @FXML
+        private Button t1BtnVip;
+
+        @FXML
         private FontAwesomeIcon t1Selected;
+
+        @FXML
+        private FontAwesomeIcon t1SelectedOutdoor;
+
+        @FXML
+        private FontAwesomeIcon t1SelectedVip;
 
         @FXML
         private Button t2Btn;
 
         @FXML
+        private Button t2BtnOutdoor;
+
+        @FXML
+        private Button t2BtnVip;
+
+        @FXML
         private FontAwesomeIcon t2Selected;
+
+        @FXML
+        private FontAwesomeIcon t2SelectedOutdoor;
+
+        @FXML
+        private FontAwesomeIcon t2SelectedVip;
 
         @FXML
         private Button t3Btn;
 
         @FXML
+        private Button t3BtnOutdoor;
+
+        @FXML
+        private Button t3BtnVip;
+
+        @FXML
         private FontAwesomeIcon t3Selected;
+
+        @FXML
+        private FontAwesomeIcon t3SelectedOutdoor;
+
+        @FXML
+        private FontAwesomeIcon t3SelectedVip;
 
         @FXML
         private Button t4Btn;
 
         @FXML
+        private Button t4BtnOutdoor;
+
+        @FXML
+        private Button t4BtnVip;
+
+        @FXML
         private FontAwesomeIcon t4Selected;
+
+        @FXML
+        private FontAwesomeIcon t4SelectedOutdoor;
+
+        @FXML
+        private FontAwesomeIcon t4SelectedVip;
 
         @FXML
         private Button t5Btn;
 
         @FXML
+        private Button t5BtnOutdoor;
+
+        @FXML
+        private Button t5BtnVip;
+
+        @FXML
         private FontAwesomeIcon t5Selected;
 
         @FXML
-        private AnchorPane tableForm;
+        private FontAwesomeIcon t5SelectedOutdoor;
+
+        @FXML
+        private FontAwesomeIcon t5SelectedVip;
 
         @FXML
         private Button tableFormBtn;
+
+        @FXML
+        private Button tableFormBtn1;
+
+        @FXML
+        private Button tableFormBtn11;
+
+        @FXML
+        private AnchorPane tableFormIndoor;
+
+        @FXML
+        private AnchorPane tableFormOutdoor;
+
+        @FXML
+        private AnchorPane tableFormVip;
 
         @FXML
         private Label taxPrice;
@@ -1123,7 +1210,9 @@
         public Service IndoorAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(false);
-            tableForm.setVisible(true);
+            tableFormIndoor.setVisible(true);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(false);
             stCusFrame.setVisible(false);
             ndCusFrame.setVisible(false);
             rdCusFrame.setVisible(false);
@@ -1142,7 +1231,9 @@
         public Service OutdoorAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(false);
-            tableForm.setVisible(true);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(true);
+            tableFormVip.setVisible(false);
             stCusFrame.setVisible(false);
             ndCusFrame.setVisible(false);
             rdCusFrame.setVisible(false);
@@ -1161,7 +1252,9 @@
         public Service VIPAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(false);
-            tableForm.setVisible(true);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(true);
             stCusFrame.setVisible(false);
             ndCusFrame.setVisible(false);
             rdCusFrame.setVisible(false);
@@ -1180,7 +1273,9 @@
         public Service DeliveryAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(true);
-            tableForm.setVisible(false);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(false);
             stCusFrame.setVisible(false);
             ndCusFrame.setVisible(false);
             rdCusFrame.setVisible(false);
@@ -1199,7 +1294,9 @@
         public Service takeAwayAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(true);
-            tableForm.setVisible(false);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(false);
             stCusFrame.setVisible(false);
             ndCusFrame.setVisible(false);
             rdCusFrame.setVisible(false);
@@ -1381,6 +1478,345 @@
             showOrdersForTable(tableNumber);
         }
 
+        public void t1ActionOutdoor(){
+            t1SelectedOutdoor.setVisible(true);
+            t2SelectedOutdoor.setVisible(false);
+            t3SelectedOutdoor.setVisible(false);
+            t4SelectedOutdoor.setVisible(false);
+            t5SelectedOutdoor.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 1;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum1.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableOutdoor(tableNumber);
+
+        }
+
+        public void t2ActionOutdoor(){
+            t1SelectedOutdoor.setVisible(false);
+            t2SelectedOutdoor.setVisible(true);
+            t3SelectedOutdoor.setVisible(false);
+            t4SelectedOutdoor.setVisible(false);
+            t5SelectedOutdoor.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 2;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum1.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+
+            selectTableOutdoor(tableNumber);
+
+        }
+
+        public void t3ActionOutdoor(){
+            t1SelectedOutdoor.setVisible(false);
+            t3SelectedOutdoor.setVisible(true);
+            t2SelectedOutdoor.setVisible(false);
+            t4SelectedOutdoor.setVisible(false);
+            t5SelectedOutdoor.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 3;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum1.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableOutdoor(tableNumber);
+
+        }
+
+        public void t4ActionOutdoor(){
+            t1SelectedOutdoor.setVisible(false);
+            t2SelectedOutdoor.setVisible(false);
+            t3SelectedOutdoor.setVisible(false);
+            t4SelectedOutdoor.setVisible(true);
+            t5SelectedOutdoor.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 4;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum1.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableOutdoor(tableNumber);
+
+        }
+
+        public void t5ActionOutdoor() {
+            // Handle table selection visuals
+            t1SelectedOutdoor.setVisible(false);
+            t2SelectedOutdoor.setVisible(false);
+            t3SelectedOutdoor.setVisible(false);
+            t4SelectedOutdoor.setVisible(false);
+            t5SelectedOutdoor.setVisible(true);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.");
+                return;
+            }
+
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees = tableType.getFess();
+            }
+
+            System.out.println("Fees: " + fees);
+            tableNumber = 5;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum1.setText("T" + tableNumber);
+
+            selectTableOutdoor(tableNumber);
+        }
+
+        private void selectTableOutdoor(int tableNum) {
+            // Reset all table selection visuals
+            t1SelectedOutdoor.setVisible(tableNum == 1);
+            t2SelectedOutdoor.setVisible(tableNum == 2);
+            t3SelectedOutdoor.setVisible(tableNum == 3);
+            t4SelectedOutdoor.setVisible(tableNum == 4);
+            t5SelectedOutdoor.setVisible(tableNum == 5);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.");
+                return;
+            }
+
+            System.out.println("Table Type: " + tableTyp);
+            if (tableType != null) {
+                fees = tableType.getFess();
+            }
+            System.out.println("Fees: " + fees);
+            tableNumber = tableNum;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum1.setText("T" + tableNumber);
+
+            // Merge orders before displaying
+            OrderMerger.mergeOrders();
+
+            // Clear existing content and show orders for the selected table
+            showOrdersForTable(tableNumber);
+        }
+
+
+   public void t1ActionVip(){
+            t1SelectedVip.setVisible(true);
+            t2SelectedVip.setVisible(false);
+            t3SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(false);
+            t5SelectedVip.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 1;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableVip(tableNumber);
+
+        }
+
+        public void t2ActionVip(){
+            t1SelectedVip.setVisible(false);
+            t2SelectedVip.setVisible(true);
+            t3SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(false);
+            t5SelectedVip.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 2;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+
+            selectTableVip(tableNumber);
+
+        }
+
+        public void t3ActionVip(){
+            t1SelectedVip.setVisible(false);
+            t3SelectedVip.setVisible(true);
+            t2SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(false);
+            t5SelectedVip.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 3;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableVip(tableNumber);
+
+        }
+
+        public void t4ActionVip(){
+            t1SelectedVip.setVisible(false);
+            t2SelectedVip.setVisible(false);
+            t3SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(true);
+            t5SelectedVip.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 4;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableVip(tableNumber);
+
+        }
+
+        public void t5ActionVip() {
+            // Handle table selection visuals
+            t1SelectedVip.setVisible(false);
+            t2SelectedVip.setVisible(false);
+            t3SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(false);
+            t5SelectedVip.setVisible(true);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.");
+                return;
+            }
+
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees = tableType.getFess();
+            }
+
+            System.out.println("Fees: " + fees);
+            tableNumber = 5;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+            selectTableVip(tableNumber);
+        }
+
+        private void selectTableVip(int tableNum) {
+            // Reset all table selection visuals
+            t1SelectedVip.setVisible(tableNum == 1);
+            t2SelectedVip.setVisible(tableNum == 2);
+            t3SelectedVip.setVisible(tableNum == 3);
+            t4SelectedVip.setVisible(tableNum == 4);
+            t5SelectedVip.setVisible(tableNum == 5);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.");
+                return;
+            }
+
+            System.out.println("Table Type: " + tableTyp);
+            if (tableType != null) {
+                fees = tableType.getFess();
+            }
+            System.out.println("Fees: " + fees);
+            tableNumber = tableNum;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+            // Merge orders before displaying
+            OrderMerger.mergeOrders();
+
+            // Clear existing content and show orders for the selected table
+            showOrdersForTable(tableNumber);
+        }
+
         public void showOrdersForTable(int tableNumber) {
             // Clear all VBoxes before displaying orders
             vBoxContentIndoor.getChildren().clear();
@@ -1424,7 +1860,6 @@
                 }
             }
 
-            // If no orders exist for the table, display a "No orders exist" message in all VBoxes
             if (!hasOrders) {
                 displayNoOrdersMessage(vBoxContentIndoor);
                 displayNoOrdersMessage(vBoxContentOutdoor);
@@ -1467,7 +1902,9 @@
         }
 
         public void tableFormBtnSelect(){
-            tableForm.setVisible(false);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(false);
             menuFrame.setVisible(true);
             menuForm.setVisible(true);
             vboxContent.getChildren().clear();
@@ -1681,7 +2118,9 @@
             ServiceForm.setVisible(true);
             homeIcon1.setVisible(false);
             homeActive1.setVisible(true);
-            tableForm.setVisible(false);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(false);
             menuForm.setVisible(false);
             menuFrame.setVisible(false);
             stCusFrame.setVisible(false);
@@ -1699,7 +2138,9 @@
             orderBtn.setOnAction(event -> {
                 ServiceForm.setVisible(false);
                 ordersForm.setVisible(true);
-                tableForm.setVisible(false);
+                tableFormIndoor.setVisible(false);
+                tableFormOutdoor.setVisible(false);
+                tableFormVip.setVisible(false);
                 menuForm.setVisible(false);
                 menuFrame.setVisible(false);
                 stCusFrame.setVisible(false);
@@ -1835,7 +2276,9 @@
         private void hideAllForms() {
             ServiceForm.setVisible(false);
             menuForm.setVisible(false);
-            tableForm.setVisible(false);
+            tableFormIndoor.setVisible(false);
+            tableFormOutdoor.setVisible(false);
+            tableFormVip.setVisible(false);
             stCusFrame.setVisible(false);
             ndCusFrame.setVisible(false);
             rdCusFrame.setVisible(false);
