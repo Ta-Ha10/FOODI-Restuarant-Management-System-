@@ -12,6 +12,9 @@ interface Product {
     int tableNum = 0 ;
     void setTableNum(int tableNum);
     int getTableNum();
+    String getServiceType();
+    void setServiceType(String serviceType);
+    String serviceType = "";
 }
 
 // Product Implementations
@@ -20,6 +23,18 @@ class CheeseBeard implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\cheeseBeard.png";
     private int tableNum;
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -42,6 +57,7 @@ class CheeseBeard implements Product {
     public int getTableNum() {
         return tableNum;
     }
+
 }
 
 class GrilledMeat implements Product {
@@ -49,6 +65,18 @@ class GrilledMeat implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\GrilledMeat.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -77,6 +105,18 @@ class Salad implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Salad.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -105,6 +145,18 @@ class CheeseCake implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\CheeseCake.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -134,6 +186,18 @@ class PlainBeard implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\PlainBeard.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -162,6 +226,18 @@ class Shrimp implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Shrimp.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -190,6 +266,18 @@ class VegatablesSpagetti implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\VegatableSpagetti.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -219,6 +307,18 @@ class Sapagetti implements Product {
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Spagetti.png";
     int tableNum;
 
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -247,6 +347,18 @@ class dish1 implements Product {
     private int price = 100;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\dish1.png";
     int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
     @Override
     public String getName() {
         return name;
@@ -276,12 +388,14 @@ class ProductOrder {
     int price;
     String imageURL;
     int tableNum;
+    String serviceType;
 
-    public ProductOrder(String name, int price, String imageURL , int tableNum) {
+    public ProductOrder(String name, int price, String imageURL , int tableNum , String serviceType) {
         this.name = name;
         this.price = price;
         this.imageURL = imageURL;
         this.tableNum = tableNum;
+        this.serviceType = serviceType;
     }
 
     // Getters
@@ -296,8 +410,13 @@ class ProductOrder {
     public String getImageURLOrder() {
         return imageURL;
     }
+
     public int getTableNumOrder() {
         return tableNum;
+    }
+
+    public String getServiceType() {
+        return serviceType;
     }
 
     @Override
@@ -307,6 +426,7 @@ class ProductOrder {
                 ", price=" + price +
                 ", imageURL='" + imageURL + '\'' +
                 ", tableNum=" + tableNum +
+                ", serviceType='" + serviceType + '\'' +
                 '}';
     }
 }
@@ -314,7 +434,7 @@ class ProductOrder {
 abstract class Order {
     public abstract Product addProduct(String name);
 
-    public abstract  void storeOrder(String productName , int tableNumber);
+    public abstract  void storeOrder(String productName , int tableNumber , String serviceType);
 
     public abstract void displayOrders() ;
 
@@ -328,9 +448,9 @@ abstract class Order {
 public class RestaurantOrder extends Order {
     public static ArrayList<ProductOrder> orderList = new ArrayList<>();
 
-    public void storeOrder(String productName, int tableNumber) {
+    public void storeOrder(String productName, int tableNumber , String serviceType) {
         Product product = addProduct(productName); // Create product
-
+        product.setServiceType(serviceType);
         product.setTableNum(tableNumber);
 
         System.out.println("Debug - Product table number set to: " + product.getTableNum());
@@ -339,7 +459,8 @@ public class RestaurantOrder extends Order {
                 product.getName(),
                 product.getPrice(),
                 product.getImageURL(),
-                product.getTableNum()
+                product.getTableNum() ,
+                product.getServiceType()
         );
 
         // Debug print
@@ -348,9 +469,6 @@ public class RestaurantOrder extends Order {
         orderList.add(order);
     }
 
-    public void storeOrder(String productName) {
-        storeOrder(productName, 0);
-    }
 
     public void displayOrders() {
         if (orderList.isEmpty()) {
@@ -364,7 +482,8 @@ public class RestaurantOrder extends Order {
             System.out.println("Order: " + order.getNameOrder() +
                     "Image: " + order.getImageURLOrder() +
                     ", Price: " + order.getPriceOrder() +
-                    ", Table: " + order.getTableNumOrder());
+                    ", Table Number: " + order.getTableNumOrder() +
+                    ", Service Type: " + order.getServiceType());
         }
 
     }

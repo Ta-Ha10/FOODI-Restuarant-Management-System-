@@ -164,12 +164,12 @@ public class orderCloned implements Invoice {
     public static void storeOrderbuilder(String meatType, int meatPrice, String meatImageURL,
                            String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
                            String chesseType, int cheesePrice, String cheeseImageURL,
-                           String beardType, int beardPrice, String beardImageURL , int tableNum) {
+                           String beardType, int beardPrice, String beardImageURL , int tableNum , String serviceType) {
 
         ProductOrderFinal order = new ProductOrderFinal(meatType, meatPrice, meatImageURL,
                 vegatablesType, vegatablesPrice, vegatablesImageURL,
                 chesseType, cheesePrice, cheeseImageURL,
-                beardType, beardPrice, beardImageURL , tableNum);
+                beardType, beardPrice, beardImageURL , tableNum , serviceType);
         orderList2.add(order);
     }
 
@@ -195,6 +195,15 @@ class ProductOrderFinal {
     private int beardPrice;
     private String beardImageURL;
     private int tableNum;
+    private String serviceType;
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
 
     public String getMeatType() {
         return meatType;
@@ -304,7 +313,7 @@ class ProductOrderFinal {
     public ProductOrderFinal(String meatType, int meatPrice, String meatImageURL,
                              String vegatablesType, int vegatablesPrice, String vegatablesImageURL,
                              String chesseType, int cheesePrice, String cheeseImageURL,
-                             String beardType, int beardPrice, String beardImageURL , int tableNum) {
+                             String beardType, int beardPrice, String beardImageURL , int tableNum , String serviceType) {
         this.meatType = meatType;
         this.meatPrice = meatPrice;
         this.meatImageURL = meatImageURL;
@@ -318,6 +327,7 @@ class ProductOrderFinal {
         this.beardPrice = beardPrice;
         this.beardImageURL = beardImageURL;
         this.tableNum = tableNum;
+        this.serviceType = serviceType;
     }
 
     @Override
@@ -336,6 +346,7 @@ class ProductOrderFinal {
                 ", beardPrice=" + beardPrice +
                 ", beardImageURL='" + beardImageURL + '\'' +
                 ", tableNum=" + tableNum +
+                ", serviceType='" + serviceType + '\'' +
                 '}';
     }
 }
