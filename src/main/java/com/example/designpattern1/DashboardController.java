@@ -1497,10 +1497,7 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum1.setText("T" + tableNumber);
 
-//            vboxContent.getChildren().clear();
-//
-//            showOrdersForTable(tableNumber);
-            selectTableOutdoor(tableNumber);
+        selectTableOutdoor(tableNumber);
 
         }
 
@@ -1525,9 +1522,6 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum1.setText("T" + tableNumber);
 
-//            vboxContent.getChildren().clear();
-//
-//            showOrdersForTable(tableNumber);
 
             selectTableOutdoor(tableNumber);
 
