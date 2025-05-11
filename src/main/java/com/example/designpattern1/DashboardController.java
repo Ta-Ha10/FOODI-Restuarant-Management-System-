@@ -6,10 +6,10 @@
     import javafx.fxml.Initializable;
     import javafx.geometry.Pos;
     import javafx.scene.Scene;
+    import javafx.scene.control.*;
     import javafx.scene.control.Button;
     import javafx.scene.control.Label;
     import javafx.scene.control.ScrollPane;
-    import javafx.scene.control.Separator;
     import javafx.scene.image.Image;
     import javafx.scene.image.ImageView;
     import javafx.scene.layout.*;
@@ -19,10 +19,8 @@
     import java.text.SimpleDateFormat;
     import java.time.LocalTime;
     import java.time.format.DateTimeFormatter;
-    import java.util.ArrayList;
-    import java.util.Calendar;
-    import java.util.Date;
-    import java.util.ResourceBundle;
+    import java.util.*;
+
     import javafx.geometry.Insets;
     import javafx.stage.Modality;
     import javafx.stage.Stage;
@@ -1943,7 +1941,7 @@
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
                 String currentTime = now.format(formatter);
 
-                // Call the function with time
+                OrderMerger.mergeOrders();
                 addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime );
             });
             vboxContent.getChildren().clear();
@@ -1953,7 +1951,8 @@
 
 
         public void addHorizontalSection3(String tableType, int tableNumber, int totalPriceDishes, String currentTime) {
-            // === Header (Table Number + Time) ===
+
+
             Label tableNumberLabel = new Label("T" + tableNumber);
             tableNumberLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
             Label timeLabel = new Label(currentTime);
@@ -2003,32 +2002,24 @@
             HBox actions = new HBox(12, statusLabel, payButton);
             actions.setAlignment(Pos.CENTER_LEFT);
 
-            // === View Details Button ===
-            Button viewDetails = new Button("+ VIEW DETAILS");
-            viewDetails.setStyle(
-                    "-fx-background-color: transparent; " +
-                            "-fx-text-fill: #e49b39; " +
-                            "-fx-underline: true; " +
-                            "-fx-font-size: 15px; " +
-                            "-fx-cursor: hand;"
-            );
+            // === Product List Section ===
+            VBox productList = new VBox(8); // Holds all items in this order
+            for (UnifiedOrder order : OrderMerger.finalList) {
+                if (order.getTableNum() == tableNumber && order.getServiceType().equals(tableType)) {
+                    Image img = new Image(order.getImageURL(), 40, 40, true, true);
+                    ImageView imageView = new ImageView(img);
 
-            // Add an event handler to the "View Details" button
-            viewDetails.setOnAction(event -> {
-                // Filter orders from finalList based on table number and service type
-                ArrayList<UnifiedOrder> matchingOrders = new ArrayList<>();
-                for (UnifiedOrder order : OrderMerger.finalList) {
-                    if (order.getTableNum() == tableNumber && order.getServiceType().equals(tableType)) {
-                        matchingOrders.add(order);
-                    }
+                    Label itemLabel = new Label(order.getName() + " - $" + order.getPrice());
+                    itemLabel.setStyle("-fx-font-size: 13px;");
+
+                    HBox itemBox = new HBox(10, imageView, itemLabel);
+                    itemBox.setAlignment(Pos.CENTER_LEFT);
+                    productList.getChildren().add(itemBox);
                 }
-
-                // Create and show a dialog with the order details
-                showOrderDetailsDialog(matchingOrders);
-            });
+            }
 
             // === Card Container ===
-            VBox card = new VBox(12, header, serviceLabel, separator, priceLabel, actions, viewDetails);
+            VBox card = new VBox(12, header, serviceLabel, separator, priceLabel, productList, actions);
             card.setPadding(new Insets(16));
             card.setStyle(
                     "-fx-background-color: white; " +
@@ -2037,10 +2028,38 @@
                             "-fx-background-radius: 14px; " +
                             "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 6);"
             );
-            card.setMaxWidth(250); // Optional: limit width to look like the image
+            card.setMaxWidth(300); // Optional: limit width to match design
 
-            // Add card to the VBox
+            // Add card to the pendingOrderss FlowPane
             pendingOrderss.getChildren().add(card);
+
+            payButton.setOnAction(event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirm Payment");
+                alert.setHeaderText(null);
+                alert.setContentText("You want to pay " + totalPriceDishes + " $?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    // Change status label to "Completed"
+                    statusLabel.setText("Completed");
+                    statusLabel.setStyle(
+                            "-fx-background-color: #4CAF50; " +
+                                    "-fx-text-fill: white; " +
+                                    "-fx-font-size: 14px; " +
+                                    "-fx-padding: 4 10 4 10; " +
+                                    "-fx-background-radius: 14px;"
+                    );
+
+                    // Move card to completed orders list
+                    pendingOrderss.getChildren().remove(card);
+                    pendingOrderss1.getChildren().add(card);
+
+                    // Optional: disable the Pay button
+                    payButton.setDisable(true);
+                }
+            });
+
         }
 
         private void showOrderDetailsDialog(ArrayList<UnifiedOrder> matchingOrders) {
@@ -2115,6 +2134,10 @@
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
+
+
+
+
             ServiceForm.setVisible(true);
             homeIcon1.setVisible(false);
             homeActive1.setVisible(true);

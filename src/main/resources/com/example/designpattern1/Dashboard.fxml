@@ -1173,7 +1173,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="tableFormVip" layoutX="132.0" layoutY="132.0" prefHeight="878.0" prefWidth="1392.0">
+      <AnchorPane fx:id="tableFormVip" layoutX="132.0" layoutY="132.0" prefHeight="878.0" prefWidth="1392.0" visible="false">
          <children>
             <AnchorPane layoutY="8.0">
                <children>
@@ -1520,17 +1520,17 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ordersForm" layoutX="168.0" layoutY="112.0" prefHeight="893.0" prefWidth="1443.0" visible="false">
+      <AnchorPane fx:id="ordersForm" layoutX="168.0" layoutY="112.0" prefHeight="893.0" prefWidth="1443.0">
          <children>
-            <ScrollPane fx:id="scrollPane3" layoutX="27.0" layoutY="29.0" prefHeight="264.0" prefWidth="1380.0">
+            <ScrollPane fx:id="scrollPane3" layoutX="27.0" layoutY="29.0" prefHeight="370.0" prefWidth="1380.0">
                <content>
-                  <FlowPane fx:id="pendingOrderss" prefHeight="256.0" prefWidth="1375.0" />
+                  <FlowPane fx:id="pendingOrderss" prefHeight="373.0" prefWidth="1375.0" />
                </content>
             </ScrollPane>
-            <Separator layoutY="310.0" prefHeight="26.0" prefWidth="1444.0" />
-            <ScrollPane fx:id="scrollPane31" layoutX="27.0" layoutY="355.0" prefHeight="264.0" prefWidth="1380.0">
+            <Separator layoutY="404.0" prefHeight="26.0" prefWidth="1444.0" />
+            <ScrollPane fx:id="scrollPane31" layoutX="28.0" layoutY="438.0" prefHeight="360.0" prefWidth="1380.0">
                <content>
-                  <FlowPane fx:id="pendingOrderss1" prefHeight="256.0" prefWidth="1375.0" />
+                  <FlowPane fx:id="pendingOrderss1" prefHeight="360.0" prefWidth="1375.0" />
                </content>
             </ScrollPane>
          </children>
