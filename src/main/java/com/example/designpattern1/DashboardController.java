@@ -32,7 +32,6 @@
     public class DashboardController implements Initializable {
 
 
-
         @FXML
         private Button Add1Btn;
 
@@ -304,9 +303,6 @@
         private ImageView paymentIcon1;
 
         @FXML
-        private ImageView paymentIcon11;
-
-        @FXML
         private FlowPane pendingOrderss;
 
         @FXML
@@ -521,9 +517,15 @@
 
         @FXML
         private Label vegatablesSelect;
+
+
         static  double fees = 0.0;
         int tableNumber= 0;
         String tableTyp;
+
+
+
+        
 
         orderCloned cloneOrder = new orderCloned();
         orderBuilder builder = new orderBuilder();
@@ -545,6 +547,27 @@
 //                pendingOrders.getChildren().add(card);
 //            }
 //        }
+
+        private HBox createOrderCard(UnifiedOrder order) {
+            ImageView imageView = new ImageView(new Image(order.getImageURL()));
+            imageView.setFitWidth(80);
+            imageView.setFitHeight(80);
+
+            Label nameLabel = new Label(order.getName());
+            nameLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+
+            Label priceLabel = new Label(order.getPrice() + " $");
+            priceLabel.setStyle("-fx-font-size: 14px;");
+
+            VBox textBox = new VBox(nameLabel, priceLabel);
+            textBox.setSpacing(5);
+
+            HBox card = new HBox(imageView, textBox);
+            card.setSpacing(15);
+            card.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-color: #ccc;");
+
+            return card;
+        }
 
 
         public void MeatAction(){
@@ -862,10 +885,10 @@
             System.out.println("Updated Total: " + total);
         }
 
-         public void payAction() {
+        public void payAction() {
             payCusBtn.setOnAction(event -> {
                 // Check if any item is selected before proceeding
-                if (builder.getMeatType() == "" && builder.getVegatablesType() == "" && builder.getBeardType() == "" && builder.getCheeseType() == "") {
+                if (builder.getMeatType() == "" && builder.getVegatablesType() == "" && builder.getBeardType() == "" && builder.getCheeseType() == "" ) {
                     System.out.println("No items selected. Cannot proceed with payment.");
                     return;
                 }
@@ -875,10 +898,15 @@
                         builder.getVegatablesPrice(), builder.getMeatPrice(), builder.getBeardPrice(), builder.getCheesePrice(),
                         builder.getMeatType(), builder.getVegatablesType(), builder.getBeardType(), builder.getCheeseType(),
                         builder.getMeatImageURL(), builder.getVegatablesImageURL(), builder.getCheeseImageURL(), builder.getBeardImageURL(),
-                        meatCnt, vegatablesCnt, cheeseCnt, beardCnt, tableNumber
+                        meatCnt, vegatablesCnt, cheeseCnt, beardCnt , tableNumber
                 );
 
-                // Add sections and update total price display
+                // Debugging: Print cloned items
+                System.out.println(cloneOrder.getBeardType() + " Cloned");
+                System.out.println(cloneOrder.getMeatType() + " Cloned");
+                System.out.println(cloneOrder.getVegatablesType() + " Cloned");
+                System.out.println(cloneOrder.getCheeseType() + " Cloned");
+
                 addHorizontalSection(cloneOrder.getMeatImageURL(), cloneOrder.getMeatType() + "( " + meatCnt + " )", cloneOrder.getMeatPrice() + " $");
                 addHorizontalSection(cloneOrder.getVegatablesImageURL(), cloneOrder.getVegatablesType() + "( " + vegatablesCnt + " )", cloneOrder.getVegatablesPrice() + " $");
                 addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType() + "( " + cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
@@ -886,7 +914,6 @@
 
                 updateTotalPriceDisplay();
 
-                // Hide and show relevant frames/buttons
                 ingedForm.setVisible(false);
                 cancelCusBtn.setVisible(true);
                 payCusBtn.setVisible(false);
@@ -896,12 +923,29 @@
                 thCusFrame.setVisible(false);
                 menuFrame.setVisible(true);
 
-                // Store and display the order
-                storeOrderbuilder(cloneOrder.getMeatType(), cloneOrder.getMeatPrice(), cloneOrder.getMeatImageURL(),
-                        cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
-                        cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
-                        cloneOrder.getBeardType(), cloneOrder.getBeardPrice(), cloneOrder.getBeardImageURL(), cloneOrder.getTableNum(), tableTyp);
+                builder.reset();
+                meatSelect.setText("");
+                vegatablesSelect.setText("");
+                cheeseSelect.setText("");
+                beardSelect.setText("");
+                meatImg.setImage(null);
+                vegatablesImg.setImage(null);
+                cheeseImg.setImage(null);
+                breadimg.setImage(null);
+                meatCnt = 0;
+                vegatablesCnt = 0;
+                cheeseCnt = 0;
+                beardCnt = 0;
+             //   totalPriceDishes();
+                storeOrderbuilder(cloneOrder.getMeatType() , cloneOrder.getMeatPrice() , cloneOrder.getMeatImageURL()
+                , cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
+                cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
+                cloneOrder.getBeardType() , cloneOrder.getBeardPrice() , cloneOrder.getBeardImageURL() , cloneOrder.getTableNum() ,tableTyp);
+
                 cloneOrder.displayOrders();
+                System.out.println("totalPriceDishes: " + totalPriceDishes);
+                System.out.println("totalPriceDishes: " + totalPriceDishes);
+
             });
         }
 
@@ -1137,6 +1181,8 @@
 
         }
 
+
+
         private void showCustomerStep(
                 boolean menuVisible,
                 boolean stVisible,
@@ -1172,11 +1218,6 @@
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
-            t1Selected.setVisible(false);
-            t2Selected.setVisible(false);
-            t3Selected.setVisible(false);
-            t4Selected.setVisible(false);
-            t5Selected.setVisible(false);
             tableTyp ="Indoor";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
@@ -1198,15 +1239,10 @@
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
-            t1SelectedOutdoor.setVisible(false);
-            t2SelectedOutdoor.setVisible(false);
-            t3SelectedOutdoor.setVisible(false);
-            t4SelectedOutdoor.setVisible(false);
-            t5SelectedOutdoor.setVisible(false);
             tableTyp ="Outdoor";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
-            TableType11.setText(tableTyp);
+            TableType1.setText(tableTyp);
 
             return tableType;
         }
@@ -1224,15 +1260,10 @@
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
-            t1SelectedVip.setVisible(false);
-            t2SelectedVip.setVisible(false);
-            t3SelectedVip.setVisible(false);
-            t4SelectedVip.setVisible(false);
-            t5SelectedVip.setVisible(false);
             tableTyp ="VIP";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
-            TableType111.setText(tableTyp);
+            TableType1.setText(tableTyp);
 
             return tableType;
         }
@@ -1240,7 +1271,6 @@
         public Service DeliveryAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(true);
-            menuForm.setVisible(true);
             tableFormIndoor.setVisible(false);
             tableFormOutdoor.setVisible(false);
             tableFormVip.setVisible(false);
@@ -1262,7 +1292,6 @@
         public Service takeAwayAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(true);
-            menuForm.setVisible(true);
             tableFormIndoor.setVisible(false);
             tableFormOutdoor.setVisible(false);
             tableFormVip.setVisible(false);
@@ -1279,7 +1308,6 @@
         }
 
         public void t1Action(){
-            tableFormBtn.setDisable(false);
             t1Selected.setVisible(true);
             t2Selected.setVisible(false);
             t3Selected.setVisible(false);
@@ -1300,12 +1328,14 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum.setText("T" + tableNumber);
 
-          selectTable(tableNumber);
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTable(tableNumber);
 
         }
 
         public void t2Action(){
-            tableFormBtn.setDisable(false);
             t1Selected.setVisible(false);
             t2Selected.setVisible(true);
             t3Selected.setVisible(false);
@@ -1335,7 +1365,6 @@
         }
 
         public void t3Action(){
-            tableFormBtn.setDisable(false);
             t1Selected.setVisible(false);
             t3Selected.setVisible(true);
             t2Selected.setVisible(false);
@@ -1356,12 +1385,14 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum.setText("T" + tableNumber);
 
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
             selectTable(tableNumber);
 
         }
 
         public void t4Action(){
-            tableFormBtn.setDisable(false);
             t1Selected.setVisible(false);
             t2Selected.setVisible(false);
             t3Selected.setVisible(false);
@@ -1381,13 +1412,16 @@
             tableNumber = 4;
             System.out.println("Table Number: " + tableNumber);
             TableNum.setText("T" + tableNumber);
-           showOrdersForTable(tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
             selectTable(tableNumber);
 
         }
 
         public void t5Action() {
-            tableFormBtn.setDisable(false);
+            // Handle table selection visuals
             t1Selected.setVisible(false);
             t2Selected.setVisible(false);
             t3Selected.setVisible(false);
@@ -1413,13 +1447,8 @@
             selectTable(tableNumber);
         }
 
-        public void setDisable(){
-            tableFormBtn.setDisable(true);
-            tableFormBtn1.setVisible(true);
-            tableFormBtn11.setDisable(true);
-        }
         private void selectTable(int tableNum) {
-
+            // Reset all table selection visuals
             t1Selected.setVisible(tableNum == 1);
             t2Selected.setVisible(tableNum == 2);
             t3Selected.setVisible(tableNum == 3);
@@ -1448,7 +1477,6 @@
         }
 
         public void t1ActionOutdoor(){
-            tableFormBtn1.setDisable(false);
             t1SelectedOutdoor.setVisible(true);
             t2SelectedOutdoor.setVisible(false);
             t3SelectedOutdoor.setVisible(false);
@@ -1469,12 +1497,14 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum1.setText("T" + tableNumber);
 
-        selectTableOutdoor(tableNumber);
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableOutdoor(tableNumber);
 
         }
 
         public void t2ActionOutdoor(){
-            tableFormBtn1.setDisable(false);
             t1SelectedOutdoor.setVisible(false);
             t2SelectedOutdoor.setVisible(true);
             t3SelectedOutdoor.setVisible(false);
@@ -1495,14 +1525,15 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum1.setText("T" + tableNumber);
 
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
 
             selectTableOutdoor(tableNumber);
 
         }
 
         public void t3ActionOutdoor(){
-            tableFormBtn1.setDisable(false);
-
             t1SelectedOutdoor.setVisible(false);
             t3SelectedOutdoor.setVisible(true);
             t2SelectedOutdoor.setVisible(false);
@@ -1531,8 +1562,6 @@
         }
 
         public void t4ActionOutdoor(){
-            tableFormBtn1.setDisable(false);
-
             t1SelectedOutdoor.setVisible(false);
             t2SelectedOutdoor.setVisible(false);
             t3SelectedOutdoor.setVisible(false);
@@ -1561,9 +1590,7 @@
         }
 
         public void t5ActionOutdoor() {
-
-            tableFormBtn1.setDisable(false);
-
+            // Handle table selection visuals
             t1SelectedOutdoor.setVisible(false);
             t2SelectedOutdoor.setVisible(false);
             t3SelectedOutdoor.setVisible(false);
@@ -1589,36 +1616,8 @@
             selectTableOutdoor(tableNumber);
         }
 
-        public void t1ActionVip(){
-;
-            tableFormBtn11.setDisable(true);
-
-            t1SelectedVip.setVisible(true);
-            t2SelectedVip.setVisible(false);
-            t3SelectedVip.setVisible(false);
-            t4SelectedVip.setVisible(false);
-            t5SelectedVip.setVisible(false);
-
-            if (tableTyp == null) {
-                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
-                return ;
-            }
-            System.out.println("Table Type: " + tableTyp);
-
-            if (tableType != null) {
-                fees= tableType.getFess();
-            }
-            System.out.println("Fees: ddd" + fees);
-            tableNumber = 1;
-            System.out.println("Table Number: " + tableNumber);
-            TableNum11.setText("T" + tableNumber);
-
-            selectTableVip(tableNumber);
-
-        }
-
         private void selectTableOutdoor(int tableNum) {
-
+            // Reset all table selection visuals
             t1SelectedOutdoor.setVisible(tableNum == 1);
             t2SelectedOutdoor.setVisible(tableNum == 2);
             t3SelectedOutdoor.setVisible(tableNum == 3);
@@ -1639,14 +1638,43 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum1.setText("T" + tableNumber);
 
+            // Merge orders before displaying
             OrderMerger.mergeOrders();
 
+            // Clear existing content and show orders for the selected table
             showOrdersForTable(tableNumber);
         }
 
-        public void t2ActionVip(){
 
-            tableFormBtn11.setDisable(false);
+   public void t1ActionVip(){
+            t1SelectedVip.setVisible(true);
+            t2SelectedVip.setVisible(false);
+            t3SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(false);
+            t5SelectedVip.setVisible(false);
+
+            if (tableTyp == null) {
+                System.err.println("tableType is not initialized. Please call IndoorAction() first.TTT");
+                return ;
+            }
+            System.out.println("Table Type: " + tableTyp);
+
+            if (tableType != null) {
+                fees= tableType.getFess();
+            }
+            System.out.println("Fees: ddd" + fees);
+            tableNumber = 1;
+            System.out.println("Table Number: " + tableNumber);
+            TableNum11.setText("T" + tableNumber);
+
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
+            selectTableVip(tableNumber);
+
+        }
+
+        public void t2ActionVip(){
             t1SelectedVip.setVisible(false);
             t2SelectedVip.setVisible(true);
             t3SelectedVip.setVisible(false);
@@ -1667,15 +1695,15 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum11.setText("T" + tableNumber);
 
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
 
             selectTableVip(tableNumber);
 
         }
 
         public void t3ActionVip(){
-            tableFormBtn11.setDisable(false);
-
-
             t1SelectedVip.setVisible(false);
             t3SelectedVip.setVisible(true);
             t2SelectedVip.setVisible(false);
@@ -1696,15 +1724,14 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum11.setText("T" + tableNumber);
 
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
             selectTableVip(tableNumber);
 
         }
 
         public void t4ActionVip(){
-
-            tableFormBtn11.setDisable(false);
-
-
             t1SelectedVip.setVisible(false);
             t2SelectedVip.setVisible(false);
             t3SelectedVip.setVisible(false);
@@ -1725,15 +1752,15 @@
             System.out.println("Table Number: " + tableNumber);
             TableNum11.setText("T" + tableNumber);
 
-
+//            vboxContent.getChildren().clear();
+//
+//            showOrdersForTable(tableNumber);
             selectTableVip(tableNumber);
 
         }
 
         public void t5ActionVip() {
-
-            tableFormBtn11.setDisable(false);
-
+            // Handle table selection visuals
             t1SelectedVip.setVisible(false);
             t2SelectedVip.setVisible(false);
             t3SelectedVip.setVisible(false);
@@ -1914,31 +1941,12 @@
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
                 String currentTime = now.format(formatter);
 
-                // Merge orders
                 OrderMerger.mergeOrders();
-
-                // Add horizontal section for the order summary
-                addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime);
-
-                // Clear the form and reset objects
-                vboxContent.getChildren().clear();
-                totalPriceDishes = 0;
-                updateTotalPriceDisplay();
-                builder.reset();
-                cloneOrder.clear();
-                meatSelect.setText("");
-                vegatablesSelect.setText("");
-                cheeseSelect.setText("");
-                beardSelect.setText("");
-                meatImg.setImage(null);
-                vegatablesImg.setImage(null);
-                cheeseImg.setImage(null);
-                breadimg.setImage(null);
-                meatCnt = 0;
-                vegatablesCnt = 0;
-                cheeseCnt = 0;
-                beardCnt = 0;
+                addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime );
             });
+            vboxContent.getChildren().clear();
+            totalPriceDishes = 0;
+            updateTotalPriceDisplay();
         }
 
 
@@ -2126,9 +2134,9 @@
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-            tableFormBtn11.setDisable(true);
-            tableFormBtn1.setDisable(true);
-            tableFormBtn.setDisable(true);
+
+
+
 
             ServiceForm.setVisible(true);
             homeIcon1.setVisible(false);
@@ -2148,6 +2156,7 @@
             ordersForm.setVisible(false);
 
             sendOrderAction();
+          //  loadOrdersIntoVBox();
 
             orderBtn.setOnAction(event -> {
                 ServiceForm.setVisible(false);
@@ -2245,19 +2254,17 @@
         public void SwitchForm() {
             // Home button handler
             homeBtn.setOnAction(event -> {
-                resetAllIcons();
-                setDisable();
+                resetAllIcons(); // Reset all icons first
                 homeIcon1.setVisible(false);
                 homeActive1.setVisible(true);
 
-                hideAllForms();
-                ServiceForm.setVisible(true);
+                hideAllForms(); // Hide all forms
+                ServiceForm.setVisible(true); // Show only the service form
             });
 
             // Menu button handler
             menuBtn.setOnAction(event -> {
                 resetAllIcons();
-                setDisable();
                 menu.setVisible(false);
                 menuActive.setVisible(true);
 
@@ -2266,15 +2273,27 @@
                 menuFrame.setVisible(true);
             });
 
+            // Table button handler
             orderBtn.setOnAction(event -> {
                 resetAllIcons();
-                setDisable();
+//                tableIcon.setVisible(false);
+//                tableActive.setVisible(true);
+
                 hideAllForms();
                 ordersForm.setVisible(true);
-                paymentIcon1.setVisible(false);
-                paymentIcon11.setVisible(true);
             });
+    //
+    //        // Ingredients button handler
+    //        ingedBtn.setOnAction(event -> {
+    //            resetAllIcons();
+    //            ingedIcon.setVisible(false);
+    //            ingedActive.setVisible(true);
+    //
+    //            hideAllForms();
+    //            ingedForm.setVisible(true);
+    //        });
 
+            // Any other form buttons you need to handle
         }
 
         private void hideAllForms() {
@@ -2295,17 +2314,20 @@
         }
 
         private void resetAllIcons() {
-
+            // Default state: regular icons visible, active icons hidden
             homeIcon1.setVisible(true);
             homeActive1.setVisible(false);
 
             menu.setVisible(true);
             menuActive.setVisible(false);
 
-            paymentIcon1.setVisible(true);
-            paymentIcon11.setVisible(false);
+    //        tableIcon.setVisible(true);
+    //        tableActive.setVisible(false);
+    //
+    //        ingedIcon.setVisible(true);
+    //        ingedActive.setVisible(false);
 
-
+            // Add any other icons you have
         }
 
         private void startClockThread() {
