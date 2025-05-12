@@ -1941,14 +1941,32 @@
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
                 String currentTime = now.format(formatter);
 
+                // Merge orders
                 OrderMerger.mergeOrders();
-                addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime );
-            });
-            vboxContent.getChildren().clear();
-            totalPriceDishes = 0;
-            updateTotalPriceDisplay();
-        }
 
+                // Add horizontal section for the order summary
+                addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime);
+
+                // Clear the form and reset objects
+                vboxContent.getChildren().clear();
+                totalPriceDishes = 0;
+                updateTotalPriceDisplay();
+                builder.reset();
+                cloneOrder.clear();
+                meatSelect.setText("");
+                vegatablesSelect.setText("");
+                cheeseSelect.setText("");
+                beardSelect.setText("");
+                meatImg.setImage(null);
+                vegatablesImg.setImage(null);
+                cheeseImg.setImage(null);
+                breadimg.setImage(null);
+                meatCnt = 0;
+                vegatablesCnt = 0;
+                cheeseCnt = 0;
+                beardCnt = 0;
+            });
+        }
 
         public void addHorizontalSection3(String tableType, int tableNumber, int totalPriceDishes, String currentTime) {
 
