@@ -862,10 +862,10 @@
             System.out.println("Updated Total: " + total);
         }
 
-        public void payAction() {
+         public void payAction() {
             payCusBtn.setOnAction(event -> {
                 // Check if any item is selected before proceeding
-                if (builder.getMeatType() == "" && builder.getVegatablesType() == "" && builder.getBeardType() == "" && builder.getCheeseType() == "" ) {
+                if (builder.getMeatType() == "" && builder.getVegatablesType() == "" && builder.getBeardType() == "" && builder.getCheeseType() == "") {
                     System.out.println("No items selected. Cannot proceed with payment.");
                     return;
                 }
@@ -875,15 +875,10 @@
                         builder.getVegatablesPrice(), builder.getMeatPrice(), builder.getBeardPrice(), builder.getCheesePrice(),
                         builder.getMeatType(), builder.getVegatablesType(), builder.getBeardType(), builder.getCheeseType(),
                         builder.getMeatImageURL(), builder.getVegatablesImageURL(), builder.getCheeseImageURL(), builder.getBeardImageURL(),
-                        meatCnt, vegatablesCnt, cheeseCnt, beardCnt , tableNumber
+                        meatCnt, vegatablesCnt, cheeseCnt, beardCnt, tableNumber
                 );
 
-                // Debugging: Print cloned items
-                System.out.println(cloneOrder.getBeardType() + " Cloned");
-                System.out.println(cloneOrder.getMeatType() + " Cloned");
-                System.out.println(cloneOrder.getVegatablesType() + " Cloned");
-                System.out.println(cloneOrder.getCheeseType() + " Cloned");
-
+                // Add sections and update total price display
                 addHorizontalSection(cloneOrder.getMeatImageURL(), cloneOrder.getMeatType() + "( " + meatCnt + " )", cloneOrder.getMeatPrice() + " $");
                 addHorizontalSection(cloneOrder.getVegatablesImageURL(), cloneOrder.getVegatablesType() + "( " + vegatablesCnt + " )", cloneOrder.getVegatablesPrice() + " $");
                 addHorizontalSection(cloneOrder.getCheeseImageURL(), cloneOrder.getCheeseType() + "( " + cheeseCnt + " )", cloneOrder.getCheesePrice() + " $");
@@ -891,6 +886,7 @@
 
                 updateTotalPriceDisplay();
 
+                // Hide and show relevant frames/buttons
                 ingedForm.setVisible(false);
                 cancelCusBtn.setVisible(true);
                 payCusBtn.setVisible(false);
@@ -900,29 +896,12 @@
                 thCusFrame.setVisible(false);
                 menuFrame.setVisible(true);
 
-                builder.reset();
-                meatSelect.setText("");
-                vegatablesSelect.setText("");
-                cheeseSelect.setText("");
-                beardSelect.setText("");
-                meatImg.setImage(null);
-                vegatablesImg.setImage(null);
-                cheeseImg.setImage(null);
-                breadimg.setImage(null);
-                meatCnt = 0;
-                vegatablesCnt = 0;
-                cheeseCnt = 0;
-                beardCnt = 0;
-             //   totalPriceDishes();
-                storeOrderbuilder(cloneOrder.getMeatType() , cloneOrder.getMeatPrice() , cloneOrder.getMeatImageURL()
-                , cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
-                cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
-                cloneOrder.getBeardType() , cloneOrder.getBeardPrice() , cloneOrder.getBeardImageURL() , cloneOrder.getTableNum() ,tableTyp);
-
+                // Store and display the order
+                storeOrderbuilder(cloneOrder.getMeatType(), cloneOrder.getMeatPrice(), cloneOrder.getMeatImageURL(),
+                        cloneOrder.getVegatablesType(), cloneOrder.getVegatablesPrice(), cloneOrder.getVegatablesImageURL(),
+                        cloneOrder.getCheeseType(), cloneOrder.getCheesePrice(), cloneOrder.getCheeseImageURL(),
+                        cloneOrder.getBeardType(), cloneOrder.getBeardPrice(), cloneOrder.getBeardImageURL(), cloneOrder.getTableNum(), tableTyp);
                 cloneOrder.displayOrders();
-                System.out.println("totalPriceDishes: " + totalPriceDishes);
-                System.out.println("totalPriceDishes: " + totalPriceDishes);
-
             });
         }
 
@@ -1935,12 +1914,31 @@
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
                 String currentTime = now.format(formatter);
 
+                // Merge orders
                 OrderMerger.mergeOrders();
-                addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime );
+
+                // Add horizontal section for the order summary
+                addHorizontalSection3(tableTyp, tableNumber, (int) totalPriceOrdersWithTax, currentTime);
+
+                // Clear the form and reset objects
+                vboxContent.getChildren().clear();
+                totalPriceDishes = 0;
+                updateTotalPriceDisplay();
+                builder.reset();
+                cloneOrder.clear();
+                meatSelect.setText("");
+                vegatablesSelect.setText("");
+                cheeseSelect.setText("");
+                beardSelect.setText("");
+                meatImg.setImage(null);
+                vegatablesImg.setImage(null);
+                cheeseImg.setImage(null);
+                breadimg.setImage(null);
+                meatCnt = 0;
+                vegatablesCnt = 0;
+                cheeseCnt = 0;
+                beardCnt = 0;
             });
-            vboxContent.getChildren().clear();
-            totalPriceDishes = 0;
-            updateTotalPriceDisplay();
         }
 
 
