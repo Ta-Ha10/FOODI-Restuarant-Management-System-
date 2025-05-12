@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="982.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.designpattern1.DashboardController">
    <children>
-      <AnchorPane fx:id="sizeNavBar" layoutX="3.0" layoutY="99.0" prefHeight="885.0" prefWidth="82.0">
+      <AnchorPane fx:id="sizeNavBar" layoutX="3.0" layoutY="99.0" prefHeight="885.0" prefWidth="82.0" styleClass="root2" stylesheets="@HomePage.css">
          <children>
             <ImageView fx:id="homeIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,7 +40,12 @@
             </ImageView>
             <ImageView fx:id="paymentIcon1" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Photoes/payment.png" />
+                  <Image url="@Photoes/orders.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="paymentIcon11" fitHeight="43.0" fitWidth="45.0" layoutX="14.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@Photoes/ordersActive.png" />
                </image>
             </ImageView>
             <Label layoutX="11.0" layoutY="113.0" text="Home">
@@ -53,7 +58,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutY="368.0" text="Payment">
+            <Label layoutY="368.0" text="Orders">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -80,7 +85,7 @@
             </Label>
             <Button fx:id="homeBtn" layoutX="7.0" layoutY="56.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="99.0" prefWidth="69.0" style="-fx-background-color: transparent;" text=" " />
             <Button fx:id="menuBtn" layoutX="6.0" layoutY="185.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="66.0" style="-fx-background-color: transaprent;" />
-            <Button fx:id="orderBtn" layoutX="3.0" layoutY="293.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="orderBtn" layoutX="3.0" layoutY="313.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="79.0" style="-fx-background-color: transparent;" text=" " />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="99.0" prefWidth="1612.0" styleClass="sidebar">
@@ -1365,7 +1370,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IndoorBtn" layoutX="74.0" layoutY="311.0" mnemonicParsing="false" onAction="#IndoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Reserve">
+                  <Button fx:id="IndoorBtn" layoutX="74.0" layoutY="311.0" mnemonicParsing="false" onAction="#IndoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" styleClass="rounded-btn" stylesheets="@HomePage.css" text="Reserve">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1404,7 +1409,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="outDoorBtn" layoutX="73.0" layoutY="310.0" mnemonicParsing="false" onAction="#OutdoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Reserve">
+                  <Button fx:id="outDoorBtn" layoutX="73.0" layoutY="310.0" mnemonicParsing="false" onAction="#OutdoorAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" styleClass="rounded-btn" stylesheets="@HomePage.css" text="Reserve">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1443,7 +1448,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="VIPBtn" layoutX="68.0" layoutY="315.0" mnemonicParsing="false" onAction="#VIPAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Reserve" textFill="#ebebeb">
+                  <Button fx:id="VIPBtn" layoutX="68.0" layoutY="315.0" mnemonicParsing="false" onAction="#VIPAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" styleClass="rounded-btn" stylesheets="@HomePage.css" text="Reserve" textFill="#ebebeb">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1472,7 +1477,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IndoorBtn1" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#DeliveryAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Order" textFill="#ebebeb">
+                  <Button fx:id="IndoorBtn1" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#DeliveryAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" styleClass="rounded-btn" stylesheets="@HomePage.css" text="Order" textFill="#ebebeb">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1506,7 +1511,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IndoorBtn11" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#takeAwayAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" text="Order" textFill="#ebebeb">
+                  <Button fx:id="IndoorBtn11" layoutX="74.0" layoutY="283.0" mnemonicParsing="false" onAction="#takeAwayAction" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #ffb400;" styleClass="rounded-btn" stylesheets="@HomePage.css" text="Order" textFill="#ebebeb">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -1520,17 +1525,26 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ordersForm" layoutX="168.0" layoutY="112.0" prefHeight="893.0" prefWidth="1443.0">
+      <AnchorPane fx:id="ordersForm" layoutX="99.0" layoutY="103.0" prefHeight="878.0" prefWidth="1413.0">
          <children>
-            <ScrollPane fx:id="scrollPane3" layoutX="27.0" layoutY="29.0" prefHeight="370.0" prefWidth="1380.0">
+            <Label layoutX="26.0" layoutY="22.0" text="Pending Orders:">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="26.0" layoutY="97.0" prefHeight="336.0" prefWidth="1335.0">
                <content>
-                  <FlowPane fx:id="pendingOrderss" prefHeight="373.0" prefWidth="1375.0" />
+                  <FlowPane fx:id="pendingOrderss" prefHeight="334.0" prefWidth="1328.0" />
                </content>
             </ScrollPane>
-            <Separator layoutY="404.0" prefHeight="26.0" prefWidth="1444.0" />
-            <ScrollPane fx:id="scrollPane31" layoutX="28.0" layoutY="438.0" prefHeight="360.0" prefWidth="1380.0">
+            <Label layoutX="26.0" layoutY="439.0" text="Complete Orders:">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="26.0" layoutY="495.0" prefHeight="336.0" prefWidth="1335.0">
                <content>
-                  <FlowPane fx:id="pendingOrderss1" prefHeight="360.0" prefWidth="1375.0" />
+                  <FlowPane fx:id="pendingOrderss1" prefHeight="332.0" prefWidth="1328.0" />
                </content>
             </ScrollPane>
          </children>

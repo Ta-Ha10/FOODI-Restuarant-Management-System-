@@ -9,7 +9,7 @@
 .rounded-btn {
     -fx-padding: 10 20;
     -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-background-radius: 25;
     -fx-cursor: hand;
     -fx-font-size: 16px;
