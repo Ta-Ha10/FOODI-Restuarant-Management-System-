@@ -32,6 +32,7 @@
     public class DashboardController implements Initializable {
 
 
+
         @FXML
         private Button Add1Btn;
 
@@ -303,6 +304,9 @@
         private ImageView paymentIcon1;
 
         @FXML
+        private ImageView paymentIcon11;
+
+        @FXML
         private FlowPane pendingOrderss;
 
         @FXML
@@ -348,12 +352,6 @@
         private ScrollPane scrollPane2;
 
         @FXML
-        private ScrollPane scrollPane3;
-
-        @FXML
-        private ScrollPane scrollPane31;
-
-        @FXML
         private ScrollPane scrollPaneOutdoor;
 
         @FXML
@@ -384,13 +382,13 @@
         private Button t1BtnVip;
 
         @FXML
-        private FontAwesomeIcon t1Selected;
+        private ImageView t1Selected;
 
         @FXML
-        private FontAwesomeIcon t1SelectedOutdoor;
+        private ImageView t1SelectedOutdoor;
 
         @FXML
-        private FontAwesomeIcon t1SelectedVip;
+        private ImageView t1SelectedVip;
 
         @FXML
         private Button t2Btn;
@@ -402,13 +400,13 @@
         private Button t2BtnVip;
 
         @FXML
-        private FontAwesomeIcon t2Selected;
+        private ImageView t2Selected;
 
         @FXML
-        private FontAwesomeIcon t2SelectedOutdoor;
+        private ImageView t2SelectedOutdoor;
 
         @FXML
-        private FontAwesomeIcon t2SelectedVip;
+        private ImageView t2SelectedVip;
 
         @FXML
         private Button t3Btn;
@@ -420,13 +418,13 @@
         private Button t3BtnVip;
 
         @FXML
-        private FontAwesomeIcon t3Selected;
+        private ImageView t3Selected;
 
         @FXML
-        private FontAwesomeIcon t3SelectedOutdoor;
+        private ImageView t3SelectedOutdoor;
 
         @FXML
-        private FontAwesomeIcon t3SelectedVip;
+        private ImageView t3SelectedVip;
 
         @FXML
         private Button t4Btn;
@@ -438,13 +436,13 @@
         private Button t4BtnVip;
 
         @FXML
-        private FontAwesomeIcon t4Selected;
+        private ImageView t4Selected;
 
         @FXML
-        private FontAwesomeIcon t4SelectedOutdoor;
+        private ImageView t4SelectedOutdoor;
 
         @FXML
-        private FontAwesomeIcon t4SelectedVip;
+        private ImageView t4SelectedVip;
 
         @FXML
         private Button t5Btn;
@@ -456,13 +454,13 @@
         private Button t5BtnVip;
 
         @FXML
-        private FontAwesomeIcon t5Selected;
+        private ImageView t5Selected;
 
         @FXML
-        private FontAwesomeIcon t5SelectedOutdoor;
+        private ImageView t5SelectedOutdoor;
 
         @FXML
-        private FontAwesomeIcon t5SelectedVip;
+        private ImageView t5SelectedVip;
 
         @FXML
         private Button tableFormBtn;
@@ -525,7 +523,7 @@
 
 
 
-        
+
 
         orderCloned cloneOrder = new orderCloned();
         orderBuilder builder = new orderBuilder();
@@ -1222,6 +1220,7 @@
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
             TableType1.setText(tableTyp);
+            updateSendOrderButtonState();
 
             return tableType;
         }
@@ -1242,7 +1241,8 @@
             tableTyp ="Outdoor";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
-            TableType1.setText(tableTyp);
+            TableType11.setText(tableTyp);
+            updateSendOrderButtonState();
 
             return tableType;
         }
@@ -1263,7 +1263,9 @@
             tableTyp ="VIP";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
-            TableType1.setText(tableTyp);
+            TableType111.setText(tableTyp);
+            updateSendOrderButtonState();
+
 
             return tableType;
         }
@@ -1285,6 +1287,7 @@
     //        tableType = serviceFactory.getService(tableTyp);
     //        System.out.println(tableType.getFess());
     //        TableType1.setText(tableTyp);
+            updateSendOrderButtonState();
 
             return tableType;
         }
@@ -1303,6 +1306,8 @@
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
             tableTyp ="TakeAway";
+            updateSendOrderButtonState();
+
 
             return tableType;
         }
@@ -1333,6 +1338,9 @@
 //            showOrdersForTable(tableNumber);
             selectTable(tableNumber);
 
+            updateSendOrderButtonState();
+
+
         }
 
         public void t2Action(){
@@ -1362,6 +1370,9 @@
 
             selectTable(tableNumber);
 
+            updateSendOrderButtonState();
+
+
         }
 
         public void t3Action(){
@@ -1390,6 +1401,9 @@
 //            showOrdersForTable(tableNumber);
             selectTable(tableNumber);
 
+            updateSendOrderButtonState();
+
+
         }
 
         public void t4Action(){
@@ -1417,6 +1431,9 @@
 //
 //            showOrdersForTable(tableNumber);
             selectTable(tableNumber);
+
+            updateSendOrderButtonState();
+
 
         }
 
@@ -1474,6 +1491,9 @@
 
             // Clear existing content and show orders for the selected table
             showOrdersForTable(tableNumber);
+
+            updateSendOrderButtonState();
+
         }
 
         public void t1ActionOutdoor(){
@@ -1501,6 +1521,9 @@
 //
 //            showOrdersForTable(tableNumber);
             selectTableOutdoor(tableNumber);
+
+            updateSendOrderButtonState();
+
 
         }
 
@@ -1531,6 +1554,9 @@
 
             selectTableOutdoor(tableNumber);
 
+            updateSendOrderButtonState();
+
+
         }
 
         public void t3ActionOutdoor(){
@@ -1558,6 +1584,9 @@
 //
 //            showOrdersForTable(tableNumber);
             selectTableOutdoor(tableNumber);
+
+            updateSendOrderButtonState();
+
 
         }
 
@@ -1587,6 +1616,9 @@
 //            showOrdersForTable(tableNumber);
             selectTableOutdoor(tableNumber);
 
+            updateSendOrderButtonState();
+
+
         }
 
         public void t5ActionOutdoor() {
@@ -1614,6 +1646,9 @@
             TableNum1.setText("T" + tableNumber);
 
             selectTableOutdoor(tableNumber);
+
+            updateSendOrderButtonState();
+
         }
 
         private void selectTableOutdoor(int tableNum) {
@@ -1643,6 +1678,9 @@
 
             // Clear existing content and show orders for the selected table
             showOrdersForTable(tableNumber);
+
+            updateSendOrderButtonState();
+
         }
 
 
@@ -1670,9 +1708,14 @@
 //            vboxContent.getChildren().clear();
 //
 //            showOrdersForTable(tableNumber);
-            selectTableVip(tableNumber);
+       OrderMerger.mergeOrders();
 
-        }
+       selectTableVip(tableNumber);
+
+       updateSendOrderButtonState();
+
+
+   }
 
         public void t2ActionVip(){
             t1SelectedVip.setVisible(false);
@@ -1699,7 +1742,13 @@
 //
 //            showOrdersForTable(tableNumber);
 
+
             selectTableVip(tableNumber);
+
+            OrderMerger.mergeOrders();
+
+            updateSendOrderButtonState();
+
 
         }
 
@@ -1729,6 +1778,11 @@
 //            showOrdersForTable(tableNumber);
             selectTableVip(tableNumber);
 
+            updateSendOrderButtonState();
+
+            OrderMerger.mergeOrders();
+
+
         }
 
         public void t4ActionVip(){
@@ -1757,6 +1811,9 @@
 //            showOrdersForTable(tableNumber);
             selectTableVip(tableNumber);
 
+            OrderMerger.mergeOrders();
+            updateSendOrderButtonState();
+
         }
 
         public void t5ActionVip() {
@@ -1784,6 +1841,10 @@
             TableNum11.setText("T" + tableNumber);
 
             selectTableVip(tableNumber);
+
+            OrderMerger.mergeOrders();
+
+            updateSendOrderButtonState();
         }
 
         private void selectTableVip(int tableNum) {
@@ -1934,7 +1995,18 @@
 
         }
 
+        private void updateSendOrderButtonState() {
+            if (tableType == null || tableNumber == 0) {
+                System.out.println("Disabling sendOrder button: tableType=" + tableType + ", tableNumber=" + tableNumber);
+                sendOrder.setDisable(true);
+            } else {
+                System.out.println("Enabling sendOrder button: tableType=" + tableType + ", tableNumber=" + tableNumber);
+                sendOrder.setDisable(false);
+            }
+        }
+
         void sendOrderAction() {
+
             sendOrder.setOnAction(event -> {
                 // Get current time in HH:mm format
                 LocalTime now = LocalTime.now();
@@ -1965,6 +2037,10 @@
                 vegatablesCnt = 0;
                 cheeseCnt = 0;
                 beardCnt = 0;
+                tableType = null;
+                tableNumber = 0;
+                orderPrice.setText("0 $");
+                taxPrice.setText("0 $");
             });
         }
 
@@ -2153,6 +2229,7 @@
         @Override
         public void initialize(URL location, ResourceBundle resources) {
 
+            sendOrder.setDisable(true);
 
 
 
@@ -2294,11 +2371,12 @@
             // Table button handler
             orderBtn.setOnAction(event -> {
                 resetAllIcons();
-//                tableIcon.setVisible(false);
-//                tableActive.setVisible(true);
+              paymentIcon1.setVisible(false);
+              paymentIcon11.setVisible(true);
 
                 hideAllForms();
                 ordersForm.setVisible(true);
+
             });
     //
     //        // Ingredients button handler
@@ -2339,8 +2417,8 @@
             menu.setVisible(true);
             menuActive.setVisible(false);
 
-    //        tableIcon.setVisible(true);
-    //        tableActive.setVisible(false);
+          paymentIcon1.setVisible(true);
+          paymentIcon11.setVisible(false);
     //
     //        ingedIcon.setVisible(true);
     //        ingedActive.setVisible(false);

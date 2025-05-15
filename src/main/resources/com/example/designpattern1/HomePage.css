@@ -274,3 +274,23 @@
 .btn-submit:hover {
     -fx-background-color: #5aa1b5;
 }
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: black; /* You can change the text color */
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.transparent-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.05); /* subtle hover effect */
+}
+
+.transparent-button:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.1); /* pressed effect */
+}
+.sidebar2 {
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.2, 2, 0);
+}
+
