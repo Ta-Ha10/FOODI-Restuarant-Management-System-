@@ -1641,7 +1641,7 @@
             </ImageView>
             <ImageView fitHeight="69.0" fitWidth="79.0" layoutX="26.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Photoes/clipboard-check.png" />
+                  <Image url="@Photoes/clipboardCheck.png" />
                </image>
             </ImageView>
          </children>
