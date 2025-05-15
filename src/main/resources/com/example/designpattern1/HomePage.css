@@ -293,4 +293,12 @@
     -fx-background-color: #ffffff;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.2, 2, 0);
 }
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent gray transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-prompt-text-fill: gray;
+    -fx-font-size: 12px;
+}
+
 
