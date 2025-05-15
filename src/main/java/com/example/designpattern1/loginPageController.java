@@ -42,7 +42,7 @@ public class loginPageController implements Initializable {
 
         try {
             Connection conn = DatabaseConnection.getInstance().getConnection();
-            String query = "SELECT * FROM "admin" WHERE username = ? AND password = ?";
+            String query = "SELECT * FROM admin WHERE username = ? AND password = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             stmt.setString(2, password);
