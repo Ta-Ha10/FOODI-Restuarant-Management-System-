@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.Parent;
@@ -18,13 +19,13 @@ import java.util.ResourceBundle;
 public class loginPageController implements Initializable {
 
     @FXML
-    private TextField usernameTF;
-
-    @FXML
-    private TextField passwordTF;
+    private PasswordField passwordTF;
 
     @FXML
     private Button subBtn;
+
+    @FXML
+    private TextField usernameTF;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

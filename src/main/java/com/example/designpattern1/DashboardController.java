@@ -5,6 +5,7 @@
     import javafx.fxml.FXML;
     import javafx.fxml.Initializable;
     import javafx.geometry.Pos;
+    import javafx.scene.Node;
     import javafx.scene.Scene;
     import javafx.scene.control.*;
     import javafx.scene.control.Button;
@@ -32,7 +33,6 @@
     public class DashboardController implements Initializable {
 
 
-
         @FXML
         private Button Add1Btn;
 
@@ -44,9 +44,6 @@
 
         @FXML
         private Button ChikernBtn;
-
-        @FXML
-        private FontAwesomeIcon FdCusBtn;
 
         @FXML
         private ImageView ImageView2;
@@ -145,16 +142,34 @@
         private Button dish1;
 
         @FXML
-        private Button dish10;
-
-        @FXML
-        private Button dish1111;
+        private Button dish11;
 
         @FXML
         private ImageView dish11111;
 
         @FXML
+        private Label dish11Img;
+
+        @FXML
+        private Label dish11Price;
+
+        @FXML
         private Button dish12;
+
+        @FXML
+        private Label dish12Name;
+
+        @FXML
+        private Label dish12Price;
+
+        @FXML
+        private Button dish13;
+
+        @FXML
+        private Label dish13Name;
+
+        @FXML
+        private Label dish13Price;
 
         @FXML
         private Button dish2;
@@ -196,13 +211,13 @@
         private ImageView imageView1;
 
         @FXML
-        private ImageView imageView10;
-
-        @FXML
         private ImageView imageView11;
 
         @FXML
         private ImageView imageView12;
+
+        @FXML
+        private ImageView imageView122;
 
         @FXML
         private ImageView imageView3;
@@ -517,6 +532,7 @@
         private Label vegatablesSelect;
 
 
+
         static  double fees = 0.0;
         int tableNumber= 0;
         String tableTyp;
@@ -566,7 +582,6 @@
 
             return card;
         }
-
 
         public void MeatAction(){
             BurgerBtn.setOnAction(event -> {
@@ -869,14 +884,12 @@
         }
 
         private void updateTotalPriceDisplay() {
-            double totalPriceFromCustom = cloneOrder.getTotalPrice();
-            double totalPriceFromDishes = totalPriceDishes;
-
-            double total = totalPriceFromCustom + totalPriceFromDishes;
-            double tax = total * fees;
+            double total = calculateTotalPrice();
+            double tax = total * fees; // Apply tax rate
             double totalWithTax = total + tax;
 
-            orderPrice.setText(String.format("%.2f $", total));
+            // Update UI labels
+            orderPrice.setText(String.format("%.2f $", (double) total));
             taxPrice.setText(String.format("%.2f $", tax));
             totalPrice.setText(String.format("%.2f $", totalWithTax));
 
@@ -1177,6 +1190,78 @@
             });
             System.out.println("totalPriceDishes: " + totalPriceDishes);
 
+            Product product10 = order.addProduct("cannoli");
+            dish11.setText(product10.getName());
+            dish11Price.setText(product10.getPrice() + " $");
+            product9.setTableNum(tableNumber);
+            Image image10 = new Image(product10.getImageURL());
+            imageView11.setImage(image10);
+            imageView11.setFitWidth(160);
+            imageView11.setFitHeight(185);
+            imageView11.setPreserveRatio(true);
+            dish11.setOnAction(event -> {
+                addHorizontalSection(product10.getImageURL(), product10.getName(), product10.getPrice() + " $");
+                totalPriceDishes += product10.getPrice();
+                System.out.println("totalPriceDishes: " + totalPriceDishes);
+                double totalTaxOrders =  totalPriceDishes*fees;
+                totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+                taxPrice.setText(totalTaxOrders + " $");
+                totalPrice.setText(totalPriceOrdersWithTax + " $");
+                order.storeOrder("cannoli" ,tableNumber ,tableTyp);
+                //     System.out.println("totalPriceDishes: " + totalPriceDishes);
+                //   order.displayOrders();
+                updateTotalPriceDisplay();
+            });
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+
+            Product product11 = order.addProduct("squid ink pasta");
+            dish12Name.setText(product11.getName());
+            dish12Price.setText(product11.getPrice() + " $");
+            product11.setTableNum(tableNumber);
+            Image image11 = new Image(product11.getImageURL());
+            imageView122.setImage(image11);
+            imageView122.setFitWidth(160);
+            imageView122.setFitHeight(185);
+            imageView122.setPreserveRatio(true);
+            dish12.setOnAction(event -> {
+                addHorizontalSection(product11.getImageURL(), product11.getName(), product11.getPrice() + " $");
+                totalPriceDishes += product11.getPrice();
+                System.out.println("totalPriceDishes: " + totalPriceDishes);
+                double totalTaxOrders =  totalPriceDishes*fees;
+                totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+                taxPrice.setText(totalTaxOrders + " $");
+                totalPrice.setText(totalPriceOrdersWithTax + " $");
+                order.storeOrder("cannoli" ,tableNumber ,tableTyp);
+                //     System.out.println("totalPriceDishes: " + totalPriceDishes);
+                //   order.displayOrders();
+                updateTotalPriceDisplay();
+            });
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+
+            Product product12 = order.addProduct("Spaghetti Alle");
+            dish13Name.setText(product12.getName());
+            dish13Price.setText(product12.getPrice() + " $");
+            product12.setTableNum(tableNumber);
+            Image image12 = new Image(product12.getImageURL());
+            imageView12.setImage(image12);
+            imageView12.setFitWidth(160);
+            imageView12.setFitHeight(185);
+            imageView12.setPreserveRatio(true);
+            dish13.setOnAction(event -> {
+                addHorizontalSection(product12.getImageURL(), product12.getName(), product12.getPrice() + " $");
+                totalPriceDishes += product12.getPrice();
+                System.out.println("totalPriceDishes: " + totalPriceDishes);
+                double totalTaxOrders =  totalPriceDishes*fees;
+                totalPriceOrdersWithTax = totalPriceDishes + totalTaxOrders;
+                taxPrice.setText(totalTaxOrders + " $");
+                totalPrice.setText(totalPriceOrdersWithTax + " $");
+                order.storeOrder("cannoli" ,tableNumber ,tableTyp);
+                //     System.out.println("totalPriceDishes: " + totalPriceDishes);
+                //   order.displayOrders();
+                updateTotalPriceDisplay();
+            });
+            System.out.println("totalPriceDishes: " + totalPriceDishes);
+
         }
 
 
@@ -1273,6 +1358,7 @@
         public Service DeliveryAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(true);
+            menuForm.setVisible(true);
             tableFormIndoor.setVisible(false);
             tableFormOutdoor.setVisible(false);
             tableFormVip.setVisible(false);
@@ -1295,6 +1381,7 @@
         public Service takeAwayAction() {
             ServiceForm.setVisible(false);
             menuFrame.setVisible(true);
+            menuForm.setVisible(true);
             tableFormIndoor.setVisible(false);
             tableFormOutdoor.setVisible(false);
             tableFormVip.setVisible(false);
@@ -1877,43 +1964,26 @@
         }
 
         public void showOrdersForTable(int tableNumber) {
-            // Clear all VBoxes before displaying orders
             vBoxContentIndoor.getChildren().clear();
             vBoxContentOutdoor.getChildren().clear();
             vBoxContentVip.getChildren().clear();
 
-            boolean hasOrders = false;
+            OrderMerger.mergeOrders(); // Merge orders to ensure no duplicates
 
-            // Iterate through the finalList to find orders for the selected table
+            boolean hasOrders = false;
             for (UnifiedOrder order : OrderMerger.finalList) {
                 if (order.getTableNum() == tableNumber) {
                     hasOrders = true;
-
-                    // Determine the service type and add the order to the correct VBox
                     String serviceType = order.getServiceType();
                     switch (serviceType) {
                         case "Indoor":
                             addHorizontalSection2(order.getImageURL(), order.getName(), order.getPrice(), serviceType, vBoxContentIndoor);
-                            vBoxContentIndoor.setVisible(true);
-                            vBoxContentOutdoor.setVisible(false);
-                            vBoxContentVip.setVisible(false);
-
                             break;
                         case "Outdoor":
                             addHorizontalSection2(order.getImageURL(), order.getName(), order.getPrice(), serviceType, vBoxContentOutdoor);
-                            vBoxContentIndoor.setVisible(false);
-                            vBoxContentOutdoor.setVisible(true);
-                            vBoxContentVip.setVisible(false);
-
                             break;
                         case "VIP":
                             addHorizontalSection2(order.getImageURL(), order.getName(), order.getPrice(), serviceType, vBoxContentVip);
-                            vBoxContentIndoor.setVisible(false);
-                            vBoxContentOutdoor.setVisible(false);
-                            vBoxContentVip.setVisible(true);
-                            break;
-                        default:
-                            System.out.println("Unknown service type: " + serviceType);
                             break;
                     }
                 }
@@ -2003,6 +2073,9 @@
                 System.out.println("Enabling sendOrder button: tableType=" + tableType + ", tableNumber=" + tableNumber);
                 sendOrder.setDisable(false);
             }
+            if(tableTyp.equals("TakeAway") || tableTyp.equals("delivery") ){
+                sendOrder.setDisable(false);
+            }
         }
 
         void sendOrderAction() {
@@ -2044,34 +2117,96 @@
             });
         }
 
+        private void resetOrderState() {
+            totalPriceDishes = 0;
+            cloneOrder.clear();
+            builder.reset();
+            meatCnt = 0;
+            vegatablesCnt = 0;
+            cheeseCnt = 0;
+            beardCnt = 0;
+            updateTotalPriceDisplay(); // Ensure the UI reflects the reset state
+        }
+
+        private double calculateTotalPrice() {
+            double customOrderPrice = cloneOrder.getTotalPrice();
+            return totalPriceDishes + customOrderPrice;
+        }
+
         public void addHorizontalSection3(String tableType, int tableNumber, int totalPriceDishes, String currentTime) {
+            double totalPrice = calculateTotalPrice(); // Use centralized calculation
+            Label priceLabel = new Label("Total: " + totalPrice + " $");
+            priceLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
+            VBox existingCard = findExistingCard(tableNumber, tableType);
+
+            if (existingCard != null) {
+                // Clear the existing card and update it with the new order
+                clearAndUpdateExistingCard(existingCard, tableNumber, tableType, totalPriceDishes, currentTime);
+            } else {
+                // Create a new card if no existing card is found
+                createNewCard(tableType, tableNumber, totalPriceDishes, currentTime);
+            }
+        }
+
+        private VBox findExistingCard(int tableNumber, String tableType) {
+            // Iterate through the pendingOrderss FlowPane to find an existing card
+            for (Node node : pendingOrderss.getChildren()) {
+                if (node instanceof VBox) {
+                    VBox card = (VBox) node;
+                    HBox header = (HBox) card.getChildren().get(0);
+                    Label tableNumberLabel = (Label) header.getChildren().get(0);
+                    Label serviceLabel = (Label) card.getChildren().get(1);
+
+                    if (tableNumberLabel.getText().equals("T" + tableNumber) && serviceLabel.getText().equals(tableType)) {
+                        return card;
+                    }
+                }
+            }
+            return null;
+        }
 
 
-            Label tableNumberLabel = new Label("T" + tableNumber);
-            tableNumberLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
-            Label timeLabel = new Label(currentTime);
-            timeLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #888888;");
-            Region spacer = new Region();
-            HBox.setHgrow(spacer, Priority.ALWAYS);
-            HBox header = new HBox(tableNumberLabel, spacer, timeLabel);
-            header.setAlignment(Pos.CENTER_LEFT);
+        private void clearAndUpdateExistingCard(VBox existingCard, int tableNumber, String tableType, int totalPriceDishes, String currentTime) {
+            // Clear all children except the header (to keep the layout)
+            existingCard.getChildren().remove(2, existingCard.getChildren().size());
 
-            // === Service Label ===
-            Label serviceLabel = new Label(tableType);
-            serviceLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #555555;");
+            // Reset totalPriceDishes before updating the card
+            this.totalPriceDishes = 0;
 
-            // === Separator Line ===
+            // Update the total price label
+            Label priceLabel = new Label("Total: " + totalPriceDishes + " $");
+            priceLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
+
+            // Create the product list VBox
+            VBox productList = new VBox(8); // Holds all items in this order
+            for (UnifiedOrder order : OrderMerger.finalList) {
+                if (order.getTableNum() == tableNumber && order.getServiceType().equals(tableType)) {
+                    Image img = new Image(order.getImageURL(), 40, 40, true, true);
+                    ImageView imageView = new ImageView(img);
+                    Label itemLabel = new Label(order.getName() + " - $" + order.getPrice());
+                    itemLabel.setStyle("-fx-font-size: 13px;");
+                    HBox itemBox = new HBox(10, imageView, itemLabel);
+                    itemBox.setAlignment(Pos.CENTER_LEFT);
+                    productList.getChildren().add(itemBox);
+
+                    // Accumulate the price for each item
+                    this.totalPriceDishes += order.getPrice();
+                }
+            }
+
+            // Recalculate the total price after resetting
+            double total = calculateTotalPrice();
+
+            // Update the price label with the recalculated total
+            priceLabel.setText("Total: " + total + " $");
+
+            // Add the updated elements back to the card
             Region separator = new Region();
             separator.setStyle("-fx-background-color: #dddddd;");
             separator.setPrefHeight(1);
             separator.setMaxWidth(Double.MAX_VALUE);
             VBox.setMargin(separator, new Insets(10, 0, 10, 0));
 
-            // === Total Price ===
-            Label priceLabel = new Label("Total: " + totalPriceDishes + " $");
-            priceLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
-
-            // === Status Label ===
             Label statusLabel = new Label("Pending");
             statusLabel.setStyle(
                     "-fx-background-color: #FFA500; " +
@@ -2081,7 +2216,6 @@
                             "-fx-background-radius: 14px;"
             );
 
-            // === Pay Button ===
             Button payButton = new Button("Pay");
             payButton.setStyle(
                     "-fx-background-color: #4CAF50; " +
@@ -2092,27 +2226,91 @@
                             "-fx-cursor: hand;"
             );
 
-            // === Actions Row ===
             HBox actions = new HBox(12, statusLabel, payButton);
             actions.setAlignment(Pos.CENTER_LEFT);
 
-            // === Product List Section ===
+            existingCard.getChildren().addAll(separator, priceLabel, productList, actions);
+
+            // Pay button action
+            payButton.setOnAction(event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirm Payment");
+                alert.setHeaderText(null);
+                alert.setContentText("You want to pay " + total + " $?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    statusLabel.setText("Completed");
+                    statusLabel.setStyle(
+                            "-fx-background-color: #4CAF50; " +
+                                    "-fx-text-fill: white; " +
+                                    "-fx-font-size: 14px; " +
+                                    "-fx-padding: 4 10 4 10; " +
+                                    "-fx-background-radius: 14px;"
+                    );
+                    pendingOrderss.getChildren().remove(existingCard);
+                    pendingOrderss1.getChildren().add(existingCard);
+                    payButton.setDisable(true);
+                }
+            });
+        }
+
+        private void createNewCard(String tableType, int tableNumber, int totalPriceDishes, String currentTime) {
+            Label tableNumberLabel = new Label("T" + tableNumber);
+            tableNumberLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+            Label timeLabel = new Label(currentTime);
+            timeLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #888888;");
+            Region spacer = new Region();
+            HBox.setHgrow(spacer, Priority.ALWAYS);
+            HBox header = new HBox(tableNumberLabel, spacer, timeLabel);
+            header.setAlignment(Pos.CENTER_LEFT);
+
+            Label serviceLabel = new Label(tableType);
+            serviceLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #555555;");
+
+            Region separator = new Region();
+            separator.setStyle("-fx-background-color: #dddddd;");
+            separator.setPrefHeight(1);
+            separator.setMaxWidth(Double.MAX_VALUE);
+            VBox.setMargin(separator, new Insets(10, 0, 10, 0));
+
+            Label priceLabel = new Label("Total: " + totalPriceDishes + " $");
+            priceLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
+
+            Label statusLabel = new Label("Pending");
+            statusLabel.setStyle(
+                    "-fx-background-color: #FFA500; " +
+                            "-fx-text-fill: white; " +
+                            "-fx-font-size: 14px; " +
+                            "-fx-padding: 4 10 4 10; " +
+                            "-fx-background-radius: 14px;"
+            );
+
+            Button payButton = new Button("Pay");
+            payButton.setStyle(
+                    "-fx-background-color: #4CAF50; " +
+                            "-fx-text-fill: white; " +
+                            "-fx-font-size: 14px; " +
+                            "-fx-padding: 6 12 6 12; " +
+                            "-fx-background-radius: 12px; " +
+                            "-fx-cursor: hand;"
+            );
+
+            HBox actions = new HBox(12, statusLabel, payButton);
+            actions.setAlignment(Pos.CENTER_LEFT);
+
             VBox productList = new VBox(8); // Holds all items in this order
             for (UnifiedOrder order : OrderMerger.finalList) {
                 if (order.getTableNum() == tableNumber && order.getServiceType().equals(tableType)) {
                     Image img = new Image(order.getImageURL(), 40, 40, true, true);
                     ImageView imageView = new ImageView(img);
-
                     Label itemLabel = new Label(order.getName() + " - $" + order.getPrice());
                     itemLabel.setStyle("-fx-font-size: 13px;");
-
                     HBox itemBox = new HBox(10, imageView, itemLabel);
                     itemBox.setAlignment(Pos.CENTER_LEFT);
                     productList.getChildren().add(itemBox);
                 }
             }
 
-            // === Card Container ===
             VBox card = new VBox(12, header, serviceLabel, separator, priceLabel, productList, actions);
             card.setPadding(new Insets(16));
             card.setStyle(
@@ -2124,7 +2322,6 @@
             );
             card.setMaxWidth(300); // Optional: limit width to match design
 
-            // Add card to the pendingOrderss FlowPane
             pendingOrderss.getChildren().add(card);
 
             payButton.setOnAction(event -> {
@@ -2132,10 +2329,8 @@
                 alert.setTitle("Confirm Payment");
                 alert.setHeaderText(null);
                 alert.setContentText("You want to pay " + totalPriceDishes + " $?");
-
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ButtonType.OK) {
-                    // Change status label to "Completed"
                     statusLabel.setText("Completed");
                     statusLabel.setStyle(
                             "-fx-background-color: #4CAF50; " +
@@ -2144,18 +2339,12 @@
                                     "-fx-padding: 4 10 4 10; " +
                                     "-fx-background-radius: 14px;"
                     );
-
-                    // Move card to completed orders list
                     pendingOrderss.getChildren().remove(card);
                     pendingOrderss1.getChildren().add(card);
-
-                    // Optional: disable the Pay button
                     payButton.setDisable(true);
                 }
             });
-
         }
-
         private void showOrderDetailsDialog(ArrayList<UnifiedOrder> matchingOrders) {
             // Create a new Stage (dialog)
             Stage dialog = new Stage();
@@ -2344,7 +2533,6 @@
 
 
         }
-
 
         public void SwitchForm() {
             // Home button handler

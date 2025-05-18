@@ -20,7 +20,7 @@ interface Product {
 // Product Implementations
 class CheeseBeard implements Product {
     public String name = "Cheese Beard";
-    private int price = 100;
+    private int price = 80;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\cheeseBeard.png";
     private int tableNum;
     private String serviceType;
@@ -62,7 +62,7 @@ class CheeseBeard implements Product {
 
 class GrilledMeat implements Product {
     public String name = "Grilled Meat";
-    private int price = 100;
+    private int price = 72;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\GrilledMeat.png";
     int tableNum;
 
@@ -102,7 +102,7 @@ class GrilledMeat implements Product {
 
 class Salad implements Product {
     private String name = "Salad";
-    private int price = 100;
+    private int price = 96;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Salad.png";
     int tableNum;
 
@@ -142,7 +142,7 @@ class Salad implements Product {
 
 class CheeseCake implements Product {
     private String name = "Cheese Cake";
-    private int price = 100;
+    private int price = 84;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\CheeseCake.png";
     int tableNum;
 
@@ -183,7 +183,7 @@ class CheeseCake implements Product {
 
 class PlainBeard implements Product {
     private String name = "Plain Beard";
-    private int price = 100;
+    private int price = 46;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\PlainBeard.png";
     int tableNum;
 
@@ -223,7 +223,7 @@ class PlainBeard implements Product {
 
 class Shrimp implements Product {
     private String name = "Shrimp";
-    private int price = 100;
+    private int price = 83;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Shrimp.png";
     int tableNum;
 
@@ -263,7 +263,7 @@ class Shrimp implements Product {
 
 class VegatablesSpagetti implements Product {
     private String name = "Vegatables Spagetti";
-    private int price = 100;
+    private int price = 88;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\VegatableSpagetti.png";
     int tableNum;
 
@@ -303,7 +303,7 @@ class VegatablesSpagetti implements Product {
 
 class Sapagetti implements Product {
     private String name = "Spagetti";
-    private int price = 100;
+    private int price = 86;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\Spagetti.png";
     int tableNum;
 
@@ -344,7 +344,7 @@ class Sapagetti implements Product {
 
 class dish1 implements Product {
     private String name = "dish1";
-    private int price = 100;
+    private int price = 91;
     private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\DesignPattern1\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\dish1.png";
     int tableNum;
 
@@ -382,6 +382,130 @@ class dish1 implements Product {
     }
 
 }
+
+class Cannoli implements Product {
+    private String name = "Cannoli";
+    private int price = 75;
+    private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\FOODI-Restuarant-Management-System-\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\CANNOLI.jpg";
+    int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String getImageURL() {
+        return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
+    }
+
+}
+
+class SpaghettiAlle  implements Product {
+    private String name = "Spaghetti Alle ";
+    private int price = 70;
+    private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\FOODI-Restuarant-Management-System-\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\SPAGHETTIALLEVONGOLE.jpg";
+    int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String getImageURL() {
+        return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
+    }
+
+}
+
+class SquidInk implements Product {
+    private String name = "Squid Ink Pasta";
+    private int price = 66;
+    private String imageURL = "C:\\Users\\Taham\\IdeaProjects\\FOODI-Restuarant-Management-System-\\src\\main\\resources\\com\\example\\designpattern1\\Photoes\\SQUIDPASTA.jpg";
+    int tableNum;
+
+    private String serviceType;
+
+    @Override
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    @Override
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String getImageURL() {
+        return imageURL;
+    }
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
+    }
+    @Override
+    public int getTableNum() {
+        return tableNum;
+    }
+
+}
+
 
 class ProductOrder {
     String name;
@@ -519,6 +643,16 @@ public class RestaurantOrder extends Order {
             case "dish1":
                 product = new dish1();
                 break;
+            case "cannoli":
+                product = new Cannoli();
+                break;
+            case "spaghetti alle":
+                product = new SpaghettiAlle();
+                break;
+            case "squid ink pasta":
+                product = new SquidInk();
+                break;
+
             default:
                 throw new IllegalArgumentException("Invalid product name: " + name);
         }

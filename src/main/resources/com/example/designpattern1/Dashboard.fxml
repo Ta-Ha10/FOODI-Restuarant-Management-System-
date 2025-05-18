@@ -125,7 +125,7 @@
       </AnchorPane>
       <AnchorPane fx:id="menuForm" layoutX="95.0" layoutY="105.0" prefHeight="1008.0" prefWidth="1507.0" styleClass="root2" stylesheets="@HomePage.css">
          <children>
-            <AnchorPane fx:id="menuFrame" layoutX="73.0" layoutY="-2.0" prefHeight="971.0" prefWidth="1355.0" visible="false">
+            <AnchorPane fx:id="menuFrame" layoutX="73.0" layoutY="-2.0" prefHeight="971.0" prefWidth="1355.0">
                <children>
                   <AnchorPane layoutX="-63.0" layoutY="60.0" prefHeight="252.0" prefWidth="899.0">
                      <children>
@@ -286,8 +286,8 @@
                   <AnchorPane layoutX="-59.0" layoutY="522.0" prefHeight="218.0" prefWidth="854.0">
                      <children>
                         <ImageView fx:id="imageView9" fitHeight="128.0" fitWidth="158.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imageView10" fitHeight="128.0" fitWidth="158.0" layoutX="231.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imageView11" fitHeight="112.0" fitWidth="161.0" layoutX="461.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageView11" fitHeight="128.0" fitWidth="158.0" layoutX="231.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageView122" fitHeight="112.0" fitWidth="161.0" layoutX="461.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imageView12" fitHeight="112.0" fitWidth="202.0" layoutX="680.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                         <BorderPane layoutX="13.0" layoutY="126.0" prefHeight="75.0" prefWidth="158.0" style="-fx-background-color: #D8E6E9;">
                            <top>
@@ -307,14 +307,14 @@
                         </BorderPane>
                         <BorderPane layoutX="231.0" layoutY="126.0" prefHeight="75.0" prefWidth="158.0" style="-fx-background-color: #D8E6E9;">
                            <top>
-                              <Label text="Cheese Beard" BorderPane.alignment="CENTER">
+                              <Label fx:id="dish11Img" text="Cheese Beard" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </top>
                            <center>
-                              <Label text="10.5$" BorderPane.alignment="CENTER">
+                              <Label fx:id="dish11Price" text="10.5$" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -323,14 +323,14 @@
                         </BorderPane>
                         <BorderPane layoutX="680.0" layoutY="126.0" prefHeight="75.0" prefWidth="158.0" style="-fx-background-color: #D8E6E9;">
                            <top>
-                              <Label text="Cheese Beard" BorderPane.alignment="CENTER">
+                              <Label fx:id="dish13Name" text="Cheese Beard" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </top>
                            <center>
-                              <Label text="15$" BorderPane.alignment="CENTER">
+                              <Label fx:id="dish13Price" text="15$" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -339,14 +339,14 @@
                         </BorderPane>
                         <BorderPane layoutX="461.0" layoutY="126.0" prefHeight="75.0" prefWidth="158.0" style="-fx-background-color: #D8E6E9;">
                            <top>
-                              <Label text="Cheese Beard" BorderPane.alignment="CENTER">
+                              <Label fx:id="dish12Name" text="Cheese Beard" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </top>
                            <center>
-                              <Label text="6$" BorderPane.alignment="CENTER">
+                              <Label fx:id="dish12Price" text="6$" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -354,9 +354,9 @@
                            </center>
                         </BorderPane>
                         <Button fx:id="dish9" layoutX="13.0" layoutY="-9.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
-                        <Button fx:id="dish10" layoutX="230.0" layoutY="-9.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
-                        <Button fx:id="dish12" layoutX="679.0" layoutY="-4.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
-                        <Button fx:id="dish1111" layoutX="461.0" layoutY="-9.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="dish11" layoutX="230.0" layoutY="-9.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="dish13" layoutX="679.0" layoutY="-4.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="dish12" layoutX="461.0" layoutY="-9.0" mnemonicParsing="false" prefHeight="222.0" prefWidth="161.0" style="-fx-background-color: transparent;" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="851.0" layoutY="54.0" prefHeight="885.0" prefWidth="419.0">
@@ -732,7 +732,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="thCusFrame" layoutX="44.0" layoutY="40.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="847.0" prefWidth="751.0">
+            <AnchorPane fx:id="thCusFrame" layoutX="44.0" layoutY="40.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="847.0" prefWidth="751.0" visible="false">
                <children>
                   <Button fx:id="thBtnCusB" layoutX="31.0" layoutY="371.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="254.0" style="-fx-background-color: #b4d200;" styleClass="rounded-btn" stylesheets="@HomePage.css" text="Back To Cheese" />
                   <Label prefHeight="54.0" prefWidth="863.0" text="Choose Cusmter Favourite Beard:">
