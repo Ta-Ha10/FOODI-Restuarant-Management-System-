@@ -300,5 +300,31 @@
     -fx-prompt-text-fill: gray;
     -fx-font-size: 12px;
 }
+.combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+    -fx-font-size: 14px;
+    -fx-pref-width: 150px;
+}
 
+.combo-box:hover {
+    -fx-border-color: #4CAF50; /* Green on hover */
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #4CAF50;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Downward triangle */
+}
+
+.combo-box:focused {
+    -fx-border-color: #4CAF50;
+    -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.3), 5, 0, 0, 1);
+}
 

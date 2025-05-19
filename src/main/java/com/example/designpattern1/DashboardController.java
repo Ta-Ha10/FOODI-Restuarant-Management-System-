@@ -553,15 +553,6 @@
         String currentBeard = "";
         double totalPriceOrdersWithTax;
 
-//        public void loadOrdersIntoVBox() {
-//            pendingOrders.getChildren().clear(); // Clear old content if needed
-//
-//            for (UnifiedOrder order : OrderMerger.finalList) { // Replace with your actual data source
-//                HBox card = createOrderCard(order); // You define how an order "card" looks
-//                pendingOrders.getChildren().add(card);
-//            }
-//        }
-
         private HBox createOrderCard(UnifiedOrder order) {
             ImageView imageView = new ImageView(new Image(order.getImageURL()));
             imageView.setFitWidth(80);
@@ -1264,8 +1255,6 @@
 
         }
 
-
-
         private void showCustomerStep(
                 boolean menuVisible,
                 boolean stVisible,
@@ -1301,6 +1290,11 @@
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
+            t1Selected.setVisible(false);
+            t2Selected.setVisible(false);
+            t3Selected.setVisible(false);
+            t4Selected.setVisible(false);
+            t5Selected.setVisible(false);
             tableTyp ="Indoor";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
@@ -1323,6 +1317,11 @@
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
+            t1SelectedOutdoor.setVisible(false);
+            t2SelectedOutdoor.setVisible(false);
+            t3SelectedOutdoor.setVisible(false);
+            t4SelectedOutdoor.setVisible(false);
+            t5SelectedOutdoor.setVisible(false);
             tableTyp ="Outdoor";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());
@@ -1345,6 +1344,11 @@
             ingedForm.setVisible(false);
             cancelCusBtn.setVisible(false);
             payCusBtn.setVisible(false);
+            t1SelectedVip.setVisible(false);
+            t2SelectedVip.setVisible(false);
+            t3SelectedVip.setVisible(false);
+            t4SelectedVip.setVisible(false);
+            t5SelectedVip.setVisible(false);
             tableTyp ="VIP";
             tableType = serviceFactory.getService(tableTyp);
             System.out.println(tableType.getFess());

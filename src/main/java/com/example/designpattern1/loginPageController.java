@@ -8,7 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
+    import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -66,10 +66,13 @@ public class loginPageController implements Initializable {
     private void navigateToDashboard() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Stage stage = (Stage) subBtn.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root, 1586, 980);  // Set width=800, height=600
+        stage.setScene(scene);
+        stage.centerOnScreen();
         stage.setTitle("Dashboard");
         stage.show();
     }
+
 
     private void showAlert(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);

@@ -62,26 +62,11 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Photoes/setting.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="12.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@Photoes/setting.png" />
                </image>
             </ImageView>
-            <Label layoutX="6.0" layoutY="478.0" text="Orders">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="6.0" layoutY="581.0" text="Settings">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
             <Button fx:id="homeBtn" layoutX="7.0" layoutY="56.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="99.0" prefWidth="69.0" styleClass="transparent-button" stylesheets="@HomePage.css" text=" " />
             <Button fx:id="menuBtn" layoutX="6.0" layoutY="185.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="66.0" styleClass="transparent-button" stylesheets="@HomePage.css" />
             <Button fx:id="orderBtn" layoutX="3.0" layoutY="313.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="79.0" styleClass="transparent-button" stylesheets="@HomePage.css" text=" " />
@@ -115,11 +100,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="1361.0" layoutY="29.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: #ffb400;" text="Logout">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
             <Separator layoutX="5.0" layoutY="96.0" prefHeight="0.0" prefWidth="1505.0" />
          </children>
       </AnchorPane>
