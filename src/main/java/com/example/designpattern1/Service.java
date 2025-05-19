@@ -1,7 +1,6 @@
 package com.example.designpattern1;
 
 public interface Service {
-    double fess = 0.0;
 
     double getFess();
 }
